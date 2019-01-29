@@ -8,9 +8,9 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
 
-const CategoryTemplate = props => {
+const TagTemplate = props => {
   const {
-    pageContext: { category },
+    pageContext: { tag },
     data: {
       allMarkdownRemark: { totalCount, edges },
       site: {
@@ -26,15 +26,15 @@ const CategoryTemplate = props => {
           <Article theme={theme}>
             <header>
               <Headline theme={theme}>
-                <span>Posts in category</span> <FaTag />
-                {category}
+                <span>Posts with tag</span> <FaTag />
+                {tag}
               </Headline>
               <p className="meta">
                 There {totalCount > 1 ? "are" : "is"} <strong>{totalCount}</strong> post{totalCount >
                 1
                   ? "s"
                   : ""}{" "}
-                in the category.
+                with tag.
               </p>
               <List edges={edges} theme={theme} />
             </header>
@@ -47,20 +47,20 @@ const CategoryTemplate = props => {
   );
 };
 
-CategoryTemplate.propTypes = {
+TagTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired
 };
 
-export default CategoryTemplate;
+export default TagTemplate;
 
 // eslint-disable-next-line no-undef
-export const categoryQuery = graphql`
-  query PostsByCategory($category: String) {
+export const tagQuery = graphql`
+  query PostsByTag($tag: String) {
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [fields___prefix], order: DESC }
-      filter: { frontmatter: { category: { eq: $category } } }
+      filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
@@ -72,7 +72,7 @@ export const categoryQuery = graphql`
           timeToRead
           frontmatter {
             title
-            category
+            tags
           }
         }
       }

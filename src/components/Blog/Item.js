@@ -15,7 +15,7 @@ const Item = props => {
       fields: { slug, prefix },
       frontmatter: {
         title,
-        category,
+        tags,
         author,
         cover: {
           children: [{ fluid }]
@@ -41,9 +41,9 @@ const Item = props => {
             <span>
               <FaUser size={18} /> {author}
             </span>
-            {category && (
+            {tags && (
               <span>
-                <FaTag size={18} /> {category}
+                <FaTag size={18} /> {tags}
               </span>
             )}
           </p>

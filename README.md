@@ -34,7 +34,7 @@ The original version of the starter is preserved as the branch `gatsby-v1`.
 - **Social** sharing (Twitter, Facebook, Google, LinkedIn)
 - **Comments** (Facebook)
 - **Images** lazy loading and `webp` support (gatsby-image)
-- Post **categories** (category based post list)
+- Post **tags** (tag based post list)
 - Full text **searching** (Algolia)
 - **Contact** form (Netlify form handling)
 - Form elements and validation with `ant-design`

@@ -41,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");
     const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
-    const categoryTemplate = path.resolve("./src/templates/CategoryTemplate.js");
+    const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
     resolve(
       graphql(
         `
@@ -61,7 +61,7 @@ exports.createPages = ({ graphql, actions }) => {
                   }
                   frontmatter {
                     title
-                    category
+                    tags
                   }
                 }
               }
@@ -76,28 +76,32 @@ exports.createPages = ({ graphql, actions }) => {
 
         const items = result.data.allMarkdownRemark.edges;
 
-        // Create category list
-        const categorySet = new Set();
+        // Create tags list
+        const tagSet = new Set();
         items.forEach(edge => {
           const {
             node: {
-              frontmatter: { category }
+              frontmatter: { tags }
             }
           } = edge;
 
-          if (category && category !== null) {
-            categorySet.add(category);
+          if (tags && tags != null) {
+            tags.forEach(tag => {
+              if (tag && tag !== null) {
+                tagSet.add(tag);
+              }
+            })
           }
         });
 
-        // Create category pages
-        const categoryList = Array.from(categorySet);
-        categoryList.forEach(category => {
+        // Create tag pages
+        const tagList = Array.from(tagSet);
+        tagList.forEach(tag => {
           createPage({
-            path: `/category/${_.kebabCase(category)}/`,
-            component: categoryTemplate,
+            path: `/tag/${_.kebabCase(tag)}/`,
+            component: tagTemplate,
             context: {
-              category
+              tag
             }
           });
         });

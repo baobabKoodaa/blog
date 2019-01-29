@@ -1,6 +1,6 @@
 ---
 title: I have not failed. I've just found 10,000 ways that won't work
-category: "testimonies"
+tags: ["testimonies"]
 cover: photo-1463852247062-1bbca38f7805.jpg
 author: greg lobinski
 ---

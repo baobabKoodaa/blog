@@ -8,7 +8,7 @@ import Headline from "../components/Article/Headline";
 import List from "../components/List";
 import Seo from "../components/Seo";
 
-const CategoryPage = props => {
+const TagPage = props => {
   const {
     data: {
       posts: { edges: posts },
@@ -18,27 +18,32 @@ const CategoryPage = props => {
     }
   } = props;
 
-  // Create category list
-  const categories = {};
+  // Create tags list
+  const tagsPosts = {};
   posts.forEach(edge => {
+    
     const {
       node: {
-        frontmatter: { category }
+        frontmatter: { tags }
       }
     } = edge;
 
-    if (category && category != null) {
-      if (!categories[category]) {
-        categories[category] = [];
-      }
-      categories[category].push(edge);
+    if (tags && tags != null) {
+      tags.forEach(tag => {
+        if (tag && tag != null) {
+          if (!tagsPosts[tag]) {
+            tagsPosts[tag] = [];
+          }
+          tagsPosts[tag].push(edge);
+        }
+      })
     }
   });
 
-  const categoryList = [];
+  const tagList = [];
 
-  for (var key in categories) {
-    categoryList.push([key, categories[key]]);
+  for (var tag in tagsPosts) {
+    tagList.push([tag, tagsPosts[tag]]);
   }
 
   return (
@@ -47,9 +52,9 @@ const CategoryPage = props => {
         {theme => (
           <Article theme={theme}>
             <header>
-              <Headline title="Posts by categories" theme={theme} />
+              <Headline title="Posts by tags" theme={theme} />
             </header>
-            {categoryList.map(item => (
+            {tagList.map(item => (
               <section key={item[0]}>
                 <h2>
                   <FaTag /> {item[0]}
@@ -76,11 +81,11 @@ const CategoryPage = props => {
   );
 };
 
-CategoryPage.propTypes = {
+TagPage.propTypes = {
   data: PropTypes.object.isRequired
 };
 
-export default CategoryPage;
+export default TagPage;
 
 //eslint-disable-next-line no-undef
 export const query = graphql`
@@ -98,7 +103,7 @@ export const query = graphql`
           }
           frontmatter {
             title
-            category
+            tags
             author
             cover {
               children {
