@@ -230,7 +230,10 @@ module.exports = {
                   limit: 1000,
                   sort: { order: DESC, fields: [fields___prefix] },
                   filter: {
-                    fields: { slug: { ne: null } },
+                    fields: {
+                      prefix: { ne: null },
+                      slug: { ne: null }
+                    },
                     frontmatter: {
                       author: { ne: null }
                     }
