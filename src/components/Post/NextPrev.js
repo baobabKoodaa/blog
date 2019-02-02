@@ -23,24 +23,36 @@ const NextPrev = props => {
       <div className="links">
         {nextSlug && (
           <Link to={nextSlug}>
-            <FaArrowRight />
-            <h4>
-              {nextTitle} <time>{nextPrefix} </time>
-            </h4>
+            <span className="next-link-text">
+              <h4>
+                {nextTitle} <time>{nextPrefix} </time>
+              </h4>
+            </span>
+            <span className="next-arrow">
+              <FaArrowRight />
+            </span>
           </Link>
         )}
         {prevSlug && (
           <Link to={prevSlug}>
             <FaArrowLeft />
-            <h4>
-              {prevTitle} <time>{prevPrefix}</time>
-            </h4>
+            <span className="prev-link-text">
+              <h4>
+                {prevTitle} <time>{prevPrefix}</time>
+              </h4>
+            </span>
           </Link>
         )}
       </div>
 
       {/* --- STYLES --- */}
       <style jsx>{`
+        .next-link-text {
+          text-align: right;
+        }
+        .next-arrow {
+          margin-left: 10px;
+        }
         .links {
           display: flex;
           flex-direction: column;
@@ -81,6 +93,12 @@ const NextPrev = props => {
         }
 
         @from-width desktop {
+          .prev-link-text {
+            margin-right: 20px;
+          }
+          .next-link-text {
+            margin-left: 20px;
+          }
           .links {
             flex-direction: row-reverse;
             justify-content: center;
