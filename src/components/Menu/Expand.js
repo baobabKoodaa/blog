@@ -1,4 +1,4 @@
-import { FaAngleDown } from "react-icons/fa/";
+import { FaAngleUp } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,7 +8,7 @@ const Expand = props => {
   return (
     <React.Fragment>
       <button className="more" to="#" onClick={onClick} aria-label="expand">
-        <FaAngleDown size={30} />
+        <FaAngleUp size={30} />
       </button>
 
       {/* --- STYLES --- */}
@@ -21,11 +21,11 @@ const Expand = props => {
           .more {
             background: ${theme.color.neutral.white};
             border: 1px solid ${theme.color.brand.primary};
-            border-radius: ${theme.size.radius.small} ${theme.size.radius.small} 0 0;
-            border-bottom: none;
+            border-radius: 0 0 ${theme.size.radius.small} ${theme.size.radius.small};
+            border-top: none;
             position: absolute;
             left: 50%;
-            top: -35px;
+            bottom: -35px;
             width: 60px;
             height: 36px;
             overflow: hidden;

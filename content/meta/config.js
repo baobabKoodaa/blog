@@ -1,6 +1,6 @@
 module.exports = {
-  siteTitle: "HeroBlog - a GatsbyJS starter", // <title>
-  shortSiteTitle: "HeroBlog - GatsbyJS starter", // <title> ending for posts and pages
+  siteTitle: "Baobab Koodaa", // <title>
+  shortSiteTitle: "Test XYZ", // <title> ending for posts and pages
   siteDescription: "HeroBlog is a GatsbyJS starter.",
   siteUrl: "https://gatsby-starter-hero-blog.greglobinski.com",
   // pathPrefix: "",
@@ -8,12 +8,12 @@ module.exports = {
   siteLanguage: "en",
 
   /* author */
-  authorName: "greg lobinski",
-  authorTwitterAccount: "greglobinski",
+  authorName: "baobab koodaa",
+  authorTwitterAccount: "",
 
   /* info */
-  headerTitle: "greg lobinski",
-  headerSubTitle: "presents another one GatsbyJS starter",
+  headerTitle: "baobab koodaa",
+  headerSubTitle: "",
 
   /* manifest.json */
   manifestName: "HeroBlog - a GatsbyJS starter",

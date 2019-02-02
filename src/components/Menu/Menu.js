@@ -2,10 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
-import { FaHome } from "react-icons/fa/";
-import { FaSearch } from "react-icons/fa/";
-import { FaEnvelope } from "react-icons/fa/";
-import { FaTag } from "react-icons/fa/";
+import { FaHome, FaSearch, FaEnvelope, FaTag, FaUser } from "react-icons/fa/";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -27,7 +24,8 @@ class Menu extends React.Component {
       { to: "/tag/", label: "Tags", icon: FaTag },
       { to: "/search/", label: "Search", icon: FaSearch },
       //...pages,
-      { to: "/contact/", label: "Contact", icon: FaEnvelope }
+      { to: "/contact/", label: "Contact", icon: FaEnvelope },
+      { to: "/about/", label: "About", icon: FaUser }
     ];
 
     this.renderedItems = []; // will contain references to rendered DOM elements of menu
@@ -166,7 +164,7 @@ class Menu extends React.Component {
           .menu {
             align-items: center;
             background: ${theme.color.neutral.white};
-            bottom: 0;
+            top: 0;
             display: flex;
             flex-grow: 1;
             left: 0;
@@ -197,7 +195,6 @@ class Menu extends React.Component {
                 left: ${theme.space.m};
                 right: ${theme.space.m};
                 top: 0;
-                height: 1px;
                 background: ${theme.color.brand.primary};
               }
 

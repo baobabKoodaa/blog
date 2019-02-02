@@ -144,7 +144,7 @@ blog:
     hoverColor: *color-brand-primary
 header:
   height:
-    default: 80px
+    default: 50px
     fixed: 50px;
-    homepage: 100px;
+    homepage: 50px;
 

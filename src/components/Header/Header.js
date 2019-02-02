@@ -25,8 +25,7 @@ class Header extends React.Component {
   getHeaderSize = () => {
     const fixed = this.state.fixed ? "fixed" : "";
     const homepage = this.props.path === "/" ? "homepage" : "";
-
-    return `${fixed} ${homepage}`;
+    return "fixed"; // `${fixed} ${homepage}` (Change me if you want a more "lively" navbar)
   };
 
   render() {
@@ -36,7 +35,7 @@ class Header extends React.Component {
     return (
       <React.Fragment>
         <header className={`header ${this.getHeaderSize()}`}>
-          <Link to="/" className="logoType">
+          <Link to="/about" className="logoType">
             <div className="logo">
               <img src={config.gravatarImgMd5=="" ? avatar : config.gravatarImgMd5 } alt={config.siteTitle} />
             </div>
@@ -69,6 +68,7 @@ class Header extends React.Component {
         {/* --- STYLES --- */}
         <style jsx>{`
           .header {
+            padding-bottom: 0px !important;
             align-items: center;
             justify-content: center;
             background-color: ${theme.color.neutral.white};
@@ -152,6 +152,9 @@ class Header extends React.Component {
           }
 
           @below desktop {
+            :global(a.logoType) {
+              visibility: hidden;
+            }
             .header.homepage {
               .logo {
                 border: none;
