@@ -41,9 +41,9 @@ const Item = props => {
             <span>
               <FaUser size={18} /> {author}
             </span>
-            {tags && (
+            {tags && tags.map(tag =>
               <span>
-                <FaTag size={18} /> {tags}
+              <FaTag size={18} /> {tag}
               </span>
             )}
           </p>
