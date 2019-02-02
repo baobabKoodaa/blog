@@ -44,7 +44,8 @@ const NextPrev = props => {
         .links {
           display: flex;
           flex-direction: column;
-          padding: 0 ${theme.space.m} ${theme.space.l};
+          padding: ${theme.space.l} ${theme.space.m} ${theme.space.l};
+          border-top: 1px solid ${theme.line.color};
           border-bottom: 1px solid ${theme.line.color};
           margin: ${theme.space.stack.l};
 
