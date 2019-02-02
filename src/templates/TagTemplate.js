@@ -30,11 +30,11 @@ const TagTemplate = props => {
                 {tag}
               </Headline>
               <p className="meta">
-                There {totalCount > 1 ? "are" : "is"} <strong>{totalCount}</strong> post{totalCount >
+                <strong>{totalCount}</strong> post{totalCount >
                 1
                   ? "s"
                   : ""}{" "}
-                with tag.
+                tagged:
               </p>
               <List edges={edges} theme={theme} />
             </header>
