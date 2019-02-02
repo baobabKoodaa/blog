@@ -48,6 +48,7 @@ const NextPrev = props => {
       {/* --- STYLES --- */}
       <style jsx>{`
         .next-link-text {
+          width: 100%;
           text-align: right;
         }
         .next-arrow {
