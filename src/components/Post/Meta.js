@@ -14,9 +14,10 @@ const Meta = props => {
       <span>
         <FaCalendar size={18} /> {prefix}
       </span>
-      <span>
+
+      {/* <span>
         <FaUser size={18} /> {authorName}
-      </span>
+      </span> */}
 
       {tags && tags.map(tag => 
         <span key={tag}>

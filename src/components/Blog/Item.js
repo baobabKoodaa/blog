@@ -38,9 +38,9 @@ const Item = props => {
             <span>
               <FaCalendar size={18} /> {prefix}
             </span>
-            <span>
+            {/* <span>
               <FaUser size={18} /> {author}
-            </span>
+            </span> */}
             {tags && tags.map(tag =>
               <span>
               <FaTag size={18} /> {tag}
