@@ -21,9 +21,10 @@ const Meta = props => {
 
       {tags && tags.map(tag => 
         <span key={tag}>
-          <FaTag size={18} />
+          
           <Link to={`/tag/${tag.split(" ").join("-")}`}>
             <span style={{color: "black"}}>
+              <FaTag size={18} />
               {tag}
             </span>
           </Link>
