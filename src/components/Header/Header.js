@@ -78,6 +78,7 @@ class Header extends React.Component {
             top: 0;
             width: 100%;
             align-items: center;
+            border-bottom: 2px solid ghostwhite;
 
             :global(a.logoType) {
               align-items: center;
