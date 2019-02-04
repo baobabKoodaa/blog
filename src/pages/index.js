@@ -40,13 +40,13 @@ class IndexPage extends React.Component {
 
     return (
       <React.Fragment>
-        <ThemeContext.Consumer>
+        {/* <ThemeContext.Consumer>
           {theme => (
             <Hero scrollToContent={this.scrollToContent} backgrounds={backgrounds} theme={theme} />
           )}
         </ThemeContext.Consumer>
 
-        <hr ref={this.separator} />
+        <hr ref={this.separator} /> */}
 
         <ThemeContext.Consumer>
           {theme => <Blog posts={posts} theme={theme} />}
