@@ -42,7 +42,7 @@ const Item = props => {
               <FaUser size={18} /> {author}
             </span> */}
             {tags && tags.map(tag =>
-              <span>
+              <span key={tag}>
               <FaTag size={18} /> {tag}
               </span>
             )}
