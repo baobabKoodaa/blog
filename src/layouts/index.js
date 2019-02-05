@@ -121,7 +121,7 @@ class Layout extends React.Component {
                       theme={this.state.theme}
                     />
                     <main>{children}</main>
-                    <Footer html={footnoteHTML} theme={this.state.theme} />
+                    {/* <Footer html={footnoteHTML} theme={this.state.theme} /> */}
 
                     {/* --- STYLES --- */}
                     <style jsx>{`

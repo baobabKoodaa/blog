@@ -14,7 +14,7 @@ const Headline = props => {
           font-size: ${theme.font.size.xxl};
           margin: ${theme.space.stack.l};
           animation-name: headlineEntry;
-          animation-duration: ${theme.time.duration.long};
+          animation-duration: 0;
 
           :global(span) {
             font-weight: ${theme.font.weight.standard};

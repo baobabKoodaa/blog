@@ -61,7 +61,7 @@ color:
     dark: '#709425'
     darkActive: '#709425'
   special:
-    attention: &color-special-attention '#616247'
+    attention: &color-special-attention '#624761'
 # FONT
 font:
   # font options
@@ -91,8 +91,8 @@ font:
 #TIME
 time:
   duration:
-    default: 0s
-    long: 0s
+    default: 0.5s
+    long: 1s
 
 
 # GENERAL TOKENS

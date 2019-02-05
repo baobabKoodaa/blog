@@ -11,7 +11,7 @@ const Bodytext = props => {
       <style jsx>{`
         .bodytext {
           animation-name: bodytextEntry;
-          animation-duration: ${theme.time.duration.long};
+          animation-duration: 0;
 
           :global(h2),
           :global(h3) {

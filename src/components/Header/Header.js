@@ -112,7 +112,7 @@ class Header extends React.Component {
           }
 
           .logo {
-            border-radius: 65% 75%;
+            border-radius: ${theme.size.radius.small};
             border: 1px solid #eee;
             display: inline-block;
             height: 44px;
