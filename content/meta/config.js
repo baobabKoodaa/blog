@@ -35,5 +35,8 @@ module.exports = {
     { name: "github", url: "https://github.com/greglobinski" },
     { name: "twitter", url: "https://twitter.com/greglobinski" },
     { name: "facebook", url: "http://facebook.com/greglobinski" }
-  ]
+  ],
+
+  // Email newsletter subscription link
+  emailSubLink: "https://app.mailjet.com/widget/iframe/3L7J/b3u"
 };
