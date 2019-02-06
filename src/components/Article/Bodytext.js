@@ -1,12 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
+import rehypeReact from "rehype-react";
+import Icons from "../../components/About/WebPresenceIcons";
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: { "icons": Icons },
+}).Compiler
 
 const Bodytext = props => {
-  const { html, theme } = props;
+  const { content, theme } = props;
+  const html = props.content.html;
 
   return (
     <React.Fragment>
-      <div className="bodytext" dangerouslySetInnerHTML={{ __html: html }} />
+
+      {/* Render markdown with Custom Components */}
+      <div className="bodytext">
+        {renderAst(content.htmlAst)}
+      </div>
+      
+      {/* Render markdown without Custom Components */}
+      {/* <div className="bodytext" dangerouslySetInnerHTML={{ __html: html }} /> */}
 
       <style jsx>{`
         .bodytext {
@@ -64,21 +79,13 @@ const Bodytext = props => {
           }
         }
 
-        @keyframes bodytextEntry {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
       `}</style>
     </React.Fragment>
   );
 };
 
 Bodytext.propTypes = {
-  html: PropTypes.string.isRequired,
+  content: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired
 };
 

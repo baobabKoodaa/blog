@@ -6,6 +6,7 @@ import Bodytext from "../Article/Bodytext";
 
 const Page = props => {
   const {
+    page,
     page: {
       html,
       frontmatter: { title }
@@ -18,7 +19,7 @@ const Page = props => {
       <header>
         <Headline title={title} theme={theme} />
       </header>
-      <Bodytext html={html} theme={theme} />
+      <Bodytext content={page} theme={theme} />
     </React.Fragment>
   );
 };

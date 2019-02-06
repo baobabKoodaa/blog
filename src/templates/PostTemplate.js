@@ -55,6 +55,7 @@ export const postQuery = graphql`
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      htmlAst
       fields {
         slug
         prefix
@@ -75,6 +76,7 @@ export const postQuery = graphql`
     authornote: markdownRemark(fileAbsolutePath: { regex: "/author/" }) {
       id
       html
+      htmlAst
     }
     site {
       siteMetadata {

@@ -23,6 +23,7 @@ const Post = props => {
     post,
     post: {
       html,
+      htmlAst,
       fields: { prefix, slug },
       frontmatter: { title, author, tags }
     },
@@ -39,7 +40,7 @@ const Post = props => {
         <Headline title={title} theme={theme} />
         <Meta prefix={prefix} author={author} tags={tags} theme={theme} />
       </header>
-      <Bodytext html={html} theme={theme} />
+      <Bodytext content={post} theme={theme} />
       <footer>
         {/*<Share post={post} theme={theme} />
          <Author note={authornote} theme={theme} /> */}
