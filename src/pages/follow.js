@@ -44,6 +44,9 @@ const FollowPage = props => {
 
             <style jsx>{`
               p {
+                font-size: ${theme.font.size.s};
+                line-height: ${theme.font.lineHeight.xxl};
+                margin: 0 0 1.5em;
                 margin-bottom: 40px;
               }
 

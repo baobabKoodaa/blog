@@ -3,8 +3,16 @@ import React from "react";
 import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
+import { graphql } from 'gatsby'
 
-const NotFoundPage = () => {
+const NotFoundPage = props => {
+  const {
+    data: {
+      site: {
+        siteMetadata: { facebook }
+      }
+    }
+  } = props;
 
   return (
     <React.Fragment>
@@ -22,4 +30,21 @@ const NotFoundPage = () => {
   );
 };
 
+NotFoundPage.propTypes = {
+  data: PropTypes.object.isRequired
+};
+
 export default NotFoundPage;
+
+//eslint-disable-next-line no-undef
+export const query = graphql`
+  query NotFoundQuery {
+    site {
+      siteMetadata {
+        facebook {
+          appId
+        }
+      }
+    }
+  }
+`;

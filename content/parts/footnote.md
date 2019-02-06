@@ -1,4 +1,5 @@
 ---
 title: footnote
 ---
-* Subscribe to get notified of future posts
+
+* [This blog is open source.](https://www.github.com/baobabKoodaa/blog/)
