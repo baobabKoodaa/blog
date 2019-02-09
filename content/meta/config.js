@@ -10,8 +10,13 @@ module.exports = {
   /* author */
   authorName: "baobab koodaa",
   authorTwitterAccount: "",
+  authorGithub: "https://github.com/baobabkoodaa",
+  authorStackoverflow: "https://stackexchange.com/users/5678032/atte-juvonen?tab=accounts",
+  authorLinkedin: "https://linkedin.com/in/atte-juvonen-86b886113",
+  authorCodeforces: "https://codeforces.com/profile/baobab",
+  authorYoutube: "https://www.youtube.com/channel/UCfHqfHoSYL0V_fXA_JQkeLw?view_as=subscriber",
 
-  /* info */
+  /* header text */
   headerTitle: "baobab koodaa",
   headerSubTitle: "",
 
@@ -29,13 +34,6 @@ module.exports = {
   // Example https://www.gravatar.com/avatar/g.strainovic@gmail.com ->
   // gravatarImgMd5: "https://www.gravatar.com/avatar/1db853e4df386e8f699e4b35505dd8c6",
   gravatarImgMd5: "",
-
-  // social
-  authorSocialLinks: [
-    { name: "github", url: "https://github.com/greglobinski" },
-    { name: "twitter", url: "https://twitter.com/greglobinski" },
-    { name: "facebook", url: "http://facebook.com/greglobinski" }
-  ],
 
   // Email newsletter subscription link
   emailSubLink: "https://app.mailjet.com/widget/iframe/3L7J/b3u"

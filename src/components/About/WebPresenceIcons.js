@@ -1,6 +1,7 @@
 import React from "react"
 import { ThemeContext } from "../../layouts";
 import { FaGithub, FaStackOverflow, FaLinkedin, FaYoutube } from 'react-icons/fa'
+import config from "../../../content/meta/config";
 
 const WebPresenceIcons = () => {
     return (
@@ -10,10 +11,10 @@ const WebPresenceIcons = () => {
                 {theme => (
                     <div className="wrapper">
                         <div className="icons">
-                            <FaGithub/>
-                            <FaStackOverflow/>
-                            <FaLinkedin/>
-                            <FaYoutube/>
+                            <a href={config.authorGithub} target="_blank"><FaGithub/></a>
+                            <a href={config.authorStackoverflow} target="_blank"><FaStackOverflow/></a>
+                            <a href={config.authorLinkedin} target="_blank"><FaLinkedin/></a>
+                            <a href={config.authorYoutube} target="_blank"><FaYoutube/></a>
                             {/* TODO Codeforces */}
                         </div>
                         <style jsx>{`
