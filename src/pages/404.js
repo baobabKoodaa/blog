@@ -6,13 +6,6 @@ import Headline from "../components/Article/Headline";
 import { graphql } from 'gatsby'
 
 const NotFoundPage = props => {
-  const {
-    data: {
-      site: {
-        siteMetadata: { facebook }
-      }
-    }
-  } = props;
 
   return (
     <React.Fragment>
@@ -35,16 +28,3 @@ NotFoundPage.propTypes = {
 };
 
 export default NotFoundPage;
-
-//eslint-disable-next-line no-undef
-export const query = graphql`
-  query NotFoundQuery {
-    site {
-      siteMetadata {
-        facebook {
-          appId
-        }
-      }
-    }
-  }
-`;

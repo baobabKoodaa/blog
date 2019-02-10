@@ -12,10 +12,7 @@ const PostTemplate = props => {
   const {
     data: {
       post,
-      authornote: { html: authorNote },
-      site: {
-        siteMetadata: { facebook }
-      }
+      authornote: { html: authorNote }
     },
     pageContext: { next, prev }
   } = props;
@@ -30,14 +27,13 @@ const PostTemplate = props => {
               next={next}
               prev={prev}
               authornote={authorNote}
-              facebook={facebook}
               theme={theme}
             />
           </Article>
         )}
       </ThemeContext.Consumer>
 
-      <Seo data={post} facebook={facebook} />
+      <Seo data={post} />
     </React.Fragment>
   );
 };
@@ -77,13 +73,6 @@ export const postQuery = graphql`
       id
       html
       htmlAst
-    }
-    site {
-      siteMetadata {
-        facebook {
-          appId
-        }
-      }
     }
   }
 `;

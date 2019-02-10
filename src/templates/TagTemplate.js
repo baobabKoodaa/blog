@@ -12,10 +12,7 @@ const TagTemplate = props => {
   const {
     pageContext: { tag },
     data: {
-      allMarkdownRemark: { totalCount, edges },
-      site: {
-        siteMetadata: { facebook }
-      }
+      allMarkdownRemark: { totalCount, edges }
     }
   } = props;
 
@@ -42,7 +39,7 @@ const TagTemplate = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo facebook={facebook} />
+      <Seo />
     </React.Fragment>
   );
 };
@@ -74,13 +71,6 @@ export const tagQuery = graphql`
             title
             tags
           }
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        facebook {
-          appId
         }
       }
     }

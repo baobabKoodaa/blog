@@ -10,13 +10,6 @@ import { FaTag , FaRss , FaPaperPlane } from "react-icons/fa";
 import config from "../../content/meta/config";
 
 const FollowPage = props => {
-  const {
-    data: {
-      site: {
-        siteMetadata: { facebook }
-      }
-    }
-  } = props;
 
   return (
     <React.Fragment>
@@ -84,7 +77,7 @@ const FollowPage = props => {
           </Article>
         )}
       </ThemeContext.Consumer>
-      <Seo facebook={facebook} />
+      <Seo/>
     </React.Fragment>
     
   );
@@ -95,16 +88,3 @@ FollowPage.propTypes = {
 };
 
 export default FollowPage;
-
-//eslint-disable-next-line no-undef
-export const query = graphql`
-  query FollowQuery {
-    site {
-      siteMetadata {
-        facebook {
-          appId
-        }
-      }
-    }
-  }
-`;

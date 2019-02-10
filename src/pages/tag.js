@@ -11,10 +11,7 @@ import Seo from "../components/Seo";
 const TagPage = props => {
   const {
     data: {
-      posts: { edges: posts },
-      site: {
-        siteMetadata: { facebook }
-      }
+      posts: { edges: posts }
     }
   } = props;
 
@@ -76,7 +73,7 @@ const TagPage = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo facebook={facebook} />
+      <Seo/>
     </React.Fragment>
   );
 };
@@ -115,13 +112,6 @@ export const query = graphql`
               }
             }
           }
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        facebook {
-          appId
         }
       }
     }
