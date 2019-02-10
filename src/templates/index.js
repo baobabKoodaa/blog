@@ -5,6 +5,7 @@ import { ThemeContext } from "../layouts";
 import Blog from "../components/Blog";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 class IndexPage extends React.Component {
   separator = React.createRef();
@@ -73,13 +74,13 @@ class IndexPage extends React.Component {
         >
           {!isFirst && (
             <Link to={prevPage} rel="prev">
-              ← Previous Page&nbsp;
+              <FaArrowLeft/> Previous Page&nbsp;
             </Link>
           )}
 
           {!isLast && (
             <Link to={nextPage} rel="next">
-              &nbsp;Next Page →
+              &nbsp;Next Page <FaArrowRight/> 
             </Link>
           )}
         </div>

@@ -84,7 +84,6 @@ const FollowPage = props => {
 };
 
 FollowPage.propTypes = {
-  data: PropTypes.object.isRequired
 };
 
 export default FollowPage;

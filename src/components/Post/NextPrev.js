@@ -18,7 +18,7 @@ const NextPrev = props => {
     } = {}
   } = props;
 
-  const flexb = (nextSlug && prevSlug ? "50%" : "100%")
+  const flexb = (nextSlug && prevSlug ? "50%" : "100%") /* If only one link available, it can take 100% of space. */
 
   return (
     <React.Fragment>
