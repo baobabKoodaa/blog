@@ -43,11 +43,13 @@ class IndexPage extends React.Component {
 
     return (
       <React.Fragment>
-        {isFirst ? (
+
+        {/* Uncomment this to get Hero section. */}
+        {/*isFirst ? (
           <React.Fragment>
 
-            {/* Uncomment this to get Hero section. */}
-            {/* <ThemeContext.Consumer>
+            
+            { <ThemeContext.Consumer>
               {theme => (
                 <Hero
                   scrollToContent={this.scrollToContent}
@@ -56,79 +58,146 @@ class IndexPage extends React.Component {
                 />
               )}
             </ThemeContext.Consumer> 
-            <hr ref={this.separator} />*/}
+            <hr ref={this.separator} />
 
           </React.Fragment>
-        ) : null}
+        ) : null}*/}
 
         <ThemeContext.Consumer>
-          {theme => <Blog posts={posts} theme={theme} />}
-        </ThemeContext.Consumer>
+          {theme =>
+            <React.Fragment>
+              <Blog posts={posts} theme={theme} />
+              <div className="pagination">
+                {!isFirst && (
+                  <Link to={prevPage} rel="prev">
+                    <h4 className="next-link-text">
+                      Newer posts
+                    </h4>
+                    <span className="next-arrow">
+                      <FaArrowRight/>
+                    </span>
+                  </Link>
+                )}
+                {!isLast && (
+                  <Link to={nextPage} rel="next">
+                    <span className="prev-arrow">
+                      <FaArrowLeft/>
+                    </span>
+                    <h4 className="prev-link-text">
+                      Older posts
+                    </h4> 
+                  </Link>
+                )}
+              </div>
 
-        <div
-          style={{
-            maxWidth: "700px",
-            margin: "0 auto 40px auto",
-            textAlign: "center"
-          }}
-        >
-          {!isFirst && (
-            <Link to={prevPage} rel="prev">
-              <FaArrowLeft/> Previous Page&nbsp;
-            </Link>
-          )}
 
-          {!isLast && (
-            <Link to={nextPage} rel="next">
-              &nbsp;Next Page <FaArrowRight/> 
-            </Link>
-          )}
-        </div>
-
-        {/* Uncomment to get page-numbered pagination links on the hompage. */}
-        {/* <ul
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            maxWidth: "700px",
-            margin: "0 auto 60px auto",
-            alignItems: "center",
-            listStyle: "none",
-            padding: 0,
-            lineHeight: "30px"
-          }}
-        >
-          {Array.from({ length: numPages }, (_, i) => (
-            <li
-              key={`pagination-number${i + 1}`}
-              style={{
-                margin: 0
-              }}
-            >
-              <Link
-                to={`/${i === 0 ? "" : i + 1}`}
+              {/* Uncomment to get page-numbered pagination links on the hompage. */}
+              {/* <ul
                 style={{
-                  padding: "3px 8px",
-                  borderRadius: "5px",
-                  textDecoration: "none",
-                  color: i + 1 === currentPage ? "#ffffff" : "",
-                  background: i + 1 === currentPage ? "#007acc" : ""
+                  display: "flex",
+                  flexWrap: "wrap",
+                  maxWidth: "700px",
+                  margin: "0 auto 60px auto",
+                  alignItems: "center",
+                  listStyle: "none",
+                  padding: 0,
+                  lineHeight: "30px"
                 }}
               >
-                {i + 1}
-              </Link>
-            </li>
-          ))}
-        </ul> */}
+                {Array.from({ length: numPages }, (_, i) => (
+                  <li
+                    key={`pagination-number${i + 1}`}
+                    style={{
+                      margin: 0
+                    }}
+                  >
+                    <Link
+                      to={`/${i === 0 ? "" : i + 1}`}
+                      style={{
+                        padding: "3px 8px",
+                        borderRadius: "5px",
+                        textDecoration: "none",
+                        color: i + 1 === currentPage ? "#ffffff" : "",
+                        background: i + 1 === currentPage ? "#007acc" : ""
+                      }}
+                    >
+                      {i + 1}
+                    </Link>
+                  </li>
+                ))}
+              </ul> */}
 
-        <Seo />
+              <Seo />
 
-        <style jsx>{`
-          hr {
-            margin: 0;
-            border: 0;
+              <style jsx>{`
+                hr {
+                  margin: 0;
+                  border: 0;
+                }
+
+                .next-arrow {
+                  :global(svg) {
+                    margin-left: 10px !important;
+                  }
+                }
+                
+                .pagination {
+                  display: flex;
+                  flex-direction: row-reverse;
+                  justify-content: center;
+                  padding: ${theme.space.l} ${theme.space.l} ${theme.space.l};
+                  margin: ${theme.space.stack.l};
+
+
+                  .next-link-text {
+                    color: &color-brand-primary;
+                    width: 100%;
+                    text-align: right;
+                    margin-left: 20px;
+                  }
+                  .prev-link-text {
+                    color: &color-brand-primary;
+                    padding-right: 20px;
+                    margin-right: 20px;
+                  }
+
+                  :global(a) {
+                    display: flex;
+                  }
+
+                  :global(a:nth-child(2)) {
+                    margin: 0;
+                  }
+
+
+
+                  h4 {
+                    font-weight: 600;
+                    margin: 0;
+                    font-size: 1.1em;
+                  }
+                  :global(svg) {
+                    fill: ${theme.color.special.attention};
+                    width: ${theme.space.m};
+                    height: ${theme.space.m};
+                    flex-shrink: 0;
+                    flex-grow: 0;
+                    transition: all 0.5s;
+                    margin: ${theme.space.inline.s};
+                  }
+                }
+
+                @from-width desktop {
+                  @media (hover: hover) {
+                    .pagination :global(a:hover svg) {
+                      transform: scale(1.5);
+                    }
+                  }
+                }
+              `}</style>
+            </React.Fragment>
           }
-        `}</style>
+        </ThemeContext.Consumer>
       </React.Fragment>
     );
   }

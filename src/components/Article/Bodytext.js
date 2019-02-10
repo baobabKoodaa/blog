@@ -15,12 +15,12 @@ const Bodytext = props => {
   return (
     <React.Fragment>
 
-      {/* Render markdown with Custom Components */}
+      {/* Option A: Render markdown with Custom Components */}
       <div className="bodytext">
         {renderAst(content.htmlAst)}
       </div>
       
-      {/* Render markdown without Custom Components */}
+      {/* Option B: Render markdown without Custom Components */}
       {/* <div className="bodytext" dangerouslySetInnerHTML={{ __html: html }} /> */}
 
       <style jsx>{`
@@ -60,7 +60,7 @@ const Bodytext = props => {
           :global(a) {
             font-weight: ${theme.font.weight.bold};
             color: ${theme.color.brand.primary};
-            text-decoration: underline;
+            text-decoration: none;
           }
           :global(a.gatsby-resp-image-link) {
             border: 0;

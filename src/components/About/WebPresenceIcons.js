@@ -26,7 +26,7 @@ const WebPresenceIcons = () => {
                             font-size: 60px;
                             :global(svg) {
                                 margin: 10px;
-                                fill: ${theme.color.brand.primary};
+                                fill: ${theme.color.special.attention};
                             }
                         }
                         `}</style>

@@ -87,6 +87,10 @@ const Item = props => {
             transition: all ${theme.time.duration.default};
             width: 50%;
           }
+
+          &:last-child {
+            margin-bottom: 10px;
+          }
         }
 
         h1 {
