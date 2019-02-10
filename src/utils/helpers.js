@@ -21,3 +21,11 @@ export function timeoutThrottlerHandler(timeouts, name, delay, handler) {
     }, delay);
   }
 }
+
+export function currDate() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = ("0" + (1+today.getMonth())).slice(-2);
+  const day = ("0" + today.getDate()).slice(-2);
+  return year + "-" + month + "-" + day;
+}

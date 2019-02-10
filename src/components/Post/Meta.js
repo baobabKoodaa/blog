@@ -1,13 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import currDate from "../../utils/helpers";
 
 import { FaCalendar } from "react-icons/fa/";
 import { FaUser } from "react-icons/fa/";
 import { FaTag } from "react-icons/fa/";
 
 const Meta = props => {
-  const { prefix, author: authorName, tags, theme } = props;
+  const { author: authorName, tags, theme } = props;
+  const prefix = props.prefix || currDate() /* Intent: get date placeholder for viewing drafts. */
 
   return (
     <p className="meta">

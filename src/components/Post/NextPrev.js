@@ -18,9 +18,12 @@ const NextPrev = props => {
     } = {}
   } = props;
 
+  const flexb = (nextSlug && prevSlug ? "50%" : "100%")
+
   return (
     <React.Fragment>
       <div className="links">
+
         {nextSlug && (
           <Link to={nextSlug}>
             <span className="next-link-text">
@@ -28,14 +31,16 @@ const NextPrev = props => {
                 {nextTitle} <time>{nextPrefix} </time>
               </h4>
             </span>
-            <span className="next-arrow">
+            <span className="next-arrow live-arrow">
               <FaArrowRight />
             </span>
           </Link>
         )}
         {prevSlug && (
           <Link to={prevSlug}>
-            <FaArrowLeft />
+            <span className="live-arrow">
+              <FaArrowLeft />
+            </span>
             <span className="prev-link-text">
               <h4>
                 {prevTitle} <time>{prevPrefix}</time>
@@ -109,7 +114,7 @@ const NextPrev = props => {
             justify-content: center;
 
             :global(a) {
-              flex-basis: 50%;
+              flex-basis: ${flexb};
             }
 
             :global(a:nth-child(2)) {
