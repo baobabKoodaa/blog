@@ -62,7 +62,6 @@ const Meta = props => {
 };
 
 Meta.propTypes = {
-  prefix: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   tags: PropTypes.array,
   theme: PropTypes.object.isRequired
