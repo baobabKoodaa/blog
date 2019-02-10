@@ -13,6 +13,7 @@ TODO
 - Prerequisites: learn about ReactJS and GatsbyJS.
 - [How to install, setup and add new content to a Blog starter](https://dev.greglobinski.com/install-blog-starter/)
 - [Setup Algolia account for your GatsbyJS blog](https://dev.greglobinski.com/setup-algolia-account/)
+- Gatsby sometimes leaks development data into production build. As a workaround for this issue, there is a buildserve shell script which flushes cache before building.
 
 ## Attribution
 
