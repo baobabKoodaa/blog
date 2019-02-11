@@ -82,7 +82,8 @@ class IndexPage extends React.Component {
                 )}
 
                 {/* Numbered page links. TODO: prevent "overflowing" page links when many links and tiny screen. */}
-                <ul className="pagination-numbers">
+                { numPages > 1 && (
+                  <ul className="pagination-numbers">
                   {Array.from({ length: numPages }, (_, i) => (
                     <li
                       key={`pagination-number${i + 1}`}
@@ -104,7 +105,9 @@ class IndexPage extends React.Component {
                       </Link>
                     </li>
                   ))}
-                </ul>
+                  </ul>
+                )}
+                
 
                 {/* "Next" arrow and text */}
                 {!isFirst && (
