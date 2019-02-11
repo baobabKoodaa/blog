@@ -1,10 +1,16 @@
 # Blog
 
-This is the source for my blog » [Demo website](TODO)
+This is the source for my blog » [see in action](TODO)
 
 ## Features
 
-TODO
+- **Responsive** and streamlined design
+- GatsbyJS generates your blog into HTML+CSS+JS so you can **host your blog for free** at any static web host (e.g. GitHub pages)
+- Write your blog posts into **Markdown** files (easy to format and your content will not be married to any platform)
+- **Expandable**: embed custom React components into your Markdown if you want
+- Organize your posts by **tags**
+- **Blazing fast** UX: everything loads instantly when JS is enabled, but works even when JS is disabled
+- **RSS Feed**
 
 ## Feel free to fork
 
@@ -19,13 +25,17 @@ TODO
 
 Hi, I'm Baobab. I didn't start this from scratch.
 - I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/).
-- [Mohsen Khanpour](https://github.com/mohsenkhanpour) ported Greg's version to Gatsby v2.
-- [Many other kind hearted people](https://github.com/greglobinski/gatsby-starter-hero-blog/graphs/contributors) made contributions to Greg's version.
+- Many people improved Greg's version, including [Mohsen Khanpour](https://github.com/mohsenkhanpour) who ported it to Gatsby v2 and [Joan Mira](https://github.com/gazpachu) who added pagination.
 - Photos are mostly from [Unsplash](https://www.unsplash.com/), hover over to see photographer attribution.
 - Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
 
 Main changes from Greg's version:
-- TODO
-- TODO
-- TODO
-- TODO
+- Proper draft posts (used to leak draft posts into production)
+- Proper RSS feed (used to not have dates so RSS readers were unable to tell which content is new) 
+- Proper 404 page (used to be hidden under header)
+- Allow multiple tags (used to be just 1 category per post)
+- Allow custom react components inside Markdown files
+- Added follow page
+- Added pagination
+- Works without JavaScript (images used to not load without JS)
+- Many design changes. Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
