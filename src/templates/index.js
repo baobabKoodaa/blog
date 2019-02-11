@@ -68,26 +68,27 @@ class IndexPage extends React.Component {
             <React.Fragment>
               <Blog posts={posts} theme={theme} />
               <div className="pagination">
-                {!isFirst && (
-                  <Link to={prevPage} rel="prev">
+                {!isLast && (
+                  <Link to={nextPage} rel="next">
                     <h4 className="next-link-text">
-                      Newer posts
-                    </h4>
+                      Next
+                    </h4> 
                     <span className="next-arrow">
                       <FaArrowRight/>
                     </span>
                   </Link>
                 )}
-                {!isLast && (
-                  <Link to={nextPage} rel="next">
+                {!isFirst && (
+                  <Link to={prevPage} rel="prev">
                     <span className="prev-arrow">
                       <FaArrowLeft/>
                     </span>
                     <h4 className="prev-link-text">
-                      Older posts
-                    </h4> 
+                      Prev
+                    </h4>
                   </Link>
                 )}
+                
               </div>
 
 
