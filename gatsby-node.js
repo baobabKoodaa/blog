@@ -149,9 +149,10 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        // Create blog post list pages
-        const postsPerPage = 5;
-        const numPages = Math.ceil(posts.length / postsPerPage);
+        // Create "paginated homepage" == pages which list blog posts
+        const postsPerPage = 1;
+        const nonDraftPosts = posts.filter(item => item.node.fields.prefix)
+        const numPages = Math.ceil(nonDraftPosts.length / postsPerPage);
 
         _.times(numPages, i => {
           createPage({
