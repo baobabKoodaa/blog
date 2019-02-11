@@ -53,8 +53,10 @@ color:
       j: &color-gray-10 '#3e3e3c'
       k: '#2b2826'
     black: '#000000'
+  
   brand:
     primary: &color-brand-primary '#856084' #'#616247'
+    hover: '#9f7a9d'
     primaryActive: '#709425'
     light: '#709425'
     lightActive: '#709425'

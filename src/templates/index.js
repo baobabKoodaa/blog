@@ -81,7 +81,7 @@ class IndexPage extends React.Component {
                   </Link>
                 )}
 
-                {/* Numbered page links */}
+                {/* Numbered page links. TODO: prevent "overflowing" page links when many links and tiny screen. */}
                 <ul className="pagination-numbers">
                   {Array.from({ length: numPages }, (_, i) => (
                     <li
@@ -152,6 +152,11 @@ class IndexPage extends React.Component {
                     list-style-type: none;
                     padding: 0;
                     lineHeight: 30px;
+                    
+                    :global(a):hover {
+                      color: #ffffff;
+                      background: ${theme.color.brand.hover};
+                    }
                   }
 
 
