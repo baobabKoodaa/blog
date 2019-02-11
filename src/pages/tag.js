@@ -63,6 +63,13 @@ const TagPage = props => {
             <style jsx>{`
               h2 {
                 margin: 0 0 0.5em;
+                color: ${theme.color.neutral.gray.j};
+                
+              }
+              @from-width desktop {
+                :global(a:hover) {
+                  color: ${theme.color.brand.primary};
+                }
               }
               h2 :global(svg) {
                 height: 0.8em;

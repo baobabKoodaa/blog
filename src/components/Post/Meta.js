@@ -22,7 +22,7 @@ const Meta = props => {
         <span key={tag}>
           
           <Link to={`/tag/${tag.split(" ").join("-")}`}>
-            <span style={{color: "black"}}>
+            <span>
               <FaTag size={18} />
               {tag}
             </span>
@@ -38,6 +38,7 @@ const Meta = props => {
           font-size: 0.8em;
           margin: ${theme.space.m} 0;
           background: transparent;
+          color: ${theme.color.neutral.gray.j};
 
           :global(svg) {
             fill: ${theme.icon.color};
@@ -53,6 +54,13 @@ const Meta = props => {
         @from-width tablet {
           .meta {
             margin: ${`calc(${theme.space.m} * 1.5) 0 ${theme.space.m}`};
+          }
+        }
+        @media (hover: hover) {
+          .meta {
+            :global(a:hover) {
+              color: ${theme.color.brand.primary};
+            }
           }
         }
       `}</style>

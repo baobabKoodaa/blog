@@ -53,16 +53,16 @@ const FollowPage = props => {
                 border: 1px solid ${theme.color.neutral.white};
                 :hover {
                   border: 1px solid #ccc;
+                  .subText {
+                    color: ${theme.color.brand.primary};
+                  }
                 }
               }
             
               .subText {
                   text-align: right;
                   font-size: 20px;
-                  color: black;
-                  :hover {
-                    color: ${theme.color.brand.primary};
-                  }
+                  color: ${theme.color.neutral.gray.j};
               }
               
               .subIcon {

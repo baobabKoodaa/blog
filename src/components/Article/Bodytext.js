@@ -27,6 +27,7 @@ const Bodytext = props => {
         .bodytext {
           animation-name: bodytextEntry;
           animation-duration: 0;
+          color: ${theme.color.neutral.gray.j};
 
           :global(h2),
           :global(h3) {
@@ -62,6 +63,11 @@ const Bodytext = props => {
             color: ${theme.color.brand.primary};
             text-decoration: none;
           }
+          @from-width desktop {
+            :global(a:hover) {
+              color: ${theme.color.brand.primaryDark};
+            }
+          }
           :global(a.gatsby-resp-image-link) {
             border: 0;
             display: block;
@@ -78,7 +84,6 @@ const Bodytext = props => {
             border-radius: 0.1em;
           }
         }
-
       `}</style>
     </React.Fragment>
   );

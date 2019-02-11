@@ -73,7 +73,7 @@ class IndexPage extends React.Component {
                 {!isLast && (
                   <Link to={nextPage} rel="next">
                     <h4 className="next-link-text">
-                      Next
+                      {/*Next*/}
                     </h4> 
                     <span className="next-arrow">
                       <FaArrowRight/>
@@ -97,7 +97,7 @@ class IndexPage extends React.Component {
                           borderRadius: "5px",
                           textDecoration: "none",
                           color: i + 1 === currentPage ? "#ffffff" : "",
-                          background: i + 1 === currentPage ? theme.color.special.attention : ""
+                          background: i + 1 === currentPage ? theme.color.brand.primary : ""
                         }}
                       >
                         {i + 1}
@@ -113,7 +113,7 @@ class IndexPage extends React.Component {
                       <FaArrowLeft/>
                     </span>
                     <h4 className="prev-link-text">
-                      Prev
+                      {/*Prev*/}
                     </h4>
                   </Link>
                 )}
@@ -154,8 +154,7 @@ class IndexPage extends React.Component {
                     lineHeight: 30px;
                     
                     :global(a):hover {
-                      color: #ffffff;
-                      background: ${theme.color.brand.hover};
+                      background: ${theme.color.brand.primaryLight};
                     }
                   }
 

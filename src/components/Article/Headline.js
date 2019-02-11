@@ -15,6 +15,7 @@ const Headline = props => {
           margin: ${theme.space.stack.l};
           animation-name: headlineEntry;
           animation-duration: 0;
+          color: ${theme.color.neutral.gray.j};
 
           :global(span) {
             font-weight: ${theme.font.weight.standard};

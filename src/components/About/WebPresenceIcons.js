@@ -26,7 +26,14 @@ const WebPresenceIcons = () => {
                             font-size: 60px;
                             :global(svg) {
                                 margin: 10px;
-                                fill: ${theme.color.special.attention};
+                                fill: ${theme.color.brand.primary};
+                            }
+                        }
+                        @from-width desktop {
+                            @media (hover: hover) {
+                                .icons :global(a:hover svg) {
+                                    fill: ${theme.color.brand.primaryDark};
+                                }
                             }
                         }
                         `}</style>
