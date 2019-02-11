@@ -68,6 +68,8 @@ class IndexPage extends React.Component {
             <React.Fragment>
               <Blog posts={posts} theme={theme} />
               <div className="pagination">
+
+                {/* "Prev" arrow and text */}
                 {!isLast && (
                   <Link to={nextPage} rel="next">
                     <h4 className="next-link-text">
@@ -78,6 +80,33 @@ class IndexPage extends React.Component {
                     </span>
                   </Link>
                 )}
+
+                {/* Numbered page links */}
+                <ul className="pagination-numbers">
+                  {Array.from({ length: numPages }, (_, i) => (
+                    <li
+                      key={`pagination-number${i + 1}`}
+                      style={{
+                        margin: 0
+                      }}
+                    >
+                      <Link
+                        to={`/${i === 0 ? "" : i + 1}`}
+                        style={{
+                          padding: "3px 8px",
+                          borderRadius: "5px",
+                          textDecoration: "none",
+                          color: i + 1 === currentPage ? "#ffffff" : "",
+                          background: i + 1 === currentPage ? theme.color.special.attention : ""
+                        }}
+                      >
+                        {i + 1}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* "Next" arrow and text */}
                 {!isFirst && (
                   <Link to={prevPage} rel="prev">
                     <span className="prev-arrow">
@@ -91,42 +120,7 @@ class IndexPage extends React.Component {
                 
               </div>
 
-
-              {/* Uncomment to get page-numbered pagination links on the hompage. */}
-              {/* <ul
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  maxWidth: "700px",
-                  margin: "0 auto 60px auto",
-                  alignItems: "center",
-                  listStyle: "none",
-                  padding: 0,
-                  lineHeight: "30px"
-                }}
-              >
-                {Array.from({ length: numPages }, (_, i) => (
-                  <li
-                    key={`pagination-number${i + 1}`}
-                    style={{
-                      margin: 0
-                    }}
-                  >
-                    <Link
-                      to={`/${i === 0 ? "" : i + 1}`}
-                      style={{
-                        padding: "3px 8px",
-                        borderRadius: "5px",
-                        textDecoration: "none",
-                        color: i + 1 === currentPage ? "#ffffff" : "",
-                        background: i + 1 === currentPage ? "#007acc" : ""
-                      }}
-                    >
-                      {i + 1}
-                    </Link>
-                  </li>
-                ))}
-              </ul> */}
+              
 
               <Seo />
 
@@ -149,6 +143,17 @@ class IndexPage extends React.Component {
                   padding: ${theme.space.l} ${theme.space.l} ${theme.space.l};
                   margin: ${theme.space.stack.l};
 
+                  .pagination-numbers {
+                    display: flex;
+                    flexWrap: wrap;
+                    maxWidth: 700px;
+                    margin: 0 0 0 0;
+                    alignItems: center;
+                    list-style-type: none;
+                    padding: 0;
+                    lineHeight: 30px;
+                  }
+
 
                   .next-link-text {
                     color: &color-brand-primary;
@@ -159,7 +164,6 @@ class IndexPage extends React.Component {
                   .prev-link-text {
                     color: &color-brand-primary;
                     padding-right: 20px;
-                    margin-right: 20px;
                   }
 
                   :global(a) {
