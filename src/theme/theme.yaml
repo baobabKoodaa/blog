@@ -145,7 +145,7 @@ blog:
   h1:
     size: *font-size-l
     lineHeight: *font-line-height-xs
-    hoverColor: *color-brand-primary
+    hoverColor: *color-gray-10
 header:
   height:
     default: 50px

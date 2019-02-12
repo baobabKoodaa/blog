@@ -58,7 +58,16 @@ const Meta = props => {
         }
         @media (hover: hover) {
           .meta {
-            :global(a:hover) {
+            :global(a svg) {
+              transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+            }
+            :global(a:hover svg) {
+              transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+              transform: scale(1.3);
               color: ${theme.color.brand.primary};
             }
           }

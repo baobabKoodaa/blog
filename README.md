@@ -1,11 +1,11 @@
 # Blog
 
-This is the source for my blog » [see in action](TODO)
+This is the source for my blog » [see website in action](TODO)
 
 ## Features
 
 - **Responsive** and streamlined design
-- GatsbyJS generates your blog into HTML+CSS+JS so you can **host your blog for free** at any static web host (e.g. GitHub pages)
+- GatsbyJS compiles your blog into HTML+CSS+JS so you can **host your blog for free** at any static web host (e.g. GitHub pages)
 - Write your blog posts into **Markdown** files (easy to format and your content will not be married to any platform)
 - **Expandable**: embed custom React components into your Markdown if you want
 - Organize your posts by **tags**
@@ -30,12 +30,12 @@ Hi, I'm Baobab. I didn't start this from scratch.
 - Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
 
 Main changes from Greg's version:
-- Proper draft posts (used to leak draft posts into production)
-- Proper RSS feed (used to not have dates so RSS readers were unable to tell which content is new) 
-- Proper 404 page (used to be hidden under header)
+- Fixed draft posts (used to leak draft posts into production)
+- Fixed RSS feed (used to not have dates so RSS readers were unable to tell which content is new + used to have non-post-articles in feed) 
+- Fixed 404 page (text used to be hidden under header)
+- Images used to not load without JS. Now the site is usable without JS.
 - Allow multiple tags (used to be just 1 category per post)
-- Allow custom react components inside Markdown files
+- Allow custom React components inside Markdown files
 - Added follow page
 - Added pagination
-- Works without JavaScript (images used to not load without JS)
 - Many design changes. Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)

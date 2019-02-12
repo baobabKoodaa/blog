@@ -1,8 +1,8 @@
 module.exports = {
   siteTitle: "Baobab Koodaa", // <title>
-  shortSiteTitle: "Test XYZ", // <title> ending for posts and pages
-  siteDescription: "HeroBlog is a GatsbyJS starter.",
-  siteUrl: "https://gatsby-starter-hero-blog.greglobinski.com",
+  shortSiteTitle: "Baobab Koodaa", // <title> ending for posts and pages
+  siteDescription: "Blog of Baobab Koodaa.",
+  siteUrl: "https://blog.baobab.fi",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
@@ -21,8 +21,8 @@ module.exports = {
   headerSubTitle: "",
 
   /* manifest.json */
-  manifestName: "HeroBlog - a GatsbyJS starter",
-  manifestShortName: "HeroBlog", // max 12 characters
+  manifestName: "Blog of Baobab Koodaa",
+  manifestShortName: "baobabKoodaa", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
