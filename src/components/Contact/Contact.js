@@ -13,6 +13,7 @@ import "antd/lib/form/style/index.css";
 import "antd/lib/input/style/index.css";
 import "antd/lib/button/style/index.css";
 import { ThemeContext } from "../../layouts";
+import config from "../../../content/meta/config";
 
 const Contact = props => {
   const { getFieldDecorator } = props.form;
@@ -34,7 +35,7 @@ const Contact = props => {
   }
 
   function sendMessage(values) {
-    fetch("/", {
+    fetch(config.contactPostAddress, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...values })
