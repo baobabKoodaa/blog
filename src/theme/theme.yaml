@@ -38,6 +38,8 @@ size:
 # COLOR
 color:
   # color options
+  menu:
+    border: ghostwhite;
   neutral:
     white: &color-white '#ffffff'
     gray:
