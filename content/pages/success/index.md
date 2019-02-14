@@ -1,6 +1,5 @@
 ---
-title: Success
+title: Delivered
 ---
 
-Thank you. <br />
-I will answer to your message as soon as possible.
+Thanks for reaching out. Your message is safely in my inbox. <br />
