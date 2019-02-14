@@ -34,7 +34,7 @@ Main changes from Greg's version:
 - Fixed draft posts (used to leak draft posts into production)
 - Fixed RSS feed (used to not have dates so RSS readers were unable to tell which content is new + used to have non-post-articles in feed) 
 - Fixed 404 page (text used to be hidden under header)
-- Images used to not load without JS. Now the site is usable without JS.
+- Improved usability for users who have JS disabled (images used to not load without JS and form submission used to not work without JS)
 - Contact Form submission used to require entire web site to be hosted on Netlify. Now the Contact Form submission uses Google Scripts and web site hosting / form handling can be changed independently.
 - Allow multiple tags (used to be just 1 category per post)
 - Allow custom React components inside Markdown files

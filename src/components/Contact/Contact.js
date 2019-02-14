@@ -28,7 +28,7 @@ const Contact = props => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
+        console.log("Received values of form: ", values)
         document.getElementById("submitText").innerHTML = "Sending...";
         document.getElementById("submitButton").disabled = true;
         document.getElementById("submitButton").style.backgroundColor = "#dddbda";
@@ -66,6 +66,8 @@ const Contact = props => {
           <div className="form">
             <Form
               name="contact"
+              method="post"
+              action={config.contactPostAddress}
               onSubmit={handleSubmit}
               data-netlify="true"
               data-netlify-honeypot="bot-field"
