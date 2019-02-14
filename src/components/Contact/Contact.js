@@ -29,6 +29,10 @@ const Contact = props => {
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
+        document.getElementById("submitText").innerHTML = "Sending...";
+        document.getElementById("submitButton").disabled = true;
+        document.getElementById("submitButton").style.backgroundColor = "#dddbda";
+        document.getElementById("submitButton").style.borderColor = "#dddbda";
         sendMessage(values);
       }
     });
@@ -51,6 +55,7 @@ const Contact = props => {
   }
 
   function handleNetworkError(e) {
+    alert("Error while submitting form! " + e)
     console.log("submit Error");
   }
 
@@ -78,8 +83,6 @@ const Contact = props => {
                 {getFieldDecorator("email", {
                   rules: [
                     {
-                      required: true,
-                      message: "Please input your e-mail address!",
                       whitespace: true,
                       type: "email"
                     }
@@ -96,8 +99,8 @@ const Contact = props => {
                 )}
               </FormItem>
               <FormItem>
-                <Button type="primary" htmlType="submit">
-                  Submit
+                <Button type="primary" htmlType="submit" id="submitButton">
+                  <span id="submitText">Submit</span>
                 </Button>
               </FormItem>
             </Form>
