@@ -19,6 +19,7 @@ This is the source for my blog » [see website in action](TODO)
 - Prerequisites: learn about ReactJS and GatsbyJS.
 - [How to install, setup and add new content to a Blog starter](https://dev.greglobinski.com/install-blog-starter/)
 - [Setup Algolia account for your GatsbyJS blog](https://dev.greglobinski.com/setup-algolia-account/)
+- [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
 - Gatsby sometimes leaks development data into production build. As a workaround for this issue, there is a buildserve shell script which flushes cache before building.
 
 ## Attribution
@@ -34,6 +35,7 @@ Main changes from Greg's version:
 - Fixed RSS feed (used to not have dates so RSS readers were unable to tell which content is new + used to have non-post-articles in feed) 
 - Fixed 404 page (text used to be hidden under header)
 - Images used to not load without JS. Now the site is usable without JS.
+- Contact Form submission used to require entire web site to be hosted on Netlify. Now the Contact Form submission uses Google Scripts and web site hosting / form handling can be changed independently.
 - Allow multiple tags (used to be just 1 category per post)
 - Allow custom React components inside Markdown files
 - Added follow page

@@ -35,8 +35,8 @@ module.exports = {
   // gravatarImgMd5: "https://www.gravatar.com/avatar/1db853e4df386e8f699e4b35505dd8c6",
   gravatarImgMd5: "",
 
-  /* Contact form email destination. Note: if you use formspree, you must "activate" it separately for localhost and your domain. */
-  contactPostAddress: "https://formspree.io/contact83572@baobab.fi",
+  /* Contact form email destination. */
+  contactPostAddress: "https://script.google.com/macros/s/AKfycbztYnxhXCwheIhfGLl0JpvsNR6DbhJM-ujTK7Qc6TloeU_8Xro/exec",
 
   /* Email newsletter subscription link */
   emailSubLink: "https://app.mailjet.com/widget/iframe/3L7J/b3u"
