@@ -1,5 +1,5 @@
 ---
-title: Don't send your own email
+title: Don't send your own email12
 tags: ["email", "everything-is-broken"]
 cover: mailboxes.jpg
 author: baobab koodaa
