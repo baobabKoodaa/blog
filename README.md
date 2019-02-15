@@ -17,9 +17,9 @@ This is the source for my blog » [see website in action](TODO)
 - Pull requests are welcome
 - You have permission to use the source code (within license terms), but not the content (e.g. blog posts).
 - Prerequisites: learn about ReactJS and GatsbyJS.
-- [How to install, setup and add new content to a Blog starter](https://dev.greglobinski.com/install-blog-starter/)
-- [Setup Algolia account for your GatsbyJS blog](https://dev.greglobinski.com/setup-algolia-account/)
-- [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
+- TODO: [How to install, setup and add new content to a Blog starter](https://dev.greglobinski.com/install-blog-starter/)
+- [OPTIONAL] If you want a search page: [Setup Algolia account for your GatsbyJS blog](https://dev.greglobinski.com/setup-algolia-account/)
+- [OPTIONAL] If you want a contact page: [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
 - Gatsby sometimes leaks development data into production build. As a workaround for this issue, there is a buildserve shell script which flushes cache before building.
 
 ## Attribution
