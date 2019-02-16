@@ -1,5 +1,5 @@
 ---
-title: Don't send your own email13
+title: Don't send your own email NO SERVICE WORKER
 tags: ["email", "everything-is-broken"]
 cover: mailboxes.jpg
 author: baobab koodaa
