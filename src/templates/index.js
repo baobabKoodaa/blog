@@ -108,7 +108,7 @@ export const query = graphql`
             cover {
               children {
                 ... on ImageSharp {
-                  fluid(maxWidth: 800, maxHeight: 360) {
+                  fluid(maxWidth: 800, maxHeight: 360, traceSVG: { color: "#f9ebd2" }) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
