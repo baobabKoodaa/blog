@@ -122,14 +122,12 @@ class Layout extends React.Component {
                         padding: 0;
                       }
                       body {
-                        font-family: ${this.state.font400loaded
-                          ? "'Open Sans', sans-serif;"
-                          : "Arial, sans-serif;"};
+                        font-family: 'Open Sans', 'Arial', 'sans-serif';
                       }
                       h1,
                       h2,
                       h3 {
-                        font-weight: ${this.state.font600loaded ? 600 : 400};
+                        font-weight: 600;
                         line-height: 1.1;
                         letter-spacing: -0.03em;
                         margin: 0;
@@ -141,7 +139,7 @@ class Layout extends React.Component {
                         margin: 0;
                       }
                       strong {
-                        font-weight: ${this.state.font600loaded ? 600 : 400};
+                        font-weight: 600;
                       }
                       a {
                         text-decoration: none;
