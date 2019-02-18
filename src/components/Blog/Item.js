@@ -29,7 +29,7 @@ const Item = props => {
       <li>
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} />
+            <Picture fluid={fluid} critical={true}/>
           </div>
           <h1>
             {title} <FaArrowRight className="arrow" />
