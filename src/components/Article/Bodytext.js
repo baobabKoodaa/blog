@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import rehypeReact from "rehype-react";
 import Icons from "../../components/About/WebPresenceIcons";
+import ReImage from "./ReImage";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "icons": Icons },
+  components: { "icons": Icons , "rehype-image": ReImage },
 }).Compiler
 
 const Bodytext = props => {

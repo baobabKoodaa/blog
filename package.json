@@ -28,6 +28,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^2.0.1",
     "gatsby-remark-prismjs": "^3.0.0",
+    "gatsby-remark-rehype-images": "^0.1.0",
     "gatsby-remark-responsive-iframe": "^2.0.5",
     "gatsby-remark-smartypants": "^2.0.5",
     "gatsby-source-filesystem": "^2.0.1",
