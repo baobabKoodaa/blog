@@ -163,7 +163,6 @@ class Menu extends React.Component {
             max-height: ${open ? "1000px" : "50px"};
             padding: 0 ${theme.space.inset.s};
 
-            border-bottom: 2px solid ghostwhite;
             position: fixed;
             width: 100%;
             z-index: 1;
@@ -183,6 +182,8 @@ class Menu extends React.Component {
 
           @below desktop {
             .menu {
+              border-bottom: 2px solid ${theme.color.menu.border};
+
               &::after {
                 position: absolute;
                 content: "";
