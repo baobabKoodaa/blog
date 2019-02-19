@@ -16,13 +16,10 @@ const Bodytext = props => {
   return (
     <React.Fragment>
 
-      {/* Option A: Render markdown with Custom Components */}
+      {/* Render markdown with Custom Components */}
       <div className="bodytext">
         {renderAst(content.htmlAst)}
       </div>
-      
-      {/* Option B: Render markdown without Custom Components */}
-      {/* <div className="bodytext" dangerouslySetInnerHTML={{ __html: html }} /> */}
 
       <style jsx>{`
         .bodytext {

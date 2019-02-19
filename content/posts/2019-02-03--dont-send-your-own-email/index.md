@@ -9,7 +9,7 @@ Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus ege
 
 <!-- ![unsplash.com](./mailboxes.jpg "Photo by Mathyas Kurmann on Unsplash") -->
 
-<re-image src="mailboxes.jpg"></re-image>
+<re-image src="mailboxes.jpg" title="Photo by Mathyas Kurmann on Unsplash"></re-image>
 
 Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
 

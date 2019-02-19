@@ -23,6 +23,7 @@ const ReImage = props => {
         {theme => (
           <Picture
           fluid={fluid}
+          title={props.title}
           style={{
             maxWidth: props.presentationWidth,
             margin: '0 auto',
@@ -75,6 +76,6 @@ export default props => (
         }
       }
     `}
-    render={data => <ReImage data={data} src={props.src} />}
+    render={data => <ReImage data={data} src={props.src} title={props.title} />}
   />
 )
