@@ -18,6 +18,7 @@ function locateImage(props) {
 }
 
 const ReImage = props => {
+  console.log(props);
   const fluid = locateImage(props)
   return (
       <ThemeContext.Consumer>
@@ -79,6 +80,8 @@ export default props => (
         }
       }
     `}
-    render={data => <ReImage data={data} src={props.src} title={props.title} />}
+    render={data => (
+      <ReImage data={data} src={props.src} title={props.title} />
+    )}
   />
 )
