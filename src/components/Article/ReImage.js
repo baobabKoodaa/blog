@@ -3,9 +3,7 @@ import Picture from 'gatsby-image';
 import { ThemeContext } from "../../layouts";
 import { StaticQuery, graphql } from 'gatsby';
 
-const ReImage = props => {
-
-  // First locate the image we want to display
+function locateImage(props) {
   const wantedName = props.src.split(".")[0];
   const filteredPosts = props.data.posts.edges.filter(edge => {
     const piecesOfPath = edge.node.frontmatter.cover.children[0].fluid.src.toString().split("/")
@@ -16,13 +14,15 @@ const ReImage = props => {
     throw ("ReImage error! Expected to locate 1 image for " + wantedName + ", instead located " + filteredPosts.length);
   }
   const fluid = filteredPosts[0].node.frontmatter.cover.children[0].fluid
+  return fluid
+}
 
-  // Then display the image
+const ReImage = props => {
   return (
       <ThemeContext.Consumer>
         {theme => (
           <Picture
-          fluid={fluid}
+          fluid={locateImage(props)}
           title={props.title}
           style={{
             maxWidth: props.presentationWidth,
