@@ -110,14 +110,6 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-rehype-images`,
-            options: {
-              tag: 'rehype-image',
-              traceSVG: { color: "#f9ebd2" },
-              base64: true
-            } 
-          },
-          {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 2em`

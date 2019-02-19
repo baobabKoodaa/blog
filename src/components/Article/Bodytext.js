@@ -6,7 +6,7 @@ import ReImage from "./ReImage";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "icons": Icons , "rehype-image": ReImage },
+  components: { "icons": Icons , "re-image": ReImage },
 }).Compiler
 
 const Bodytext = props => {
