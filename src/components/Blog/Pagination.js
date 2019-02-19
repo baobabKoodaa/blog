@@ -8,8 +8,8 @@ const Pagination = props => {
     const { currentPage, numPages } = props.pageContext;
     const isFirst = currentPage === 1 || !currentPage;
     const isLast = currentPage === numPages;
-    const prevPage = currentPage - 1 === 1 ? "/" : (currentPage - 1).toString();
-    const nextPage = (currentPage + 1).toString();
+    const prevPage = "/" + (currentPage - 1 > 1 ? (currentPage - 1) : "");
+    const nextPage = "/" + (currentPage + 1);
 
     const theme = props.theme
 
@@ -18,14 +18,14 @@ const Pagination = props => {
             <div className="pagination">
 
                 {/* "Prev" arrow and text */}
-                {!isLast && (
-                    <Link to={nextPage} rel="next">
-                        <h4 className="next-link-text">
-                            {/*Next*/}
-                        </h4> 
-                        <span className="next-arrow">
-                            <FaArrowRight/>
+                {!isFirst && (
+                    <Link to={prevPage} rel="prev">
+                        <span className="prev-arrow">
+                            <FaArrowLeft/>
                         </span>
+                        <h4 className="prev-link-text">
+                            {/*Prev*/}
+                        </h4>
                     </Link>
                 )}
 
@@ -52,16 +52,17 @@ const Pagination = props => {
                 )}
 
                 {/* "Next" arrow and text */}
-                {!isFirst && (
-                    <Link to={prevPage} rel="prev">
-                        <span className="prev-arrow">
-                            <FaArrowLeft/>
+                {!isLast && (
+                    <Link to={nextPage} rel="next">
+                        <h4 className="next-link-text">
+                            {/*Next*/}
+                        </h4> 
+                        <span className="next-arrow">
+                            <FaArrowRight/>
                         </span>
-                        <h4 className="prev-link-text">
-                            {/*Prev*/}
-                        </h4>
                     </Link>
                 )}
+
 
             </div>
             <style jsx>{`
@@ -73,7 +74,7 @@ const Pagination = props => {
             
                 .pagination {
                     display: flex;
-                    flex-direction: row-reverse;
+                    flex-direction: row;
                     justify-content: center;
                     padding: ${theme.space.l} ${theme.space.l} ${theme.space.l};
                     margin: ${theme.space.stack.l};
