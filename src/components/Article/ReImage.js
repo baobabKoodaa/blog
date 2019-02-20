@@ -19,27 +19,55 @@ function locateImage(props) {
 }
 
 const ReImage = props => {
-  console.log(props);
+  console.log(props)
   const fluid = locateImage(props)
+  
   return (
       <ThemeContext.Consumer>
         {theme => (
           <a href={fluid.originalImg} target="_blank">
-            <Picture
-            fluid={fluid}
-            title={props.title}
-            style={{
-              maxWidth: props.presentationWidth,
-              margin: '0 auto',
-              border: 0,
-              display: 'block',
-              margin: '2.5em 0',
-              borderRadius: theme.size.radius.default,
-              overflow: 'hidden',
-              border: '1px solid ' + theme.line.color
-            }}
-            />
+            <div className="imgContainer">
+              <img src={fluid.tracedSVG} title={props.title} style={{
+                position: 'relative',
+                top: 0,
+                left: 0,
+                margin: '2.5em 0',
+                width: "100%",
+                display: 'block',
+                borderRadius: theme.size.radius.default,
+                overflow: 'hidden',
+                border: '1px solid ' + theme.line.color
+              }} />
+              <Picture
+              fluid={fluid}
+              title={props.title}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: "100%",
+                borderRadius: theme.size.radius.default,
+                overflow: 'hidden',
+                border: '1px solid ' + theme.line.color
+              }}
+              />
+        
+            </div>
+            <style jsx>{`
+              .imgContainer {
+                position: relative;
+                top: 0;
+                left: 0;
+              }
+              :global(picture) {
+                transition: 200ms cubic-bezier(.17, .67, .83, .67);
+              }
+              :global(picture):hover {
+                opacity: 0;
+              }
+            `}</style>
           </a>
+          
         )}
       </ThemeContext.Consumer>
   );
