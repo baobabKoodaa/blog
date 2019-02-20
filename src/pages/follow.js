@@ -3,7 +3,6 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
-import Contact from "../components/Contact";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaTag , FaRss , FaPaperPlane } from "react-icons/fa";

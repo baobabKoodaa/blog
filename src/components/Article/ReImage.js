@@ -35,8 +35,7 @@ const ReImage = props => {
                 width: "100%",
                 display: 'block',
                 borderRadius: theme.size.radius.default,
-                overflow: 'hidden',
-                border: '1px solid ' + theme.line.color
+                overflow: 'hidden'
               }} />
               <Picture
               fluid={fluid}
@@ -47,8 +46,7 @@ const ReImage = props => {
                 left: 0,
                 width: "100%",
                 borderRadius: theme.size.radius.default,
-                overflow: 'hidden',
-                border: '1px solid ' + theme.line.color
+                overflow: 'hidden'
               }}
               />
         
@@ -59,11 +57,13 @@ const ReImage = props => {
                 top: 0;
                 left: 0;
               }
-              :global(picture) {
-                transition: 200ms cubic-bezier(.17, .67, .83, .67);
-              }
-              :global(picture):hover {
-                opacity: 0;
+              @from-width desktop {
+                :global(picture) {
+                  transition: 200ms cubic-bezier(.17, .67, .83, .67);
+                }
+                :global(picture):hover {
+                  opacity: 0;
+                }
               }
             `}</style>
           </a>
@@ -96,7 +96,7 @@ export default props => (
                 cover {
                   children {
                     ... on ImageSharp {
-                      fluid(maxWidth: 800, traceSVG: { color: "#f9ebd2" }) {
+                      fluid(maxWidth: 800, traceSVG: { color: "#f9ebd2", blackOnWhite: true }) {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                         originalImg
                       }
