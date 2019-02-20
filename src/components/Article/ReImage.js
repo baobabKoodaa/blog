@@ -4,7 +4,8 @@ import React from 'react';
 import { ThemeContext } from "../../layouts";
 
 function locateImage(props) {
-  const wantedName = props.src.split(".")[0];
+  const split = props.src.split(".")
+  const wantedName = split[split.length-2]
   const filteredPosts = props.data.posts.edges.filter(edge => {
     const piecesOfPath = edge.node.frontmatter.cover.children[0].fluid.src.toString().split("/")
     const imageName = piecesOfPath[piecesOfPath.length-1].split(".")[0]
