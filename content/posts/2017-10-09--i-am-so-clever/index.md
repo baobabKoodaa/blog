@@ -5,7 +5,7 @@ cover: photo-1507124484497-b7f446e65519.jpg
 author: greg lobinski
 ---
 
-![unsplash.com](./photo-1507124484497-b7f446e65519.jpg)
+<re-image src="photo-1507124484497-b7f446e65519.jpg"></re-image>
 
 [The Big Oxmox](http://google.com) advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.
 

@@ -16,7 +16,7 @@ into the belt and made herself on the way.
 
 Praesent accumsan odio in ante ullamcorper id pellentesque mauris rhoncus. Duis vitae neque dolor. Duis sed purus at eros bibendum cursus nec a nulla. Donec turpis quam, ultricies id pretium sit amet, gravida eget leo.
 
-![unsplash.com](./photo-1489900464632-5f5907edda24.jpg)
+<re-image src="photo-1489900464632-5f5907edda24.jpg"></re-image>
 
 Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo. Suspendisse egestas est ac dolor imperdiet pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
