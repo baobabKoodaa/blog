@@ -84,7 +84,7 @@ export default props => (
               size
               extension
               childImageSharp {
-                fluid(maxWidth: 800, traceSVG: { color: "#f9ebd2", blackOnWhite: true }) {
+                fluid(maxWidth: 800, quality: 70, traceSVG: { color: "#f9ebd2", blackOnWhite: true }) {
                     originalImg
                     tracedSVG
                     src
