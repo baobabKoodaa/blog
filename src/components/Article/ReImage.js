@@ -4,22 +4,19 @@ import React from 'react';
 import { ThemeContext } from "../../layouts";
 
 function locateImage(props) {
-  const split = props.src.split(".")
-  const wantedName = split[split.length-2]
-  const filteredPosts = props.data.posts.edges.filter(edge => {
-    const piecesOfPath = edge.node.frontmatter.cover.children[0].fluid.src.toString().split("/")
-    const imageName = piecesOfPath[piecesOfPath.length-1].split(".")[0]
-    return imageName.includes(wantedName);
+  const filteredPosts = props.data.images.edges.filter(edge => {
+    const piecesOfPath = edge.node.childImageSharp.fluid.src.toString().split("/")
+    const imageName = piecesOfPath[piecesOfPath.length-1]
+    return imageName.includes(props.src);
   })  
   if (filteredPosts.length != 1) {
     throw ("ReImage error! Expected to locate 1 image for " + wantedName + ", instead located " + filteredPosts.length);
   }
-  const fluid = filteredPosts[0].node.frontmatter.cover.children[0].fluid
+  const fluid = filteredPosts[0].node.childImageSharp.fluid
   return fluid
 }
 
 const ReImage = props => {
-  console.log(props)
   const fluid = locateImage(props)
   
   return (
@@ -73,35 +70,28 @@ const ReImage = props => {
   );
 };
 
-//export default ReImage;
-
+// TODO: replace this awful hack with a plugin that does the transformation.
 export default props => (
   <StaticQuery
     //eslint-disable-next-line no-undef
     query={graphql`
       query {
-        posts: allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "//posts/[0-9]+.*--/" } }
-        ) {
+        images: allFile(filter: { absolutePath: { regex: "//posts/[0-9]+.*--.*(jpg|png|gif)$/" } }) {
           edges {
             node {
-              excerpt
-              fields {
-                slug
-                prefix
-              }
-              frontmatter {
-                title
-                tags
-                cover {
-                  children {
-                    ... on ImageSharp {
-                      fluid(maxWidth: 800, traceSVG: { color: "#f9ebd2", blackOnWhite: true }) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                        originalImg
-                      }
-                    }
-                  }
+              absolutePath
+              id
+              size
+              extension
+              childImageSharp {
+                fluid(maxWidth: 800, traceSVG: { color: "#f9ebd2", blackOnWhite: true }) {
+                    originalImg
+                    tracedSVG
+                    src
+                    srcSet
+                    aspectRatio
+                    srcSetWebp
+                    sizes
                 }
               }
             }
