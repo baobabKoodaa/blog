@@ -1,7 +1,7 @@
 ---
 title: About
 ---
-![](avatar-large.jpeg)
+<re-image src="avatar-large.jpeg"></re-img>
 
 Hi there. I'm Baobab Koodaa and this is my personal blog.
 I ramble about code, data, and other geeky interests.

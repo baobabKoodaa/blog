@@ -17,6 +17,7 @@ const Bodytext = props => {
     <React.Fragment>
 
       {/* Render markdown with Custom Components */}
+      
       <div className="bodytext">
         {renderAst(content.htmlAst)}
       </div>

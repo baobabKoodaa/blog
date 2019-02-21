@@ -30,8 +30,14 @@ const WebPresenceIcons = () => {
                             }
                         }
                         @from-width desktop {
+                            .icons :global(a svg) {
+                                margin-top: 20px;
+                                transition: 500ms;
+                            }
                             @media (hover: hover) {
                                 .icons :global(a:hover svg) {
+                                    margin-top: 0px;
+                                    margin-bottom: 20px;
                                     fill: ${theme.color.brand.primaryDark};
                                 }
                             }

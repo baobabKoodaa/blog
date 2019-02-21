@@ -10,7 +10,7 @@ function locateImage(props) {
     return imageName.includes(props.src);
   })  
   if (filteredPosts.length != 1) {
-    throw ("ReImage error! Expected to locate 1 image for " + wantedName + ", instead located " + filteredPosts.length);
+    throw ("ReImage error! Expected to locate 1 image for " + props.src + ", instead located " + filteredPosts.length);
   }
   const fluid = filteredPosts[0].node.childImageSharp.fluid
   return fluid
@@ -76,7 +76,7 @@ export default props => (
     //eslint-disable-next-line no-undef
     query={graphql`
       query {
-        images: allFile(filter: { absolutePath: { regex: "//posts/[0-9]+.*--.*(jpg|png|gif)$/" } }) {
+        images: allFile(filter: { absolutePath: { regex: "//(posts|pages)/[0-9]+.*--.*(jpg|jpeg|png|gif)$/" } }) {
           edges {
             node {
               absolutePath
