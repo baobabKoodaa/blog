@@ -150,7 +150,7 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         // Create "paginated homepage" == pages which list blog posts
-        const postsPerPage = 5;
+        const postsPerPage = 10;
         const nonDraftPosts = posts.filter(item => item.node.fields.prefix)
         const numPages = Math.ceil(nonDraftPosts.length / postsPerPage);
 

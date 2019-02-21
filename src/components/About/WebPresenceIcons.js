@@ -2,6 +2,7 @@ import React from "react"
 import { ThemeContext } from "../../layouts";
 import { FaGithub, FaStackOverflow, FaLinkedin, FaYoutube } from 'react-icons/fa'
 import config from "../../../content/meta/config";
+import Codeforces from "../../images/svg-icons/codeforces.svg";
 
 const WebPresenceIcons = () => {
     return (
@@ -14,8 +15,8 @@ const WebPresenceIcons = () => {
                             <a href={config.authorGithub} target="_blank"><FaGithub/></a>
                             <a href={config.authorStackoverflow} target="_blank"><FaStackOverflow/></a>
                             <a href={config.authorLinkedin} target="_blank"><FaLinkedin/></a>
+                            <a href={config.authorCodeforces} target="_blank"><Codeforces/></a>
                             <a href={config.authorYoutube} target="_blank"><FaYoutube/></a>
-                            {/* TODO Codeforces */}
                         </div>
                         <style jsx>{`
                         .wrapper {
@@ -23,10 +24,15 @@ const WebPresenceIcons = () => {
                         }
                         .icons {
                             display: inline-block;
-                            font-size: 60px;
+                            font-size: 40px;
                             :global(svg) {
                                 margin: 10px;
-                                fill: ${theme.color.brand.primary};
+                                fill: ${theme.color.brand.primary} !important;
+                            }
+                        }
+                        @from-width tablet {
+                            .icons {
+                                font-size: 60px;
                             }
                         }
                         @from-width desktop {
@@ -38,7 +44,7 @@ const WebPresenceIcons = () => {
                                 .icons :global(a:hover svg) {
                                     margin-top: 0px;
                                     margin-bottom: 20px;
-                                    fill: ${theme.color.brand.primaryDark};
+                                    fill: ${theme.color.brand.primaryDark} !important;
                                 }
                             }
                         }
