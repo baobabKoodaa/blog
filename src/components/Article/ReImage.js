@@ -56,7 +56,7 @@ const ReImage = props => {
               }
               @from-width desktop {
                 :global(picture) {
-                  transition: 200ms cubic-bezier(.17, .67, .83, .67);
+                  transition: 300ms ease-in-out;
                 }
                 :global(picture):hover {
                   opacity: 0;
