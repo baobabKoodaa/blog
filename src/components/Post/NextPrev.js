@@ -20,6 +20,8 @@ const NextPrev = props => {
 
   const flexb = (nextSlug && prevSlug ? "50%" : "100%") /* If only one link available, it can take 100% of space. */
 
+  if (!nextSlug && !prevSlug) return (<span></span>); /* If neither prev nor next is available, don't put weird empty space there. */
+
   return (
     <React.Fragment>
       <div className="links">
