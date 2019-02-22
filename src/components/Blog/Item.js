@@ -159,6 +159,13 @@ const Item = props => {
             padding: 0 ${theme.space.default};
           }
         }
+        @below desktop {
+          li {
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
         @from-width desktop {
           li {
             margin: ${`calc(${theme.space.default} * 4) 0 calc(${theme.space.default} * 5)`};
