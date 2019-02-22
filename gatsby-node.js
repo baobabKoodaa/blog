@@ -161,6 +161,7 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               limit: postsPerPage,
               skip: i * postsPerPage,
+              filePathRegex: "//" + (process.env.POSTS_FOLDER || 'mock_posts') + "/[0-9]+.*--/",
               numPages,
               currentPage: i + 1
             }

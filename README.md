@@ -14,13 +14,25 @@ This is the source for my blog » [see website in action](TODO)
 
 ## Feel free to fork
 
-- Pull requests are welcome
-- You have permission to use the source code (within license terms), but not the content (e.g. blog posts).
+- If you see something to fix, please send me a pull request (or at least a message)
+- Want to create your own blog with this repo? You are free to do so (within license terms).
+- Want to reuse my content? Please ask for permission first (license in this repo does not apply to content).
+
+### How to create your own blog with this repo
+
 - Prerequisites: learn about ReactJS and GatsbyJS.
-- TODO: [How to install, setup and add new content to a Blog starter](https://dev.greglobinski.com/install-blog-starter/)
-- [OPTIONAL] If you want a search page: [Setup Algolia account for your GatsbyJS blog](https://dev.greglobinski.com/setup-algolia-account/)
+- Install like any other Gatsby starter: `gatsby new my_fork_name https://github.com/baobabkoodaa/blog.git`.
+- Run in development mode with `gatsby develop`.
+- Run in production mode with `./buildserve` (you need to make the script executable first). This script flushes cache before building. It's workaround to a Gatsby issue where Gatsby sometimes leaks development data into production build.
+- Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used. You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
+- It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
+- Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
+- Setup your caching and redirects according to your host rules. I recommend Netlify, in which case cache configuration in `static/_headers` is fine, you just need to edit 1 line in `static/_redirects`.
+- Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
+- [OPTIONAL] If you want Google Analytics: add `GOOGLE_ANALYTICS_ID=123456` to environment variables.
 - [OPTIONAL] If you want a contact page: [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
-- Gatsby sometimes leaks development data into production build. As a workaround for this issue, there is a buildserve shell script which flushes cache before building.
+- [OPTIONAL] If you want a Search page with Algolia: mostly follow instructions from [here](https://dev.greglobinski.com/setup-algolia-account/). Search for commented out code with 'algolia'.
+
 
 ## Attribution
 

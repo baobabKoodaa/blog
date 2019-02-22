@@ -88,9 +88,11 @@ export default IndexPage;
 
 //eslint-disable-next-line no-undef
 export const query = graphql`
-  query IndexQuery($skip: Int!, $limit: Int!) {
+  query IndexQuery($skip: Int!, $limit: Int!, $filePathRegex: String!) {
     posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts/[0-9]+.*--/" } }
+      filter: {
+        fileAbsolutePath: { regex: $filePathRegex }
+      }
       sort: { fields: [fields___prefix], order: DESC }
       limit: $limit
       skip: $skip

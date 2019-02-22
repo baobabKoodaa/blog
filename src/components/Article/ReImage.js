@@ -3,6 +3,7 @@ import Picture from 'gatsby-image';
 import React from 'react';
 import { ThemeContext } from "../../layouts";
 
+
 function locateImage(props) {
   const filteredPosts = props.data.images.edges.filter(edge => {
     const piecesOfPath = edge.node.childImageSharp.fluid.src.toString().split("/")
@@ -76,13 +77,14 @@ export default props => (
     //eslint-disable-next-line no-undef
     query={graphql`
       query {
-        images: allFile(filter: { absolutePath: { regex: "//(posts|pages)/[0-9]+.*--.*(jpg|jpeg|png|gif)$/" } }) {
+        images: allFile(
+          filter: {
+            absolutePath: { regex: "//[0-9]+.*--.*(jpg|jpeg|png)$/" }
+            sourceInstanceName: { in: ["pages", "posts"] }
+          }
+        ) {
           edges {
             node {
-              absolutePath
-              id
-              size
-              extension
               childImageSharp {
                 fluid(maxWidth: 800, quality: 70, traceSVG: { color: "#f9ebd2", blackOnWhite: true }) {
                     originalImg

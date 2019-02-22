@@ -8,7 +8,7 @@ import Headline from "../components/Article/Headline";
 import List from "../components/List";
 import Seo from "../components/Seo";
 
-const TagPage = props => {
+const TagsPage = props => {
   const {
     data: {
       posts: { edges: posts }
@@ -85,17 +85,19 @@ const TagPage = props => {
   );
 };
 
-TagPage.propTypes = {
+TagsPage.propTypes = {
   data: PropTypes.object.isRequired
 };
 
-export default TagPage;
+export default TagsPage;
 
 //eslint-disable-next-line no-undef
 export const query = graphql`
   query PostsQuery {
     posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts/[0-9]+.*--/" } }
+      filter: {
+        fileAbsolutePath: { regex: "//[0-9]+.*--/" }
+      }
       sort: { fields: [fields___prefix], order: DESC }
     ) {
       edges {
