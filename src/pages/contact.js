@@ -22,7 +22,7 @@ const ContactPage = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo/>
+      <Seo pageTitle="Contact"/>
     </React.Fragment>
   );
 };

@@ -80,7 +80,7 @@ const TagsPage = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo/>
+      <Seo pageTitle="Tags"/>
     </React.Fragment>
   );
 };

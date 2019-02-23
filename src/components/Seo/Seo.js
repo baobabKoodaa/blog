@@ -5,12 +5,13 @@ import config from "../../../content/meta/config";
 
 const Seo = props => {
   const { data } = props;
+  const pageTitle = props.pageTitle;
   const postTitle = ((data || {}).frontmatter || {}).title;
   const postDescription = ((data || {}).frontmatter || {}).description;
   const postCover = ((data || {}).frontmatter || {}).cover;
   const postSlug = ((data || {}).fields || {}).slug;
 
-  const title = postTitle ? `${postTitle} - ${config.shortSiteTitle}` : config.siteTitle;
+  const title = config.shortSiteTitle + " - " + (postTitle || pageTitle)
   const description = postDescription ? postDescription : config.siteDescription;
   const image = postCover ? postCover : config.siteImage;
   const url = config.siteUrl + config.pathPrefix + postSlug;

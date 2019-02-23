@@ -63,7 +63,7 @@ class IndexPage extends React.Component {
             <React.Fragment>
               <Blog posts={posts} theme={theme} />
               <Pagination pageContext={this.props.pageContext} theme={theme} />
-              <Seo />
+              <Seo pageTitle="Blog home"/>
 
               <style jsx>{`
                 hr {

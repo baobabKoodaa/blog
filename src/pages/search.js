@@ -33,7 +33,7 @@ const SearchPage = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo/>
+      <Seo pageTitle="Search"/>
 
       {/* --- STYLES --- */}
       <style jsx>{`

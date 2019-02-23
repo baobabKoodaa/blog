@@ -76,7 +76,7 @@ const FollowPage = props => {
           </Article>
         )}
       </ThemeContext.Consumer>
-      <Seo/>
+      <Seo pageTitle="Follow"/>
     </React.Fragment>
     
   );
