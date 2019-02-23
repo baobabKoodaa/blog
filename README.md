@@ -51,6 +51,6 @@ Main changes from Greg's version:
 - Contact Form submission used to require entire web site to be hosted on Netlify. Now the Contact Form submission uses Google Scripts and web site hosting / form handling can be changed independently.
 - Allow multiple tags (used to be just 1 category per post)
 - Allow custom React components inside Markdown files
-- Added follow page
+- Added 'Follow' page, so users know that RSS feed exists (also link to email newsletter)
 - Added pagination (thanks, [Joan Mira](https://github.com/gazpachu)!)
 - Many design changes. Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
