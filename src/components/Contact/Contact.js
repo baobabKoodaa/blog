@@ -141,6 +141,10 @@ const Contact = props => {
                 background: ${theme.color.brand.primary};
                 border: 1px solid ${theme.color.brand.primary};
               }
+              .form :global(.ant-btn-primary:hover) {
+                background: ${theme.color.brand.primaryDark};
+                
+              }
               .form :global(.ant-form-explain) {
                 margin-top: 0.2em;
               }
