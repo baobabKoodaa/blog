@@ -11,7 +11,7 @@ Fusce a metus eu diam varius congue nec nec sapien. Nunc convallis accumsan just
 
 Praesent accumsan odio in ante ullamcorper id pellentesque mauris rhoncus. Duis vitae neque dolor. Duis sed purus at eros bibendum cursus nec a nulla. Donec turpis quam, ultricies id pretium sit amet, gravida eget leo.
 
-<re-image src="photo-1456518563096-0ff5ee08204e.jpg"></re-image>
+<re-img src="photo-1456518563096-0ff5ee08204e.jpg"></re-img>
 
 The Big Oxmox advised her not to do so, because there were thousands of
 bad Commas, wild Question Marks and devious Semikoli, but the Little

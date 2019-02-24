@@ -24,7 +24,8 @@ This is the source for my blog »»» [https://blog.baobab.fi](https://blog.baob
 - Install like any Gatsby starter: `gatsby new my_fork_name https://github.com/baobabkoodaa/blog.git`.
 - Run in development mode with `gatsby develop`.
 - Run in production mode with `./buildserve` (you need to make the script executable first). This script flushes cache before building to work-around a Gatsby issue where sometimes development data leaks into production build.
-- Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used. You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
+- When you create content in `posts`, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published.
+- Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
 - It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
 - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
 - Search all files for "baobab" and "greg".

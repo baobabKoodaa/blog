@@ -106,7 +106,17 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 800,
-              backgroundColor: "transparent"
+              backgroundColor: "transparent",
+              tracedSVG: { color: '#f9ebd2' }
+            }
+          },
+          {
+            resolve: `gatsby-remark-rehype-images`,
+            options: {
+              tag: 're-img',
+              quality: 90,
+              tracedSVG: { color: '#f9ebd2' },
+              generateTracedSVG: true
             }
           },
           {

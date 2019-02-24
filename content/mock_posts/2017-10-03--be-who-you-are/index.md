@@ -17,7 +17,7 @@ Rviverra sodales ipsum gravida nec. Integer gravida nisi ut magna mollis molesti
 
 Praesent accumsan odio in ante ullamcorper id pellentesque mauris rhoncus. Duis vitae neque dolor. Duis sed purus at eros bibendum cursus nec a nulla. Donec turpis quam, ultricies id pretium sit amet, gravida eget leo.
 
-<re-image src="photo-1489824904134-891ab64532f1.jpg"></re-image>
+<re-img src="photo-1489824904134-891ab64532f1.jpg"></re-img>
 
 Proin ornare ligula eu tellus tempus elementum. Aenean bibendum iaculis mi, nec blandit lacus interdum vitae. Vestibulum non nibh risus, a scelerisque purus. Ut vel arcu ac tortor adipiscing hendrerit vel sed massa. Fusce sem libero, lacinia vulputate interdum non, porttitor non quam. Aliquam sed felis ligula. Duis non nulla magna.
 
