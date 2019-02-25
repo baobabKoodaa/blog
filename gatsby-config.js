@@ -115,6 +115,8 @@ module.exports = {
             options: {
               tag: 're-img',
               quality: 90,
+              webP: true,
+              toFormat: 'WEBP',
               tracedSVG: { color: '#f9ebd2' },
               generateTracedSVG: true
             }

@@ -7,8 +7,6 @@ const ReImg = (props) => {
     const fluid = JSON.parse(props.rehyped);
     delete fluid.base64 // Workaround a Gatsby bug where both "blur-up" and "tracedSVG" placeholders are shown on top of each other
 
-    console.log(fluid.tracedSVG);
-
     return (
         <ThemeContext.Consumer>
             {theme => (
