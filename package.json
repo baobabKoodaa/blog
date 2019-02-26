@@ -47,6 +47,7 @@
     "react-md-spinner": "^0.3.0",
     "react-obfuscate": "^3.1.1",
     "react-share": "^2.2.0",
+    "react-simple-infinite-scroll": "0.0.1",
     "react-visibility-sensor": "^5.0.2",
     "rehype-react": "^3.1.0",
     "styled-jsx": "^2.2.7",

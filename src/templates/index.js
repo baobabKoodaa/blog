@@ -6,11 +6,52 @@ import Blog from "../components/Blog";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
 import Pagination from "../components/Blog/Pagination";
+import { InfiniteScroll } from 'react-simple-infinite-scroll'
 
 class IndexPage extends React.Component {
 
-  separator = React.createRef();
+  state = {
+    items: [],
+    isLoading: true,
+    cursor: 2
+  }
 
+  componentDidMount() {
+    // don't do paginated fetch for first items, it would be slow
+    // this.loadMore()
+
+    // Instead load initial items fast
+    console.log(this.props);
+    this.setState(state => ({
+      items: [...state.items, ...this.props.data.posts.edges],
+      isLoading: false,
+      cursor: this.props.pageContext.currentPage+1
+    }))
+  }
+
+  loadMore = () => {
+    console.log("Loading more...")
+    this.setState({ isLoading: true, error: undefined })
+    fetch(`/paginationJson/index${this.state.cursor}.json`) // TODO MAKE PATH WORK EVERYWHERE ????????????????????????
+      .then(res => res.json())
+      .then(
+        res => {
+          this.setState(state => ({
+            items: [...state.items, ...res],
+            cursor: state.cursor + 1,
+            isLoading: false
+          }))
+          console.log("State:")
+          console.log(this.state)
+        },
+        error => {
+          this.setState({ isLoading: false, error })
+        }
+    )
+  }
+
+  // Was this used for Hero-arrow?
+  separator = React.createRef();
   scrollToContent = e => {
     this.separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
   };
@@ -62,19 +103,43 @@ class IndexPage extends React.Component {
         <ThemeContext.Consumer>
           {theme =>
             <React.Fragment>
-              <Blog posts={posts} theme={theme} />
-              <Pagination pageContext={this.props.pageContext} theme={theme} />
-              <Seo pageTitle="Blog home"/>
+              <div>
+                <InfiniteScroll
+                throttle={100}
+                threshold={300}
+                isLoading={this.state.isLoading}
+                hasMore={!!this.state.cursor}
+                onLoadMore={this.loadMore}
+                >
 
-              <style jsx>{`
-                hr {
-                  margin: 0;
-                  border: 0;
-                }
-              `}</style>
+                  {/* {this.state.items.length > 0
+                    ? this.state.items.map(item => (
+                        <React.Fragment><br/><br/><h1 key="item">i hAZ POST</h1></React.Fragment>
+                      ))
+                    : null
+                  } */}
+
+                  <Blog posts={this.state.items} theme={theme} />
+
+
+                  <style jsx>{`
+                    hr {
+                      margin: 0;
+                      border: 0;
+                    }
+                  `}</style>
+                </InfiniteScroll>
+                {/*TODO: LOADING indicator:
+                  this.state.isLoading && (
+                  <MyLoadingState />
+                )*/} 
+              </div>
+              <Pagination pageContext={this.props.pageContext} theme={theme}/>
+              <Seo pageTitle="Blog home"/>
             </React.Fragment>
           }
         </ThemeContext.Consumer>
+        
       </React.Fragment>
     );
   }
