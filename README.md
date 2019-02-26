@@ -23,7 +23,7 @@ Have a peek »»» [https://blog.baobab.fi](https://blog.baobab.fi)
 - Prerequisites: learn about ReactJS and GatsbyJS.
 - Install like any Gatsby starter: `gatsby new my_fork_name https://github.com/baobabkoodaa/blog.git`.
 - Run in development mode with `gatsby develop`.
-- Run in production mode with `./buildserve` (you need to make the script executable first). This script flushes cache before building to work-around a Gatsby issue where sometimes development data leaks into production build.
+- Run in production mode with `gatsby build && gatsby serve` (or `./fastbuild.sh`). If you want to delete `cache` and `public` before building, use `./slowbuild.sh` (recommended for releases to avoid leaking development data). You may have to make the scripts executable before you are able to run them (`chmod +x filename`).
 - When you create content in `posts`, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published.
 - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
 - It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
@@ -41,6 +41,7 @@ Have a peek »»» [https://blog.baobab.fi](https://blog.baobab.fi)
 
 Hi, I'm Baobab. I didn't start this from scratch.
 - I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/)
+- Contributions to pagination from [Joan Mira](https://github.com/gazpachu) and infinite scroll from [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll))
 - Photos are mostly from [Unsplash](https://www.unsplash.com/), hover over to see photographer attribution.
 - Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
 
@@ -53,6 +54,5 @@ Main changes from Greg's version:
 - Allow multiple tags (used to be just 1 category per post)
 - Allow custom React components inside Markdown files
 - Added 'Follow' page, so users know that RSS feed exists (also link to email newsletter)
-- Added pagination (thanks, [Joan Mira](https://github.com/gazpachu)!)
-- Added infinite scroll (adapted from [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll))
+- Added infinite scroll, which gracefully degrades into pagination.
 - Many design changes. Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
