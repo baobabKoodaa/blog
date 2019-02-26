@@ -36,7 +36,7 @@ class IndexPage extends React.Component {
         res => {
           this.setState(state => ({
             items: [...state.items, ...res],
-            cursor: (state.cursor+1 <= this.props.pageContext.numPages ? state.cursor+1 : 0),
+            cursor: state.cursor+1,
             isLoading: false
           }))
         },
@@ -46,33 +46,7 @@ class IndexPage extends React.Component {
     )
   }
 
-  // Was this used for Hero-arrow?
-  separator = React.createRef();
-  scrollToContent = e => {
-    this.separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
-  };
-
   render() {
-    const {
-      data: {
-        posts: { edges: posts = [] },
-        bgDesktop: {
-          resize: { src: desktop }
-        },
-        bgTablet: {
-          resize: { src: tablet }
-        },
-        bgMobile: {
-          resize: { src: mobile }
-        }
-      }
-    } = this.props;
-
-    const backgrounds = {
-      desktop,
-      tablet,
-      mobile
-    };
 
     return (
       <React.Fragment>
@@ -80,43 +54,23 @@ class IndexPage extends React.Component {
           {theme =>
             <React.Fragment>
 
-              {/* Uncomment this to get Hero section. 
+              {/* Uncomment this to get Hero section. */}
               {this.props.pageContext.currentPage == 1 && (
                 <React.Fragment>
-                  <Hero
-                  scrollToContent={this.scrollToContent}
-                  backgrounds={backgrounds}
-                  theme={theme}
-                  />
-                  <hr ref={this.separator} />
+                  <Hero theme={theme} />
                 </React.Fragment>
-              )}*/}
+              )}
 
               <div>
                 <InfiniteScroll
                 throttle={100}
                 threshold={300}
                 isLoading={this.state.isLoading}
-                hasMore={!!this.state.cursor}
+                hasMore={this.state.cursor <= this.props.pageContext.numPages}
                 onLoadMore={this.loadMore}
                 >
-
-                  {/* {this.state.items.length > 0
-                    ? this.state.items.map(item => (
-                        <React.Fragment><br/><br/><h1 key="item">i hAZ POST</h1></React.Fragment>
-                      ))
-                    : null
-                  } */}
-
                   <Blog posts={this.state.items} theme={theme} />
 
-
-                  <style jsx>{`
-                    hr {
-                      margin: 0;
-                      border: 0;
-                    }
-                  `}</style>
                 </InfiniteScroll>
                 {/*TODO: LOADING indicator:
                   this.state.isLoading && (
@@ -175,21 +129,6 @@ export const query = graphql`
             }
           }
         }
-      }
-    }
-    bgDesktop: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-      resize(width: 1200, quality: 90, cropFocus: CENTER) {
-        src
-      }
-    }
-    bgTablet: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-      resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
-        src
-      }
-    }
-    bgMobile: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-      resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
-        src
       }
     }
   }
