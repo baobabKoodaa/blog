@@ -54,4 +54,5 @@ Main changes from Greg's version:
 - Allow custom React components inside Markdown files
 - Added 'Follow' page, so users know that RSS feed exists (also link to email newsletter)
 - Added pagination (thanks, [Joan Mira](https://github.com/gazpachu)!)
+- Added infinite scroll (adapted from [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll))
 - Many design changes. Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)

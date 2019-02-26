@@ -6,7 +6,7 @@ import Blog from "../components/Blog";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
 import Pagination from "../components/Blog/Pagination";
-import { InfiniteScroll } from 'react-simple-infinite-scroll'
+import { InfiniteScroll } from "../components/Blog/InfiniteScroll";
 
 class IndexPage extends React.Component {
 
@@ -80,29 +80,22 @@ class IndexPage extends React.Component {
 
     return (
       <React.Fragment>
-
-        {/* Uncomment this to get Hero section. */}
-        {/*isFirst ? (
-          <React.Fragment>
-
-            
-            { <ThemeContext.Consumer>
-              {theme => (
-                <Hero
-                  scrollToContent={this.scrollToContent}
-                  backgrounds={backgrounds}
-                  theme={theme}
-                />
-              )}
-            </ThemeContext.Consumer> 
-            <hr ref={this.separator} />
-
-          </React.Fragment>
-        ) : null}*/}
-
         <ThemeContext.Consumer>
           {theme =>
             <React.Fragment>
+
+              {/* Uncomment this to get Hero section. 
+              {this.props.pageContext.currentPage == 1 && (
+                <React.Fragment>
+                  <Hero
+                  scrollToContent={this.scrollToContent}
+                  backgrounds={backgrounds}
+                  theme={theme}
+                  />
+                  <hr ref={this.separator} />
+                </React.Fragment>
+              )}*/}
+
               <div>
                 <InfiniteScroll
                 throttle={100}
