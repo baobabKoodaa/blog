@@ -14,7 +14,7 @@ const Footer = props => {
         .footer {
           background: ${theme.color.neutral.white};
           padding: ${theme.space.inset.default};
-          padding-top: 0;
+          padding-top: 40px;
 
           :global(ul) {
             list-style: none;
@@ -42,7 +42,7 @@ const Footer = props => {
 
         @from-width desktop {
           .footer {
-            padding: 0 1em 1.5em;
+            padding: 40px 1em 1.5em;
           }
         }
       `}</style>
