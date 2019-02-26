@@ -7,6 +7,8 @@ const fs = require('fs');
 
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const { blogPostTeaserFields, blogPostSort } = require(`./src/fragments.js`);
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
@@ -78,41 +80,10 @@ exports.createPages = ({ graphql, actions }) => {
           {
             allMarkdownRemark(
               ` + filters + `
-              sort: {
-                fields: [fields___prefix, fields___slug] order: DESC
-              }
+              ` + blogPostSort + `
               limit: 1000
             ) {
-              edges {
-                node {
-                  id
-                  excerpt
-                  fields {
-                    slug
-                    prefix
-                    source
-                  }
-                  frontmatter {
-                    title
-                    tags
-                    cover {
-                      children {
-                        ... on ImageSharp {
-                          fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
-                            tracedSVG
-                            aspectRatio
-                            src
-                            srcSet
-                            srcWebp
-                            srcSetWebp
-                            sizes
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+              ` + blogPostTeaserFields + `
             }
           }
         `
@@ -199,6 +170,7 @@ exports.createPages = ({ graphql, actions }) => {
         _.times(numPages, i => {
           const pageNum = (i>0 ? i+1 : "");
           const context = {
+            blogPostSort,
             limit: postsPerPage,
             skip: i * postsPerPage,
             filePathRegex: "//" + (process.env.POSTS_FOLDER || 'mock_posts') + "/[0-9]+.*--/",

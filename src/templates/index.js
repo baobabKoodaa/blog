@@ -8,6 +8,7 @@ import Seo from "../components/Seo";
 import Pagination from "../components/Blog/Pagination";
 
 class IndexPage extends React.Component {
+
   separator = React.createRef();
 
   scrollToContent = e => {
@@ -85,6 +86,8 @@ IndexPage.propTypes = {
 };
 
 export default IndexPage;
+
+/******************** DANGER! MUST BE CONSISTENT WITH QUERY IN fragments.js ! */
 
 //eslint-disable-next-line no-undef
 export const query = graphql`
