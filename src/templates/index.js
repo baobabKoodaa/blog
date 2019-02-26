@@ -17,11 +17,10 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    // don't do paginated fetch for first items, it would be slow
+    // If you want to do paginated fetch for first items, uncomment:
     // this.loadMore()
 
     // Instead load initial items fast
-    console.log(this.props);
     this.setState(state => ({
       items: [...state.items, ...this.props.data.posts.edges],
       isLoading: false,
@@ -30,7 +29,6 @@ class IndexPage extends React.Component {
   }
 
   loadMore = () => {
-    console.log("Loading more...")
     this.setState({ isLoading: true, error: undefined })
     fetch(`/paginationJson/index${this.state.cursor}.json`) // TODO MAKE PATH WORK EVERYWHERE ????????????????????????
       .then(res => res.json())
@@ -38,11 +36,9 @@ class IndexPage extends React.Component {
         res => {
           this.setState(state => ({
             items: [...state.items, ...res],
-            cursor: state.cursor + 1,
+            cursor: (state.cursor+1 <= this.props.pageContext.numPages ? state.cursor+1 : 0),
             isLoading: false
           }))
-          console.log("State:")
-          console.log(this.state)
         },
         error => {
           this.setState({ isLoading: false, error })
