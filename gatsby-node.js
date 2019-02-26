@@ -36,6 +36,28 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
+function createPaginationJSON(pageNum, context, nonDraftPosts) {
+
+  // Mangle data
+  const startInclusive = context.skip;
+  const endExclusive = startInclusive + context.limit;
+  const pagePosts = nonDraftPosts.slice(startInclusive, endExclusive)
+  const dataToSave = JSON.stringify(pagePosts);
+
+  // Save data to JSON file
+  const dir = "public/paginationJson/"
+  if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+  }
+  const filePath = dir+"index"+pageNum+".json";
+  console.log("Wrote JSON to " + filePath + " (for infinite scroll)");
+  fs.writeFile(filePath, dataToSave, function(err) {
+    if(err) {
+      return console.log(err);
+    }
+  }); 
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -64,6 +86,7 @@ exports.createPages = ({ graphql, actions }) => {
               edges {
                 node {
                   id
+                  excerpt
                   fields {
                     slug
                     prefix
@@ -72,6 +95,21 @@ exports.createPages = ({ graphql, actions }) => {
                   frontmatter {
                     title
                     tags
+                    cover {
+                      children {
+                        ... on ImageSharp {
+                          fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
+                            tracedSVG
+                            aspectRatio
+                            src
+                            srcSet
+                            srcWebp
+                            srcSetWebp
+                            sizes
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -153,21 +191,25 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         // Create "paginated homepage" == pages which list blog posts
-        const postsPerPage = 10;
+        // And at the same time, create corresponding JSON (for infinite scroll)
+        const postsPerPage = 1;
         const nonDraftPosts = posts.filter(item => item.node.fields.prefix)
         const numPages = Math.ceil(nonDraftPosts.length / postsPerPage);
 
         _.times(numPages, i => {
+          const pageNum = (i>0 ? i+1 : "");
+          const context = {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            filePathRegex: "//" + (process.env.POSTS_FOLDER || 'mock_posts') + "/[0-9]+.*--/",
+            numPages,
+            currentPage: i + 1
+          };
+          createPaginationJSON(pageNum, context, nonDraftPosts);
           createPage({
-            path: i === 0 ? `/` : `/${i + 1}`,
+            path: `/`+pageNum,
             component: path.resolve("./src/templates/index.js"),
-            context: {
-              limit: postsPerPage,
-              skip: i * postsPerPage,
-              filePathRegex: "//" + (process.env.POSTS_FOLDER || 'mock_posts') + "/[0-9]+.*--/",
-              numPages,
-              currentPage: i + 1
-            }
+            context: context
           });
         });
       })
