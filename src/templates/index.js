@@ -163,7 +163,13 @@ export const query = graphql`
               children {
                 ... on ImageSharp {
                   fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
                   }
                 }
               }

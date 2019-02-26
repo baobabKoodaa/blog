@@ -122,6 +122,7 @@ module.exports = {
             resolve: `gatsby-remark-rehype-images`,
             options: {
               tag: 're-img',
+              maxWidth: 800,
               quality: 90,
               webP: true,
               toFormat: 'WEBP',
