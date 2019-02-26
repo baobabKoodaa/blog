@@ -3,6 +3,7 @@ const _ = require("lodash");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require("path");
 const Promise = require("bluebird");
+const fs = require('fs');
 
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -55,7 +56,9 @@ exports.createPages = ({ graphql, actions }) => {
           {
             allMarkdownRemark(
               ` + filters + `
-              sort: { fields: [fields___prefix], order: DESC }
+              sort: {
+                fields: [fields___prefix, fields___slug] order: DESC
+              }
               limit: 1000
             ) {
               edges {

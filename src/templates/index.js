@@ -93,7 +93,7 @@ export const query = graphql`
       filter: {
         fileAbsolutePath: { regex: $filePathRegex }
       }
-      sort: { fields: [fields___prefix], order: DESC }
+      sort: { fields: [fields___prefix, fields___slug], order: DESC }
       limit: $limit
       skip: $skip
     ) {
