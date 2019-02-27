@@ -27,17 +27,12 @@ class IndexPage extends React.Component {
     /*
      *  cursor represents next page which infinite scroll should fetch
      */
-    cursor: this.props.pageContext.currentPage+1,
-    /*
-     *  showPaginationLinks is used as fallback in case of errors or non JS users
-     */
-    showPaginationLinks: true
+    cursor: this.props.pageContext.currentPage+1
   }
 
   componentDidMount() {
     this.setState(state => ({
       isLoading: false, // Allow triggering infinite scroll load
-      showPaginationLinks: false // Hide pagination links for users who are running JS // TODO somehow do this faster?
     }))
 
     // If you want to do paginated fetch for first items, uncomment the following line:
@@ -62,7 +57,7 @@ class IndexPage extends React.Component {
           this.setState({
             isLoading: false,
             error,
-            showPaginationLinks: true // Fallback to pagination on error, too.
+            // TOOD: maybe fallback to pagination on error, too?
           })
         }
     )
@@ -92,16 +87,19 @@ class IndexPage extends React.Component {
             </InfiniteScroll>
 
             {/* Show loading spinner if user scrolls too fast. */}
-            {this.state.isLoading && !this.state.showPaginationLinks && (
+            {this.state.isLoading && (
               <div className="spinner">
                 <FaCog/>
               </div>
             )}
 
-            {/* Fallback to Pagination Links */}
-            {this.state.showPaginationLinks && 
-              <Pagination pageContext={this.props.pageContext} theme={theme}/>
-            }
+            {/* Fallback to Pagination for non JS users. */} 
+            <noscript>
+              <style> 
+                {`.spinner { display: none !important; }`}
+              </style>
+                <Pagination pageContext={this.props.pageContext} theme={theme}/>
+            </noscript>
 
             <Seo pageTitle="Blog home"/>
 
