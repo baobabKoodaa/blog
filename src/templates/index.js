@@ -19,7 +19,7 @@ class IndexPage extends React.Component {
      *    2. render initial paint fast for all users
      *  the initial page depends on pageContext.currentPage (corresponds to a path like "/", "/2", "/3",...)
      */
-    items: this.props.data.posts.edges,
+    items: this.props.pageContext.initialPosts,
     /*
      *  isLoading is used to avoid triggering multiple simultaenous loadings
      */
@@ -129,53 +129,7 @@ class IndexPage extends React.Component {
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired
 };
 
 export default IndexPage;
-
-/******************** DANGER! MUST BE CONSISTENT WITH QUERY IN fragments.js ! */
-
-//eslint-disable-next-line no-undef
-export const query = graphql`
-  query IndexQuery($skip: Int!, $limit: Int!, $filePathRegex: String!) {
-    posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: $filePathRegex }
-      }
-      sort: { fields: [fields___prefix, fields___slug], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            prefix
-          }
-          frontmatter {
-            title
-            tags
-            cover {
-              children {
-                ... on ImageSharp {
-                  fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
-                    tracedSVG
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                    sizes
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;

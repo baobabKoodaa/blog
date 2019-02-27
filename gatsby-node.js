@@ -38,21 +38,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-function createPaginationJSON(pageNum, context, nonDraftPosts) {
-
-  // Mangle data
-  const startInclusive = context.skip;
-  const endExclusive = startInclusive + context.limit;
-  const pagePosts = nonDraftPosts.slice(startInclusive, endExclusive)
-  const dataToSave = JSON.stringify(pagePosts);
-
-  // Save data to JSON file
+function createPaginationJSON(pathSuffix, pagePosts) {
   const dir = "public/paginationJson/"
   if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
   }
-  const filePath = dir+"index"+pageNum+".json";
-  console.log("Wrote JSON to " + filePath + " (for infinite scroll)");
+  const filePath = dir+"index"+pathSuffix+".json";
+  const dataToSave = JSON.stringify(pagePosts);
   fs.writeFile(filePath, dataToSave, function(err) {
     if(err) {
       return console.log(err);
@@ -81,7 +73,6 @@ exports.createPages = ({ graphql, actions }) => {
             allMarkdownRemark(
               ` + filters + `
               ` + blogPostSort + `
-              limit: 1000
             ) {
               ` + blogPostTeaserFields + `
             }
@@ -169,19 +160,22 @@ exports.createPages = ({ graphql, actions }) => {
         const numPages = Math.ceil(nonDraftPosts.length / postsPerPage);
 
         _.times(numPages, i => {
-          const pageNum = (i>0 ? i+1 : "");
-          const context = {
-            limit: postsPerPage,
-            skip: i * postsPerPage,
-            filePathRegex: "//" + (process.env.POSTS_FOLDER || 'mock_posts') + "/[0-9]+.*--/",
-            numPages,
-            currentPage: i + 1
-          };
-          createPaginationJSON(pageNum, context, nonDraftPosts);
+          const pathSuffix = (i>0 ? i+1 : "");
+
+          // Get posts for this page
+          const startInclusive = i * postsPerPage;
+          const endExclusive = startInclusive + postsPerPage;
+          const pagePosts = nonDraftPosts.slice(startInclusive, endExclusive)
+    
+          createPaginationJSON(pathSuffix, pagePosts);
           createPage({
-            path: `/`+pageNum,
+            path: `/`+pathSuffix,
             component: path.resolve("./src/templates/index.js"),
-            context: context
+            context: {
+              numPages,
+              currentPage: i + 1,
+              initialPosts: pagePosts
+            }
           });
         });
       })

@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "prismjs/themes/prism-okaidia.css";
-
-import asyncComponent from "../AsyncComponent";
 import Headline from "../Article/Headline";
 import Bodytext from "../Article/Bodytext";
 import Meta from "./Meta";
