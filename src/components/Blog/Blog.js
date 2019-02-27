@@ -4,7 +4,8 @@ import React from "react";
 import Item from "./Item";
 
 const Blog = props => {
-  const { posts, theme } = props;
+  const posts = props.posts;
+  const theme = props.theme;
 
   return (
     <React.Fragment>

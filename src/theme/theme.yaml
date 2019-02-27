@@ -138,6 +138,7 @@ icon:
 
 # COMPONENT TOKENS
 hero:
+  hide: true
   h1:
     size: *font-size-xxl
     color: *color-white

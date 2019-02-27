@@ -75,10 +75,10 @@ class IndexPage extends React.Component {
         {theme =>
           <React.Fragment>
 
-            {/* Uncomment this to get Hero section.
-            {this.props.pageContext.currentPage == 1 && (
+            {/* Optional Hero section. */}
+            {this.props.pageContext.currentPage == 1 && !theme.hero.hide && (
               <Hero theme={theme} />
-            )} */}
+            )} 
 
             {/* Blog posts with infinite scroll */}
             <InfiniteScroll

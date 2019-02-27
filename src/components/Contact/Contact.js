@@ -12,10 +12,10 @@ const { TextArea } = Input;
 import "antd/lib/form/style/index.css";
 import "antd/lib/input/style/index.css";
 import "antd/lib/button/style/index.css";
-import theme from "../../theme/theme.yaml";
 import config from "../../../content/meta/config";
 
 const Contact = props => {
+  const theme = props.theme;
   const { getFieldDecorator } = props.form;
 
   function encode(data) {
