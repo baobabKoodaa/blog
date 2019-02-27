@@ -10,6 +10,7 @@ Have a peek »»» [https://blog.baobab.fi](https://blog.baobab.fi)
 - Write blog posts into **Markdown** files (easy to format and content will not be married to any platform)
 - **Expandable**: possible to embed custom React components into Markdown
 - Posts organized by **tags**
+- Teasers of posts are generated to front page with **infinite scroll** which gracefully degrades into pagination
 - Allow readers to be notified of updates with **RSS feed** and email newsletter
 
 ## Feel free to fork
@@ -41,7 +42,7 @@ Have a peek »»» [https://blog.baobab.fi](https://blog.baobab.fi)
 
 Hi, I'm Baobab. I didn't start this from scratch.
 - I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/)
-- Contributions to pagination from [Joan Mira](https://github.com/gazpachu) and infinite scroll from [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll))
+- For infinite scroll and pagination I used some code from [Joan Mira](https://github.com/gazpachu) and [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll)
 - Photos are mostly from [Unsplash](https://www.unsplash.com/), hover over to see photographer attribution.
 - Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
 

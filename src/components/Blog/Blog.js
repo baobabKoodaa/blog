@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import Item from "./Item";
+import Teaser from "./Teaser";
 
 const Blog = props => {
   const posts = props.posts;
@@ -18,7 +18,7 @@ const Blog = props => {
                 fields: { slug }
               }
             } = post;
-            return <Item key={slug} post={node} theme={theme} />;
+            return <Teaser key={slug} post={node} theme={theme} />;
           })}
         </ul>
       </main>

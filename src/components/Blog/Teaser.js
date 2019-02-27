@@ -7,7 +7,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Item = props => {
+const Teaser = props => {
   const {
     theme,
     post: {
@@ -236,9 +236,9 @@ const Item = props => {
   );
 };
 
-Item.propTypes = {
+Teaser.propTypes = {
   post: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired
 };
 
-export default Item;
+export default Teaser;
