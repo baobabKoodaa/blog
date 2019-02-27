@@ -27,10 +27,8 @@ const TagTemplate = props => {
                 {tag}
               </Headline>
               <p className="meta">
-                <strong>{totalCount}</strong> post{totalCount >
-                1
-                  ? "s"
-                  : ""}{" "}
+                <strong>{totalCount}</strong>
+                post{totalCount > 1 ? "s " : " "}
                 tagged:
               </p>
               <List edges={edges} theme={theme} />

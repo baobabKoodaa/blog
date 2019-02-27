@@ -72,6 +72,7 @@ const NextPrev = props => {
           border-top: 1px solid ${theme.line.color};
           border-bottom: 1px solid ${theme.line.color};
           margin: ${theme.space.stack.l};
+          margin-bottom: 0;
 
           :global(a) {
             display: flex;

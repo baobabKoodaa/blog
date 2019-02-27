@@ -8,30 +8,29 @@ import Hero from "../components/Hero";
 import Seo from "../components/Seo";
 import Pagination from "../components/Blog/Pagination";
 import { InfiniteScroll } from "../components/Blog/InfiniteScroll";
-import { connectGeoSearch } from "react-instantsearch-dom";
 
 /** Template for "home" page with infinite scroll and fallback to pagination. */
 class IndexPage extends React.Component {
 
   state = {
     /*  items contains posts which should be rendered
-        items is initialized to 1 page of results, in order to:
-          1. render a page to users who have JS disabled
-          2. render initial paint fast for all users
-        the initial page depends on pageContext.currentPage (corresponds to a path like "/", "/2", "/3",...)
-    */
+     *  items is initialized to 1 page of results, in order to:
+     *    1. render a page to users who have JS disabled
+     *    2. render initial paint fast for all users
+     *  the initial page depends on pageContext.currentPage (corresponds to a path like "/", "/2", "/3",...)
+     */
     items: this.props.data.posts.edges,
     /*
-        isLoading is used to avoid triggering multiple simultaenous loadings
-    */
+     *  isLoading is used to avoid triggering multiple simultaenous loadings
+     */
     isLoading: true,
     /*
-        cursor represents next page which infinite scroll should fetch
-    */
+     *  cursor represents next page which infinite scroll should fetch
+     */
     cursor: this.props.pageContext.currentPage+1,
     /*
-        showPaginationLinks is used as fallback in case of errors or non JS users
-    */
+     *  showPaginationLinks is used as fallback in case of errors or non JS users
+     */
     showPaginationLinks: true
   }
 
