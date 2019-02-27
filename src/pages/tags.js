@@ -2,7 +2,7 @@ import { FaTag } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from "gatsby";
-import { ThemeContext } from "../layouts";
+import theme from "../theme/theme.yaml";
 import Article from "../components/Article/";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
@@ -45,40 +45,36 @@ const TagsPage = props => {
 
   return (
     <React.Fragment>
-      <ThemeContext.Consumer>
-        {theme => (
-          <Article theme={theme}>
-            <header>
-              <Headline title="Posts by tags" theme={theme} />
-            </header>
-            {tagList.map(item => (
-              <section key={item[0]}>
-                <h2>
-                  <FaTag /> {item[0]}
-                </h2>
-                <List edges={item[1]} theme={theme} />
-              </section>
-            ))}
-            {/* --- STYLES --- */}
-            <style jsx>{`
-              h2 {
-                margin: 0 0 0.5em;
-                color: ${theme.color.neutral.gray.j};
-                
-              }
-              @from-width desktop {
-                :global(a:hover) {
-                  color: ${theme.color.brand.primary};
-                }
-              }
-              h2 :global(svg) {
-                height: 0.8em;
-                fill: ${theme.color.brand.primary};
-              }
-            `}</style>
-          </Article>
-        )}
-      </ThemeContext.Consumer>
+      <Article theme={theme}>
+        <header>
+          <Headline title="Posts by tags" theme={theme} />
+        </header>
+        {tagList.map(item => (
+          <section key={item[0]}>
+            <h2>
+              <FaTag /> {item[0]}
+            </h2>
+            <List edges={item[1]} theme={theme} />
+          </section>
+        ))}
+        {/* --- STYLES --- */}
+        <style jsx>{`
+          h2 {
+            margin: 0 0 0.5em;
+            color: ${theme.color.neutral.gray.j};
+            
+          }
+          @from-width desktop {
+            :global(a:hover) {
+              color: ${theme.color.brand.primary};
+            }
+          }
+          h2 :global(svg) {
+            height: 0.8em;
+            fill: ${theme.color.brand.primary};
+          }
+        `}</style>
+      </Article>
 
       <Seo pageTitle="Tags"/>
     </React.Fragment>

@@ -5,7 +5,7 @@ require("core-js/fn/array/find");
 
 import Article from "../components/Article";
 import Search from "../components/Search";
-import { ThemeContext } from "../layouts";
+import theme from "../theme/theme.yaml";
 import Seo from "../components/Seo";
 
 import AlgoliaIcon from "!svg-react-loader!../images/svg-icons/search-by-algolia.svg?name=AlgoliaLogo";
@@ -21,21 +21,16 @@ const SearchPage = props => {
 
   return (
     <React.Fragment>
-      <ThemeContext.Consumer>
-        {theme => (
-          <Article theme={theme}>
-            <div className="icon">
-              <AlgoliaIcon />
-            </div>
+      <Article theme={theme}>
+        <div className="icon">
+          <AlgoliaIcon />
+        </div>
 
-            <Search algolia={algolia} theme={theme} />
-          </Article>
-        )}
-      </ThemeContext.Consumer>
+        <Search algolia={algolia} theme={theme} />
+      </Article>
 
       <Seo pageTitle="Search"/>
 
-      {/* --- STYLES --- */}
       <style jsx>{`
         .icon {
           display: flex;
