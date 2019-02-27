@@ -161,6 +161,9 @@ const Teaser = props => {
         }
         @below desktop {
           li {
+            border: 1px solid ${theme.line.color};
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
+            
             &:first-child {
               margin-top: 0;
             }
