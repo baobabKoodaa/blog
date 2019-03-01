@@ -191,7 +191,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }, options) => {
           new BundleAnalyzerPlugin({
             analyzerMode: "static",
             reportFilename: "./report/treemap.html",
-            openAnalyzer: true,
+            openAnalyzer: false,
             logLevel: "error",
             defaultSizes: "gzip"
           })
