@@ -80,65 +80,65 @@ const Pagination = props => {
                     margin: ${theme.space.stack.l};
 
                     .pagination-numbers {
-                    display: flex;
-                    flexWrap: wrap;
-                    maxWidth: 700px;
-                    margin: 0 0 0 0;
-                    alignItems: center;
-                    list-style-type: none;
-                    padding: 0;
-                    lineHeight: 30px;
-                    
-                    :global(a):hover {
-                        background: ${theme.color.brand.primaryLight};
+                        display: flex;
+                        flexWrap: wrap;
+                        maxWidth: 700px;
+                        margin: 0 0 0 0;
+                        alignItems: center;
+                        list-style-type: none;
+                        padding: 0;
+                        lineHeight: 30px;
+
+                        :global(a):hover {
+                            background: ${theme.color.brand.primaryLight};
+                        }
+                    }
+
+
+                    .next-link-text {
+                        color: &color-brand-primary;
+                        width: 100%;
+                        text-align: right;
+                        margin-left: 20px;
+                    }
+                    .prev-link-text {
+                        color: &color-brand-primary;
+                        padding-right: 20px;
+                    }
+
+                    :global(a) {
+                        display: flex;
+                    }
+
+                    :global(a:nth-child(2)) {
+                        margin: 0;
+                    }
+
+
+
+                    h4 {
+                        font-weight: 600;
+                        margin: 0;
+                        font-size: 1.1em;
+                    }
+                    :global(svg) {
+                        fill: ${theme.color.special.attention};
+                        width: ${theme.space.m};
+                        height: ${theme.space.m};
+                        flex-shrink: 0;
+                        flex-grow: 0;
+                        transition: all 0.5s;
+                        margin: ${theme.space.inline.s};
                     }
                 }
 
-
-                .next-link-text {
-                    color: &color-brand-primary;
-                    width: 100%;
-                    text-align: right;
-                    margin-left: 20px;
-                }
-                .prev-link-text {
-                    color: &color-brand-primary;
-                    padding-right: 20px;
-                }
-
-                :global(a) {
-                    display: flex;
-                }
-
-                :global(a:nth-child(2)) {
-                    margin: 0;
-                }
-
-
-
-                h4 {
-                    font-weight: 600;
-                    margin: 0;
-                    font-size: 1.1em;
-                }
-                :global(svg) {
-                    fill: ${theme.color.special.attention};
-                    width: ${theme.space.m};
-                    height: ${theme.space.m};
-                    flex-shrink: 0;
-                    flex-grow: 0;
-                    transition: all 0.5s;
-                    margin: ${theme.space.inline.s};
-                }
-            }
-
-            @from-width desktop {
-                @media (hover: hover) {
-                    .pagination :global(a:hover svg) {
-                        transform: scale(1.5);
+                @from-width desktop {
+                    @media (hover: hover) {
+                        .pagination :global(a:hover svg) {
+                            transform: scale(1.5);
+                        }
                     }
                 }
-            }
             `}
             </style>
         </React.Fragment>
