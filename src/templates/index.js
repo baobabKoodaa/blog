@@ -75,7 +75,7 @@ class IndexPage extends React.Component {
               <Hero theme={theme} />
             )} 
 
-            {/* Blog posts with infinite scroll */}
+            {/* Blog posts with infinite scroll. */}
             <InfiniteScroll
               throttle={100}
               threshold={300}
@@ -86,7 +86,7 @@ class IndexPage extends React.Component {
                 <Blog posts={this.state.items} theme={theme} />
             </InfiniteScroll>
 
-            {/* Show loading spinner if user scrolls too fast. */}
+            {/* Loading spinner. */}
             {this.state.isLoading && (
               <div className="spinner">
                 <FaCog/>

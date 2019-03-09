@@ -11,52 +11,57 @@ const Pagination = props => {
     const prevPage = "/" + (currentPage - 1 > 1 ? (currentPage - 1) : "");
     const nextPage = "/" + (currentPage + 1);
 
+    const verticalAlignment = { paddingTop: "0.45em" }
     const theme = props.theme
+
+    const visiblePageNumbers = selectRelevantPageLinks(currentPage, numPages)
 
     return (
         <React.Fragment>
             <div className="pagination">
 
-                {/* "Prev" arrow and text */}
+                {/* "Prev" arrow */}
                 {!isFirst && (
-                    <Link to={prevPage} rel="prev">
+                    <Link to={prevPage} rel="prev" style={verticalAlignment} >
                         <span className="prev-arrow">
                             <FaArrowLeft/>
                         </span>
-                        <h4 className="prev-link-text">
-                            {/*Prev*/}
-                        </h4>
                     </Link>
                 )}
 
-                {/* Numbered page links. TODO: prevent "overflowing" page links when many links and tiny screen. */}
+                {/* Numbered page links. */}
                 {numPages > 1 && (
-                    <ul className="pagination-numbers">
-                        {Array.from({ length: numPages }, (_, i) => (
-                            <li key={`pagination-number${i + 1}`} style={{ margin: 0 }}>
-                                <Link
-                                    to={`/${i === 0 ? "" : i + 1}`}
-                                    style={{
-                                        padding: "3px 8px",
-                                        borderRadius: "5px",
-                                        textDecoration: "none",
-                                        color: i + 1 === currentPage ? "#ffffff" : "",
-                                        background: i + 1 === currentPage ? theme.color.brand.primary : ""
-                                    }}
-                                >
-                                    {i + 1}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <React.Fragment>
+                        {visiblePageNumbers.map(num => {
+                            if (isNaN(num)) {
+                                return <span key={`dots-${num}`}>.....</span>
+                            }
+                            return (
+                                <span className="pagination-numbers" key={`page-${num}`} >
+                                    <Link
+                                        to={`/${num === 1 ? "" : num}`}
+                                        style={{
+                                            padding: "3px 8px",
+                                            borderRadius: "5px",
+                                            textDecoration: "none",
+                                            color: num === currentPage ? "#ffffff" : "#666",
+                                            background: num === currentPage ? theme.color.brand.primary : "",
+                                            lineHeight: "30px",
+                                            verticalAlign: "middle"
+                                        }}
+                                        className="pagination-numbers"
+                                    >
+                                        {num}
+                                    </Link>
+                                </span>
+                            )
+                        })}
+                    </React.Fragment>
                 )}
 
-                {/* "Next" arrow and text */}
+                {/* "Next" arrow */}
                 {!isLast && (
-                    <Link to={nextPage} rel="next">
-                        <h4 className="next-link-text">
-                            {/*Next*/}
-                        </h4> 
+                    <Link to={nextPage} rel="next" style={verticalAlignment} >
                         <span className="next-arrow">
                             <FaArrowRight/>
                         </span>
@@ -68,7 +73,7 @@ const Pagination = props => {
             <style jsx>{`
                 .next-arrow {
                     :global(svg) {
-                    margin-left: 10px !important;
+                        margin-left: 10px !important;
                     }
                 }
             
@@ -143,6 +148,44 @@ const Pagination = props => {
             </style>
         </React.Fragment>
     );
+}
+
+function selectRelevantPageLinks(currentPage, countPages) {
+    var visiblePageNumbers = []
+    if (countPages <= 10) {
+        /* If there are not too much, show everything. */
+        for (let i=1; i<=countPages; i++) {
+            visiblePageNumbers.push(i)
+        }
+    } else {
+        /* Always show beginning, end, current, and around current. */
+        if (currentPage <= 5) {
+            /* If beginning and current are not too far, we don't want to "dot dot" between them. */
+            for (let i=1; i<currentPage; i++) {
+                visiblePageNumbers.push(i)
+            }
+        } else {
+            visiblePageNumbers.push(1)
+            visiblePageNumbers.push("dots-left-half")
+            visiblePageNumbers.push(currentPage-2)
+            visiblePageNumbers.push(currentPage-1)
+        }
+        visiblePageNumbers.push(currentPage)
+        if (currentPage >= countPages-4) {
+            /* If current and end are not too far, we don't want to "dot dot" between them. */
+            for (let i=currentPage+1; i<countPages; i++) {
+                visiblePageNumbers.push(i)
+            }
+        } else {
+            visiblePageNumbers.push(currentPage+1)
+            visiblePageNumbers.push(currentPage+2)
+            visiblePageNumbers.push("dots-right-half")
+        }
+        if (currentPage !== countPages) {
+            visiblePageNumbers.push(countPages)
+        }
+    }
+    return visiblePageNumbers
 }
 
 Pagination.propTypes = {
