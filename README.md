@@ -24,7 +24,7 @@ Have a peek »»» [https://blog.baobab.fi](https://blog.baobab.fi)
 
 - Prerequisites: learn about ReactJS and GatsbyJS.
 - Fork and `npm install`.
-- Run in development mode with `gatsby develop`.
+- Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
 - Run in production mode with `gatsby build && gatsby serve` (or `./fastbuild.sh`). If you want to delete `cache` and `public` before building, use `./slowbuild.sh` (recommended for releases to avoid leaking development data). You may have to make the scripts executable before you are able to run them (`chmod +x filename`).
 - When you create content in `posts`, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published.
 - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
@@ -57,4 +57,4 @@ Main changes from Greg's version:
 - Allow custom React components inside Markdown files
 - Added 'Follow' page, so users know that RSS feed exists (also link to email newsletter)
 - Added infinite scroll, which gracefully degrades into pagination.
-- Many design changes. Spent a lot of time tweaking image placeholders :tired_face: Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
+- Many design changes. Spent a lot of time tweaking image placeholders :gem: Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
