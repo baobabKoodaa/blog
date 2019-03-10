@@ -162,7 +162,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Create "paginated homepage" == pages which list blog posts.
         // And at the same time, create corresponding JSON for infinite scroll.
         // Users who have JS enabled will see infinite scroll instead of pagination.
-        const postsPerPage = 1;
+        const postsPerPage = 5;
         const numPages = Math.ceil(posts.length / postsPerPage);
 
         _.times(numPages, i => {
