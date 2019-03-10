@@ -84,7 +84,14 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        const items = result.data.allMarkdownRemark.edges;
+        var items = result.data.allMarkdownRemark.edges;
+
+        // Safeguard against Gatsby bugs which leak development data (in this case drafts) into production
+        if (activeEnv == "production") {
+          items = items.filter(item => 
+            item.node.fields.prefix !== null
+          )
+        }
 
         // Create tags list
         const tagSet = new Set();
@@ -155,9 +162,8 @@ exports.createPages = ({ graphql, actions }) => {
         // Create "paginated homepage" == pages which list blog posts.
         // And at the same time, create corresponding JSON for infinite scroll.
         // Users who have JS enabled will see infinite scroll instead of pagination.
-        const postsPerPage = 3;
-        const nonDraftPosts = posts.filter(item => item.node.fields.prefix)
-        const numPages = Math.ceil(nonDraftPosts.length / postsPerPage);
+        const postsPerPage = 1;
+        const numPages = Math.ceil(posts.length / postsPerPage);
 
         _.times(numPages, i => {
           const pathSuffix = (i>0 ? i+1 : "");
@@ -165,7 +171,7 @@ exports.createPages = ({ graphql, actions }) => {
           // Get posts for this page
           const startInclusive = i * postsPerPage;
           const endExclusive = startInclusive + postsPerPage;
-          const pagePosts = nonDraftPosts.slice(startInclusive, endExclusive)
+          const pagePosts = posts.slice(startInclusive, endExclusive)
     
           createPaginationJSON(pathSuffix, pagePosts);
           createPage({
