@@ -1,7 +1,7 @@
 ---
 title: About
 ---
-<re-img src="avatar-large.jpeg"></re-img>
+<re-img src="avatar-large.jpeg" hovereffect=true></re-img>
 
 Hi there. I'm Baobab Koodaa and this is my personal blog.
 I ramble about code, data, and other geeky interests.

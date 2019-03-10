@@ -1,9 +1,15 @@
 ---
 title: How this blog is made
+tags: ["meta"]
 cover: paul_zoetemeijer_machinery.jpg
 ---
 
-<re-img src="paul_zoetemeijer_machinery.jpg"></re-img>
+<re-img
+    src="paul_zoetemeijer_machinery.jpg"
+    title="Photo by Paul Zoetemeijer on Unsplash"
+    href="https://unsplash.com/photos/QuiM1c65QM4"
+    >
+</re-img>
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur [adipiscing](/i-am-so-clever/) elit. Proin bibendum ullamcorper rutrum.
 
