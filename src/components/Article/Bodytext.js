@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import rehypeReact from "rehype-react";
 import Icons from "../../components/About/WebPresenceIcons";
 import ReImg from "./ReImg";
+import { Link } from "gatsby";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "icons": Icons , "re-img": ReImg }
+  components: { "re-icons": Icons , "re-img": ReImg , "re-link": Link }
 }).Compiler
 
 const Bodytext = props => {
@@ -47,6 +48,13 @@ const Bodytext = props => {
             line-height: ${theme.font.lineHeight.xxl};
             margin: 0 0 1.5em;
           }
+
+          :global(div) :global(div) {
+            font-size: ${theme.font.size.s};
+            line-height: ${theme.font.lineHeight.xxl};
+            margin: 0 0 1.5em;
+          }
+          
           :global(ul) {
             list-style: circle;
             margin: 0 0 1.5em;
