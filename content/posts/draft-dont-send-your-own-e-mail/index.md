@@ -1,13 +1,18 @@
 ---
-title: Don't send your own email
+title: Don't send your own e-mail
 tags: ["email", "everything-is-broken"]
 cover: mailboxes.jpg
 author: baobab koodaa
 ---
 
-Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [adipiscing](http://google.com) eu pulvinar vel, sodales vitae dui. :thumbsup: :smile: :sparkler:
+Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, <re-link to="/">testijuttu</re-link> eu pulvinar vel, sodales vitae dui.
 
-<re-img src="mailboxes.jpg" title="Photo by Mathyas Kurmann on Unsplash"></re-img>
+<re-img
+    src="mailboxes.jpg"
+    title="Photo by Mathyas Kurmann on Unsplash"
+    href="https://unsplash.com/photos/fb7yNPbT0l8"
+    >
+</re-img>
 
 Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
 
