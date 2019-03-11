@@ -78,7 +78,6 @@ const Meta = props => {
 };
 
 Meta.propTypes = {
-  author: PropTypes.string.isRequired,
   tags: PropTypes.array,
   theme: PropTypes.object.isRequired
 };
