@@ -108,7 +108,10 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-component`,
+          {
+            resolve: "gatsby-remark-component",
+            options: { components: ["re-icons", "re-img"] }
+          },
           `gatsby-plugin-sharp`,
           {
             resolve: `gatsby-remark-images`,
@@ -130,6 +133,7 @@ module.exports = {
               generateTracedSVG: true
             }
           },
+
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
