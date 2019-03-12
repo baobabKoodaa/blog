@@ -109,7 +109,7 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-component",
+            resolve: "gatsby-remark-component-parent2div",
             options: { components: ["re-icons", "re-img"] }
           },
           `gatsby-plugin-sharp`,
