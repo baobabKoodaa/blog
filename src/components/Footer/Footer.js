@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { graphql, useStaticQuery } from "gatsby";
 
 const Footer = props => {
   const { theme } = props;
+  const buildTime = useStaticQuery(query).site.buildTime
 
   return (
     <React.Fragment>
       <footer className="footer">
         <a href="https://www.github.com/baobabKoodaa/blog/">
-          This blog is open source.
+          This blog is open source. Last updated {buildTime}.
         </a>
-        
         
       </footer> 
 
@@ -40,3 +41,11 @@ Footer.propTypes = {
 };
 
 export default Footer;
+
+const query = graphql`
+  query Info {
+    site {
+      buildTime(formatString: "DD.MM.YYYY kk:mm")
+    }
+  }
+`
