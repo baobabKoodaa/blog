@@ -59,12 +59,11 @@ exports.createPages = ({ graphql, actions }) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");
     const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
     const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
-
-    // Do not create draft post files in production.
-    let activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
+    
+    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
     console.log(`Using environment config: '${activeEnv}'`)
+
     let filters = `filter: { fields: { slug: { ne: null } } }`;
-    if (activeEnv == "production") filters = `filter: { fields: { slug: { ne: null } , prefix: { ne: null } } }`
 
     resolve(
       graphql(
@@ -86,10 +85,11 @@ exports.createPages = ({ graphql, actions }) => {
 
         var items = result.data.allMarkdownRemark.edges;
 
-        // Safeguard against Gatsby bugs which leak development data (in this case drafts) into production
+        // Don't leak drafts into production.
         if (activeEnv == "production") {
           items = items.filter(item => 
-            item.node.fields.prefix !== null
+            item.node.fields.prefix !== null &&
+            !(item.node.fields.prefix+"").startsWith("draft")
           )
         }
 
