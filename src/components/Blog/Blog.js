@@ -11,14 +11,14 @@ const Blog = props => {
     <React.Fragment>
       <main className="main">
         <ul>
-          {posts.map(post => {
+          {posts.map((post,index) => {
             const {
               node,
               node: {
                 fields: { slug }
               }
             } = post;
-            return <Teaser key={slug} post={node} theme={theme} />;
+            return <Teaser key={slug} post={node} theme={theme} index={index} />;
           })}
         </ul>
       </main>

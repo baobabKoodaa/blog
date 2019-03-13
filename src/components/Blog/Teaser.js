@@ -16,12 +16,13 @@ const Teaser = props => {
       frontmatter: {
         title,
         tags,
-        /*author,*/
+        author,
         cover: {
           children: [{ fluid }]
         }
       }
-    }
+    },
+    index
   } = props;
 
   return (
@@ -29,7 +30,7 @@ const Teaser = props => {
       <li>
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} critical={false}/>
+            <Picture fluid={fluid} critical={index==0}/>
           </div>
           <h1>
             {title} <FaArrowRight className="arrow" />
