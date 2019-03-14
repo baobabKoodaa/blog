@@ -5,8 +5,10 @@ import { currDate } from "../../utils/helpers";
 import { FaUser, FaTag, FaCalendar } from "react-icons/fa/";
 
 const Meta = props => {
-  const { author: authorName, tags, theme } = props;
+  const { author: authorName, tags, theme, lastEdit } = props;
   const prefix = props.prefix || currDate() /* Intent: get date placeholder for viewing drafts. */
+  
+  //TODO: lastEdit
 
   return (
     <p className="meta">

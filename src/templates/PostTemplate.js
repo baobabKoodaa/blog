@@ -68,6 +68,11 @@ export const postQuery = graphql`
           }
         }
       }
+      parent {
+        ...on File {
+          modifiedTime(formatString: "YYYY-MM-DD")
+        }
+      }
     }
     authornote: markdownRemark(fileAbsolutePath: { regex: "/author/" }) {
       id
