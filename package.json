@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hero-blog",
-  "version": "2.0.0",
-  "author": "Greg Lobinski <greglobinski@gmail.com>",
+  "name": "@baobabkoodaa/blog",
+  "version": "0.9.0",
+  "author": "Baobab Koodaa",
   "license": "MIT",
   "dependencies": {
     "antd": "^3.7.0",
@@ -9,7 +9,6 @@
     "gatsby": "^2.1.30",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-algolia": "^0.3.0",
-    "gatsby-plugin-catch-links": "^2.0.11",
     "gatsby-plugin-feed": "^2.0.13",
     "gatsby-plugin-google-analytics": "^2.0.14",
     "gatsby-plugin-layout": "^1.0.12",
