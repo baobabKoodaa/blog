@@ -27,23 +27,23 @@ class IndexPage extends React.Component {
     /*
      *  cursor represents next page which infinite scroll should fetch
      */
-    cursor: this.props.pageContext.currentPage+1
+    cursor: this.props.pageContext.currentPage+1,
+    /*
+     * useInfiniteScroll is used to fallback to pagination _on error_
+     * note that the fallback to non JS users is not related to this
+     */
+    useInfiniteScroll: true
   }
 
   componentDidMount() {
     this.setState(state => ({
       isLoading: false, // Allow triggering infinite scroll load
     }))
-
-    // If you want to do paginated fetch for first items, uncomment the following line:
-    // this.loadMore()
-
-    // TODO fetch more in case everything fits to users' screen without scrolling?
   }
 
   loadMore = () => {
     this.setState({ isLoading: true, error: undefined })
-    fetch(`/paginationJson/index${this.state.cursor}.json`) // TODO test that this path works everywhere
+    fetch(`/paginationJson/index${this.state.cursor}.json`)
       .then(res => res.json())
       .then(
         res => {
@@ -57,7 +57,7 @@ class IndexPage extends React.Component {
           this.setState({
             isLoading: false,
             error,
-            // TOOD: maybe fallback to pagination on error, too?
+            useInfiniteScroll: false
           })
         }
     )
@@ -65,22 +65,27 @@ class IndexPage extends React.Component {
 
   render() {
 
+    const hasMore = (
+      this.state.cursor <= this.props.pageContext.numPages
+      && this.state.useInfiniteScroll
+    );
+
     return (
       <ThemeContext.Consumer>
         {theme =>
           <React.Fragment>
 
-            {/* Optional Hero section. */}
+            {/* Optional Hero section on first page. */}
             {this.props.pageContext.currentPage == 1 && !theme.hero.hide && (
               <Hero theme={theme} />
             )} 
 
             {/* Blog posts with infinite scroll. */}
             <InfiniteScroll
-              throttle={100}
-              threshold={300}
+              throttle={300}
+              threshold={600}
               isLoading={this.state.isLoading}
-              hasMore={this.state.cursor <= this.props.pageContext.numPages}
+              hasMore={hasMore}
               onLoadMore={this.loadMore}
             >
                 <Blog posts={this.state.items} theme={theme} />
@@ -98,8 +103,13 @@ class IndexPage extends React.Component {
               <style> 
                 {`.spinner { display: none !important; }`}
               </style>
-                <Pagination pageContext={this.props.pageContext} theme={theme}/>
+              <Pagination pageContext={this.props.pageContext} theme={theme}/>
             </noscript>
+
+            {/* Fallback to Pagination on error. */}
+            {!this.state.useInfiniteScroll && (
+              <Pagination pageContext={this.props.pageContext} theme={theme}/>
+            )}
 
             <Seo pageTitle="Blog home"/>
 
@@ -111,6 +121,8 @@ class IndexPage extends React.Component {
                 margin-top: 40px;
                 font-size: 60px;
                 text-align: center;
+                display: ${this.state.useInfiniteScroll ? "block" : "none" };
+
                 :global(svg) {
                   fill: ${theme.color.brand.primaryLight};
                   animation: spinner 3s linear infinite;
