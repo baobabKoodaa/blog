@@ -1,50 +1,48 @@
 /* eslint no-unused-vars: 0 */
 
 import { navigate } from "gatsby";
-import Button from "antd/lib/button";
-import Form from "antd/lib/form";
-import Input from "antd/lib/input";
-import PropTypes from "prop-types";
 import React from "react";
 
-const FormItem = Form.Item;
-const { TextArea } = Input;
-import "antd/lib/form/style/index.css";
-import "antd/lib/input/style/index.css";
-import "antd/lib/button/style/index.css";
 import config from "../../../content/meta/config";
+import theme from "../../theme/theme.yaml";
 
-const Contact = props => {
-  const theme = props.theme;
-  const { getFieldDecorator } = props.form;
+class Contact extends React.Component {
 
-  function encode(data) {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+      honeypot: ""
+    }
+
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  encode(data) {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
   }
 
-  function handleSubmit(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log("Received values of form: ")
-        console.log(values)
-        if ("honeypot" in values) return;
-        document.getElementById("submitText").innerHTML = "Sending...";
-        document.getElementById("submitButton").disabled = true;
-        document.getElementById("submitButton").style.backgroundColor = "#dddbda";
-        document.getElementById("submitButton").style.borderColor = "#dddbda";
-        sendMessage(values);
-      }
-    });
-  }
+    if (this.state.honeypot != "") return
 
-  function sendMessage(values) {
+    const b = document.getElementById("submitButton")
+    b.disabled = true
+    b.value = "Sending..."
+    b.style.transition = "200ms ease-in-out"
+    b.style.backgroundColor = theme.color.brand.primaryLight
+    b.style.borderColor = theme.color.brand.primaryLight
+    b.style.color = "#666"
+
     fetch(config.contactPostAddress, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...values })
+      body: this.encode({ "form-name": "contact", ...this.state })
     })
       .then(() => {
         console.log("Form submission success");
@@ -52,119 +50,109 @@ const Contact = props => {
       })
       .catch(error => {
         console.error("Form submission error:", error);
-        this.handleNetworkError();
+        alert("Error while submitting form! " + e)
       });
   }
 
-  function handleNetworkError(e) {
-    alert("Error while submitting form! " + e)
-    console.log("submit Error");
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
   }
 
-  return (
-    <div className="form">
-      <Form
-        name="contact"
-        method="post"
-        action={config.contactPostAddress}
-        onSubmit={handleSubmit}
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
-      >
-        <FormItem label="Name">
-          {getFieldDecorator("name", {
-            rules: [
-              {
-                whitespace: true
-              }
-            ]
-          })(<Input name="name" />)}
-        </FormItem>
-        <FormItem label="E-mail">
-          {getFieldDecorator("email", {
-            rules: [
-              {
-                whitespace: true,
-                type: "email"
-              }
-            ]
-          })(<Input name="email" />)}
-        </FormItem>
-        <FormItem label="honeypot" style={{display: "none"}}>
-          <Input name="honeypot" />
-        </FormItem>
-        <FormItem label="Message">
-          {getFieldDecorator("message", {
-            rules: [
-              { required: true, message: "Please input your message!", whitespace: true }
-            ]
-          })(
-            <TextArea name="message" placeholder="" autosize={{ minRows: 4, maxRows: 10 }} />
-          )}
-        </FormItem>
-        <FormItem>
-          <Button type="primary" htmlType="submit" id="submitButton">
-            <span id="submitText">Submit</span>
-          </Button>
-        </FormItem>
-      </Form>
+  render() {
+    return (
+      <div className="form">
+        <form
+          name="contact"
+          method="post"
+          action={config.contactPostAddress}
+          onSubmit={this.handleSubmit}
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <label className="formItem" >
+            Name:<br/>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </label>
+          <br/><br/>
+          <label className="formItem" >
+            E-mail:<br/>
+            <input
+              type="email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </label>
+          <br/><br/>
+          <input
+            type="text"
+            name="honeypot"
+            value={this.state.honeypot}
+            onChange={this.handleChange}
+            style={{display: "none"}}
+          />
+          <label className="formItem" >
+            Message (required):<br/>
+            <textarea
+              name="message"
+              required={true}
+              value={this.state.message}
+              onChange={this.handleChange}
+            />
+          </label>
+          <br/><br/>
+          <input
+            type="submit"
+            value="Submit"
+            id="submitButton"
+            className="formItem" 
+          />
+        </form>
 
-      {/* --- STYLES --- */}
-      <style jsx>{`
-        .form {
-          background: transparent;
-        }
-        .form :global(.ant-row.ant-form-item) {
-          margin: 0 0 1em;
-        }
-        .form :global(.ant-row.ant-form-item:last-child) {
-          margin-top: 1em;
-        }
-        .form :global(.ant-form-item-control) {
-          line-height: 1em;
-        }
-        .form :global(.ant-form-item-label) {
-          line-height: 1em;
-          margin-bottom: 0.5em;
-        }
-        .form :global(.ant-form-item) {
-          margin: 0;
-        }
-        .form :global(.ant-input) {
-          appearance: none;
-          height: auto;
-          font-size: 1.2em;
-          padding: 0.5em 0.6em;
-        }
-        .form :global(.ant-btn-primary) {
-          height: auto;
-          font-size: 1.2em;
-          padding: 0.5em 3em;
-          background: ${theme.color.brand.primary};
-          border: 1px solid ${theme.color.brand.primary};
-        }
-        .form :global(.ant-btn-primary:hover) {
-          background: ${theme.color.brand.primaryDark};
-          
-        }
-        .form :global(.ant-form-explain) {
-          margin-top: 0.2em;
-        }
-
-        @from-width desktop {
-          .form :global(input) {
-            max-width: 50%;
+        {/* --- STYLES --- */}
+        <style jsx>{`
+          .formItem input,textarea {
+            width: 100%;
+            border-radius: 5px;
+            border-width: 2px;
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 1em;
           }
-        }
-      `}</style>
-    </div>
-  );
+          .formItem input {
+            height: 30px;
+            max-width: 300px;
+          }
+          .formItem textarea {
+            height: 100px;
+            max-width: 600px;
+          }
+          #submitButton {
+            color: white;
+            height: auto;
+            font-family: Open Sans;
+            font-size: 1.2em;
+            font-weight: 400;
+            padding: 0.5em 3em;
+            border-radius: 5px;
+            background: ${theme.color.brand.primary};
+            border: 1px solid ${theme.color.brand.primary};
+          }
+          #submitButton:hover {
+            background: ${theme.color.brand.primaryDark};
+            cursor: pointer;
+          }
+        `}</style>
+      </div>
+    );
+  }
 };
 
-Contact.propTypes = {
-  form: PropTypes.object
-};
-
-const ContactForm = Form.create({})(Contact);
-
-export default ContactForm;
+export default Contact;
