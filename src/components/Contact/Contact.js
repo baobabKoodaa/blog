@@ -28,7 +28,9 @@ const Contact = props => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values)
+        console.log("Received values of form: ")
+        console.log(values)
+        if ("honeypot" in values) return;
         document.getElementById("submitText").innerHTML = "Sending...";
         document.getElementById("submitButton").disabled = true;
         document.getElementById("submitButton").style.backgroundColor = "#dddbda";
@@ -87,6 +89,9 @@ const Contact = props => {
               }
             ]
           })(<Input name="email" />)}
+        </FormItem>
+        <FormItem label="honeypot" style={{display: "none"}}>
+          <Input name="honeypot" />
         </FormItem>
         <FormItem label="Message">
           {getFieldDecorator("message", {
