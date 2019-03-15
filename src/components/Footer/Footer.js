@@ -20,16 +20,13 @@ const Footer = props => {
         .footer {
           background: ${theme.color.neutral.white};
           padding: ${theme.space.inset.default};
-          padding-top: 40px;
           text-align: center;
           color: ${theme.color.neutral.gray.g};
           font-size: ${theme.font.size.xxs};
-        }
-
-        @from-width desktop {
-          .footer {
-            padding: 40px 1em 1.5em;
-          }
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
         }
       `}</style>
     </React.Fragment>

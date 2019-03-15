@@ -56,63 +56,75 @@ class Layout extends React.Component {
     return (
       <ThemeContext.Provider value={this.state.theme}>
         <ScreenWidthContext.Provider value={this.state.screenWidth}>
-          <React.Fragment>
+          <div className="highest-container">
             <Header
               path={this.props.location.pathname}
               theme={this.state.theme}
             />
             <main>{children}</main>
             <Footer theme={this.state.theme} />
-
-            <style jsx>{`
-              main {
-                min-height: 80vh;
-              }
-            `}</style>
-            <style jsx global>{`
-              html {
-                box-sizing: border-box;
-              }
-              *,
-              *:after,
-              *:before {
-                box-sizing: inherit;
-                margin: 0;
-                padding: 0;
-              }
-              body {
-                font-family: 'Open Sans', 'Arial', 'sans-serif';
-                font-weight: 400;
-              }
-              h1,
-              h2,
-              h3 {
-                font-weight: 600;
-                font-family: 'Open Sans', 'Arial', 'sans-serif';
-                line-height: 1.1;
-                letter-spacing: -0.03em;
-                margin: 0;
-              }
-              h1 {
-                letter-spacing: -0.04em;
-              }
-              p {
-                margin: 0;
-              }
-              strong {
-                font-family: 'Open Sans', 'Arial', 'sans-serif';
-                font-weight: 600;
-              }
-              a {
-                text-decoration: none;
-                color: #666;
-              }
-              main {
-                width: auto;
-                display: block;
-              }
-            `}</style>
-          </React.Fragment>
+          </div>
+          <style jsx>{`
+            .highest-container {
+              min-height: 100%;
+              position: relative;
+            }
+            main {
+              padding-bottom: 80px;
+            }
+          `}</style>
+          <style jsx global>{`
+            html {
+              box-sizing: border-box;
+            }
+            html, body {
+              height: 100%;
+            }
+            #___gatsby {
+              height: 100%;
+            }
+            #___gatsby > div {
+              height: 100%;
+            }
+            *,
+            *:after,
+            *:before {
+              box-sizing: inherit;
+              margin: 0;
+              padding: 0;
+            }
+            body {
+              font-family: 'Open Sans', 'Arial', 'sans-serif';
+              font-weight: 400;
+            }
+            h1,
+            h2,
+            h3 {
+              font-weight: 600;
+              font-family: 'Open Sans', 'Arial', 'sans-serif';
+              line-height: 1.1;
+              letter-spacing: -0.03em;
+              margin: 0;
+            }
+            h1 {
+              letter-spacing: -0.04em;
+            }
+            p {
+              margin: 0;
+            }
+            strong {
+              font-family: 'Open Sans', 'Arial', 'sans-serif';
+              font-weight: 600;
+            }
+            a {
+              text-decoration: none;
+              color: #666;
+            }
+            main {
+              width: auto;
+              display: block;
+            }
+          `}</style>
         </ScreenWidthContext.Provider>
       </ThemeContext.Provider>
     )
