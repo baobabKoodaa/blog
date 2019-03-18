@@ -48,6 +48,11 @@ const Blog = props => {
             max-width: ${theme.text.maxWidth.desktop};
           }
         }
+        @below desktop {
+          ul {
+            padding-top: 10px;
+          }
+        }
       `}</style>
     </React.Fragment>
   );
