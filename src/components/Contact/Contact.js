@@ -12,7 +12,8 @@ class Contact extends React.Component {
     super(props)
     this.state = {
       name: "",
-      email: "",
+      email: "", // honeypot
+      emailReal: "",
       message: "",
       honeypot: ""
     }
@@ -29,7 +30,7 @@ class Contact extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.honeypot != "") return
+    if (this.state.email != "") return // honeypot
 
     const b = document.getElementById("submitButton")
     b.disabled = true
@@ -85,16 +86,16 @@ class Contact extends React.Component {
             E-mail:<br/>
             <input
               type="email"
-              name="email"
-              value={this.state.email}
+              name="emailReal"
+              value={this.state.emailReal}
               onChange={this.handleChange}
             />
           </label>
           <br/><br/>
           <input
-            type="text"
-            name="honeypot"
-            value={this.state.honeypot}
+            type="email"
+            name="email" // actually honeypot
+            value={this.state.email}
             onChange={this.handleChange}
             style={{display: "none"}}
           />
