@@ -73,7 +73,7 @@ class Contact extends React.Component {
           data-netlify-honeypot="bot-field"
         >
           <label className="formItem" >
-            Name:<br/>
+            Name (optional):<br/>
             <input
               type="text"
               name="name"
@@ -83,7 +83,7 @@ class Contact extends React.Component {
           </label>
           <br/><br/>
           <label className="formItem" >
-            E-mail:<br/>
+            E-mail (optional):<br/>
             <input
               type="email"
               name="emailReal"
@@ -100,7 +100,7 @@ class Contact extends React.Component {
             style={{display: "none"}}
           />
           <label className="formItem" >
-            Message (required):<br/>
+            Message:<br/>
             <textarea
               name="message"
               required={true}
