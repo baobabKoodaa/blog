@@ -2,7 +2,7 @@
 title: Don't send your own email
 tags: ["email", "everything-is-broken"]
 cover: mailboxes.jpg
-author: baobab koodaa
+author: atte juvonen
 ---
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [adipiscing](http://google.com) eu pulvinar vel, sodales vitae dui. :thumbsup: :smile: :sparkler:

@@ -1,14 +1,14 @@
 module.exports = {
-  siteTitle: "Baobab Koodaa", // <title>
-  shortSiteTitle: "Baobab Koodaa", // <title> ending for posts and pages
-  siteDescription: "Blog of Baobab Koodaa.",
-  siteUrl: "https://blog.baobab.fi",
+  siteTitle: "Atte Juvonen", // <title>
+  shortSiteTitle: "Atte Juvonen", // <title> ending for posts and pages
+  siteDescription: "Atte Juvonen",
+  siteUrl: "https://www.attejuvonen.fi",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
 
   /* author */
-  authorName: "baobab koodaa",
+  authorName: "Atte Juvonen",
   authorTwitterAccount: "",
   authorGithub: "https://github.com/baobabkoodaa",
   authorStackoverflow: "https://stackexchange.com/users/5678032/atte-juvonen?tab=accounts",
@@ -17,12 +17,12 @@ module.exports = {
   authorYoutube: "https://www.youtube.com/channel/UCfHqfHoSYL0V_fXA_JQkeLw?view_as=subscriber",
 
   /* header text */
-  headerTitle: "baobab koodaa",
+  headerTitle: "atte juvonen",
   headerSubTitle: "",
 
   /* manifest.json */
-  manifestName: "Blog of Baobab Koodaa",
-  manifestShortName: "baobabKoodaa", // max 12 characters
+  manifestName: "Atte Juvonen",
+  manifestShortName: "atteJuvonen", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",

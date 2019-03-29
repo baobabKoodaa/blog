@@ -1,6 +1,6 @@
 # Blog
 
-Have a peek »»» [https://blog.baobab.fi](https://blog.baobab.fi)
+Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 
 ## Features
 
