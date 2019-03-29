@@ -88,7 +88,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Don't leak drafts into production.
         if (activeEnv == "production") {
           items = items.filter(item => 
-            item.node.fields.prefix !== null &&
+            item.node.fields.prefix &&
             !(item.node.fields.prefix+"").startsWith("draft")
           )
         }

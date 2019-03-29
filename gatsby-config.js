@@ -258,11 +258,8 @@ module.exports = {
                   sort: { order: DESC, fields: [fields___prefix] },
                   filter: {
                     fields: {
-                      prefix: { ne: null },
+                      prefix: { regex: "/[0-9]{4}.*/" },
                       slug: { ne: null }
-                    },
-                    frontmatter: {
-                      author: { ne: null }
                     }
                   }
                 ) {
