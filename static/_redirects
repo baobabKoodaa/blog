@@ -1,2 +1,4 @@
-# Redirect default Netlify subdomain to primary domain
-http://blog-of-baobab.netlify.com/* http://blog.baobab.fi/:splat 301!
+# Redirect alternative domains to primary domain
+https://blog.baobab.fi/* https://www.attejuvonen.fi/:splat 301!
+https://attejuvonen.fi/* https://www.attejuvonen.fi/:splat 301!
+https://blog-of-baobab.netlify.com/* https://www.attejuvonen.fi/:splat 301!
