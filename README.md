@@ -30,13 +30,13 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
 - It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
 - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
-- Search all files for "baobab" and "greg".
+- Search all files for "atte" and "greg".
 - When you publish, make sure caching and redirects work reasonably. I recommend Netlify, in which case cache configuration in `static/_headers` is fine and you just need to edit 1 line in `static/_redirects`.
 - Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
+- There is an e-mail newsletter link on the `Follow` page. Either set one up or remove the link.
 - [OPTIONAL] If you want Google Analytics: add `GOOGLE_ANALYTICS_ID=123456` to environment variables.
 - [OPTIONAL] If you want a Contact page: [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
 - [OPTIONAL] If you want a Search page with Algolia: mostly follow instructions from [here](https://dev.greglobinski.com/setup-algolia-account/). Search for commented out code with 'algolia'.
-- [OPTIONAL] If you want an email newsletter, set one up. Otherwise remove the link from the `Follow` page.
 
 
 ## Attribution
