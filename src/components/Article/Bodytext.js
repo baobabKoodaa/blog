@@ -28,6 +28,14 @@ const Bodytext = props => {
           animation-duration: 0;
           color: ${theme.color.neutral.gray.j};
 
+          :global(blockquote) {
+            border-left: 5px solid #bbbbbb;
+            margin: 2.5em 0;
+            padding: 0em 1.1em 0em 1.3em;
+            position: relative;
+            font-style: italic;
+          }
+
           :global(h2),
           :global(h3) {
             margin: 1.5em 0 1em;
@@ -56,7 +64,9 @@ const Bodytext = props => {
           }
           :global(li) {
             margin: 0.7em 0;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-size: ${theme.font.size.s};
+            list-style-type: square;
           }
           :global(a) {
             font-weight: ${theme.font.weight.bold};
