@@ -2,6 +2,7 @@
 title: The most important AI ethics question of the decade
 tags: ["ai", "whataboutism"]
 cover: tesla.jpg
+author: atte juvonen
 ---
 
 <!-- Alt title: "Can we stop bikeshedding AI ethics?" -->

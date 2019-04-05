@@ -2,6 +2,7 @@
 title: How this blog is made
 tags: ["meta", "i-made-thing", "web"]
 cover: paul_zoetemeijer_machinery.jpg
+author: atte juvonen
 ---
 
 <re-img
