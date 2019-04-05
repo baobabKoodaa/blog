@@ -16,9 +16,7 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 
 ## Feel free to fork
 
-- If you see something to fix, please send me a pull request (or at least a message)
-- Want to create your own blog with this repo? You are free to do so (within license terms).
-- Want to reuse my content? Please ask for permission first (license in this repo does not apply to content).
+Pull requests are welcome! You are free to use this repo to create your own blog, but if you want to reuse my content, please ask for permission first.
 
 #### How to create your own blog with this repo
 
@@ -34,11 +32,12 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
     - Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
     - There is an e-mail newsletter link on the `Follow` page. Either set one up or remove the link.
     - There is a Contact page. Remove it or [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server).
+    - [OPTIONAL] If you want a "Hero" section at the top of the home page, just set `hero.hide` to `false` in `theme.yaml`.
     - [OPTIONAL] If you want Google Analytics: add `GOOGLE_ANALYTICS_ID=123456` to environment variables.
     - [OPTIONAL] If you want a Search page with Algolia: mostly follow instructions from [here](https://dev.greglobinski.com/setup-algolia-account/). Search for commented out code with 'algolia'.
 - Creating content
-    - When you create content in `posts`, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published.
-    - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
+    - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`. Please delete my real posts when you begin tinkering.
+    - When you create posts, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published. There are ways to accidentally publish drafts. If you are worried about that, the easiest way to avoid it is to deploy your site from GitHub via Netlify and _never commit draft posts to the repo_.
     - It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
     - If you don't want your images to be auto cropped, crop them by yourself to 2.222 aspect ratio.
 
