@@ -1,5 +1,5 @@
 ---
-title: The most important AI ethics question of the decade
+title: The most important AI ethics question of the decade </sarcasm>
 tags: ["ai", "whataboutism"]
 cover: tesla.jpg
 author: atte juvonen
