@@ -22,22 +22,25 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 
 #### How to create your own blog with this repo
 
-- Prerequisites: learn about ReactJS and GatsbyJS.
-- Fork and `npm install`.
-- Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
-- Run in production mode with `gatsby build && gatsby serve` (or `./fastbuild.sh`). If you want to delete `cache` and `public` before building, use `./slowbuild.sh` (recommended for releases to avoid leaking development data). You may have to make the scripts executable before you are able to run them (`chmod +x filename`).
-- When you create content in `posts`, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published.
-- Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
-- It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
-- Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
-- Search all files for "atte" and "greg".
-- When you publish, make sure caching and redirects work reasonably. I recommend Netlify, in which case cache configuration in `static/_headers` is fine and you just need to edit 1 line in `static/_redirects`.
-- Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
-- There is an e-mail newsletter link on the `Follow` page. Either set one up or remove the link.
-- [OPTIONAL] If you want Google Analytics: add `GOOGLE_ANALYTICS_ID=123456` to environment variables.
-- [OPTIONAL] If you want a Contact page: [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server)
-- [OPTIONAL] If you want a Search page with Algolia: mostly follow instructions from [here](https://dev.greglobinski.com/setup-algolia-account/). Search for commented out code with 'algolia'.
-
+- Basic setup
+    - Prerequisites: learn about ReactJS and GatsbyJS.
+    - Fork and `npm install`.
+    - Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
+    - Run in production mode with `gatsby build && gatsby serve` (or `./fastbuild.sh`). If you want to delete `cache` and `public` before building, use `./slowbuild.sh` (recommended for releases to avoid leaking development data). You may have to make the scripts executable before you are able to run them (`chmod +x filename`).
+- Make it your own
+    - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
+    - Search all files for "atte" and "greg".
+    - When you publish, make sure caching and redirects work reasonably. I recommend Netlify, in which case cache configuration in `static/_headers` is fine and you just need to edit 1 line in `static/_redirects`.
+    - Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
+    - There is an e-mail newsletter link on the `Follow` page. Either set one up or remove the link.
+    - There is a Contact page. Remove it or [Setup Contact Form submission via Google Script](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server).
+    - [OPTIONAL] If you want Google Analytics: add `GOOGLE_ANALYTICS_ID=123456` to environment variables.
+    - [OPTIONAL] If you want a Search page with Algolia: mostly follow instructions from [here](https://dev.greglobinski.com/setup-algolia-account/). Search for commented out code with 'algolia'.
+- Creating content
+    - When you create content in `posts`, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published.
+    - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`.
+    - It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
+    - If you don't want your images to be auto cropped, crop them by yourself to 2.222 aspect ratio.
 
 ## Attribution
 
