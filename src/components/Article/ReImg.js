@@ -4,7 +4,7 @@ import React from 'react';
 import theme from "../../theme/theme.yaml";
 
 const ReImg = (props) => {
-    const fluid = JSON.parse(props.rehyped);
+    const fluid = (props.fluid ? props.fluid : JSON.parse(props.rehyped)) // To support 2 different use cases
     delete fluid.base64 // Workaround a Gatsby bug where both "blur-up" and "tracedSVG" placeholders are shown on top of each other
     const href = (props.href ? props.href : fluid.originalImg)
     const relativeStyle = {
@@ -60,7 +60,7 @@ const ReImg = (props) => {
                 :global(picture) {
                     transition: 300ms ease-in-out;
                 }
-                :global(picture):hover {
+                :global(.imgContainer > .gatsby-image-wrapper > picture):hover {
                     opacity: 0;
                 }
             }
