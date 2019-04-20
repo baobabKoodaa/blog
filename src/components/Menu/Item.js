@@ -48,7 +48,7 @@ const Item = props => {
             :global(a) {
               color: ${theme.text.color.primary};
               padding: ${theme.space.inset.s};
-              transition: all ${theme.time.duration.default};
+              transition: all 0s;
               border-radius: ${theme.size.radius.small};
             }
 
@@ -62,7 +62,7 @@ const Item = props => {
             }
 
             :global(svg) {
-              transition: all ${theme.time.duration.default};
+              transition: all 0s;
             }
 
             &:hover :global(svg) {

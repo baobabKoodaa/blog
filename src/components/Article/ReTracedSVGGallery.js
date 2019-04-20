@@ -24,16 +24,24 @@ const ReTracedSVGGallery = (props) => {
                     id
                     absolutePath
                     childImageSharp {
-                      fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
-                          tracedSVG
-                          aspectRatio
-                          src
-                          srcSet
-                          srcWebp
-                          srcSetWebp
-                          sizes
-                          originalImg
-                      }
+                        fluid(
+                            maxWidth: 800,
+                            maxHeight: 360,
+                            cropFocus: CENTER,
+                            quality: 90,
+                            traceSVG: {
+                                color: "#f9ebd2",
+                            }
+                        ) {
+                            tracedSVG
+                            aspectRatio
+                            src
+                            srcSet
+                            srcWebp
+                            srcSetWebp
+                            sizes
+                            originalImg
+                        }
                     }
                   }
                 }
