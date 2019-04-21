@@ -1,6 +1,6 @@
 ---
 title: Stop bikeshedding AI ethics
-tags: ["ai", "whataboutism"]
+tags: ["discourse", "ai"]
 cover: tesla.jpg
 author: atte juvonen
 ---
