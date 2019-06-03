@@ -13,10 +13,14 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 - Posts organized by **tags**.
 - **Teasers** of posts are generated to front page with **infinite scroll** which gracefully degrades into **pagination**.
 - Allow readers to be notified of updates with **RSS feed** and email newsletter.
+- Contact Form.
 
 ## Feel free to fork
 
-Pull requests are welcome! You are free to use this repo to create your own blog, but if you want to reuse my content, please ask for permission first.
+[![License: MIT](badge-mit.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY 4.0](badge-cc.svg)](https://creativecommons.org/licenses/by/4.0/)
+
+You are free to use this repo to create your own blog (code is MIT licensed). You may also use the written content in this blog however you like, provided that you [give appropriate credit](https://creativecommons.org/licenses/by/4.0) (CC BY 4.0).
 
 #### How to create your own blog with this repo
 
@@ -43,20 +47,26 @@ Pull requests are welcome! You are free to use this repo to create your own blog
 
 ## Attribution
 
-Hi, I'm Baobab. I didn't start this from scratch.
-- I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/)
-- For infinite scroll and pagination I used some code from [Joan Mira](https://github.com/gazpachu) and [react-simple-infinite-scroll](https://github.com/jaredpalmer/react-simple-infinite-scroll)
+Hi, I'm Baobab. I didn't do everything by myself; I leveraged the work of many awesome creators.
+
 - Photos are mostly from [Unsplash](https://www.unsplash.com/), hover over to see photographer attribution.
 - Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
 
-Main changes from Greg's version:
+I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/). Main changes from Greg's version:
+
 - Fixed draft posts (used to leak draft posts into production)
-- Fixed RSS feed (used to not have dates so RSS readers were unable to tell which content is new + used to have non-post-articles in feed) 
+- Fixed RSS feed
+    - Dates were added to RSS items so that RSS readers are able to tell which content is new.
+    - Non-post pages removed from RSS feed.
 - Fixed 404 page (text used to be hidden under header)
-- Improved usability for users who have JS disabled (Font loading and contact form submission)
-- Contact Form submission used to require entire web site to be hosted on Netlify. Now the Contact Form submission uses Google Scripts and web site hosting / form handling can be changed independently.
+- Contact page entirely redone.
+    - Had a font issue caused by antd library. I was unable to reproduce the issue locally to find what was causing it, so I redid the entire form without the library.
+    - Submission used to require entire web site to be hosted on Netlify. Now the Contact Form submission uses Google Scripts and web site hosting / form handling can be changed independently.
+    - Submission works for users who have JS disabled.
 - Allow multiple tags (used to be just 1 category per post)
-- Allow custom React components inside Markdown files
-- Added 'Follow' page, so users know that RSS feed exists (also link to email newsletter)
+- Allow custom React components inside Markdown files.
+- Added 'Follow' page, so users know that RSS feed exists (the page also contains a link to email newsletter)
 - Added infinite scroll, which gracefully degrades into pagination.
 - Many design changes. Spent a lot of time tweaking image placeholders :gem: Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
+
+
