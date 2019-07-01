@@ -32,7 +32,7 @@ Maybe someone has gained access to my server and is using it to spam without my 
 
 ## Rain gods, do you hear my prayer?
 
-Both Outlook and Gmail provide forms to report deliverability issues. Gmail didn't answer my prayers. Outlook answered that I'm "not eligible for mitigation". They wouldn't say why, but they were kind enough to provide some helpful tips, like "ensure your email lists are up to date". I tried to explain to them, again, that I mostly email my mom and I don't have any emails lists because I'm not a spammer. They replied "after reviewing" my case that I should "ensure that the unsubscribe process is visible", among other tips which they thought would be helpful to people who try to send personal emails to their loved ones.
+Both Outlook and Gmail provide forms to report deliverability issues. Gmail didn't answer my prayers. Outlook answered that I'm "not eligible for mitigation". They wouldn't say why, but they were kind enough to provide some helpful tips, like "ensure your email lists are up to date". I tried to explain to them, again, that I mostly email my mom and I don't have any email lists because I'm not a spammer. They replied "after reviewing" my case that I should "ensure that the unsubscribe process is visible", among other tips which they thought would be helpful to people who try to send personal emails to their loved ones.
 
 The cool kids also offer some interactive tools to monitor email deliverability and help troubleshoot issues. Gmail's offering is called _Postmaster tools_ whereas Outlook offers _Junk Mail Reporting Program_ and _Smart Network Data Services Program_. I joined all of these. None of them show me any data, because I am not a _~~spammer~~ large volume sender_.
 
@@ -50,7 +50,6 @@ consistent sending pattern [...] Most internet service providers (ISPs) only tra
 <re-img
     src="spam-meme.jpg"
     title="Meme"
-    href="https://unsplash.com/photos/fb7yNPbT0l8"
     >
 </re-img>
 
