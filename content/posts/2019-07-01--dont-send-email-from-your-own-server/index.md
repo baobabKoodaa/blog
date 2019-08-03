@@ -50,6 +50,7 @@ consistent sending pattern [...] Most internet service providers (ISPs) only tra
 <re-img
     src="spam-meme.jpg"
     title="Meme"
+    meme=True
     >
 </re-img>
 

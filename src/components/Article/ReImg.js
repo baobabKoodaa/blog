@@ -10,9 +10,9 @@ const ReImg = (props) => {
     const relativeStyle = {
         position: 'relative',
         top: 0,
-        left: 0,
+        left: (props.meme ? '15%' : '0'),
         margin: '2.5em 0',
-        width: "100%",
+        width: (props.meme ? '70%' : '100%'),
         display: 'block',
         borderRadius: theme.size.radius.default,
         overflow: 'hidden'
