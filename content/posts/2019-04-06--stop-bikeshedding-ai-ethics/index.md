@@ -17,11 +17,7 @@ author: atte juvonen
 You've probably heard a variation of this dilemma <a href="https://www.google.com/search?q=the+trolley+problem&tbm=isch" target="_blank">many times in many places</a>. But you know where you _didn't_ hear it? At driving school. That's right. The institution solely dedicated to training people how to drive safely on the roads didn't think it was important to teach you how to choose between running over a
 baby versus running over a grandmum. Do they think that humans will instinctively make the right choice? Let's be honest: this item was never on the agenda of any meeting at any driving school.
 
-If we are put in a life-or-death situation where we have to make a split second decision, we will likely prioritize our own wellbeing and that of our next of kin over the wellbeing of strangers. Random factors will likely affect our decision a lot as well. We're not going to produce a balanced, nuanced ethical analysis of the situation in the blink of an eye. And that's fine. There are more important things to teach at driving school, like how to recognize those pesky symbols that they put up on the side of the road, when it's your turn to drive through an intersection, or why you should slow down in conditions of reduced visibility. Likewise, there are more important things to get right in a self driving system, like I don't know, BASIC OBJECT RECOGNITION would be a good start.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/-2ml6sjk_8c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-
+If we are put in a life-or-death situation where we have to make a split second decision, we will likely prioritize our own wellbeing and that of our next of kin over the wellbeing of strangers. Random factors will likely affect our decision a lot as well. We're not going to produce a balanced, nuanced ethical analysis of the situation in the blink of an eye. And that's fine. There are more important things to teach at driving school, like how to recognize those pesky symbols that they put up on the side of the road, when it's your turn to drive through an intersection, or why you should slow down in conditions of reduced visibility. Likewise, there are more important things to get right in a self driving system, like I don't know, <a href="https://www.youtube.com/embed/-2ml6sjk_8c" target="_blank">basic object recognition</a> would be a good start.
    
 So if this is not the most important ethics question of the decade, why do people keep bringing it up?
 Self driving cars are scary, they will bring major change to society, and some serious ethical dilemmas along with that. We want to discuss those ethical questions, maybe even prevent some of the worst catastrophies that may happen, but that's too difficult. So we talk about something easy instead: baby or grandmum?
@@ -29,13 +25,6 @@ Self driving cars are scary, they will bring major change to society, and some s
 This is called <a href="https://en.wiktionary.org/wiki/bikeshedding" target="_blank">bikeshedding</a>. The origin story for this term is quite funny:
 
 > Parkinson noticed that a committee whose job is to approve plans for a nuclear power plant may spend the majority of its time on relatively unimportant but easy-to-grasp issues, such as what materials to use for the staff bikeshed, while neglecting the design of the power plant itself, which is far more important but also far more difficult to criticize constructively.
-
-<!--<re-img
-    src="bikes.jpg"
-    title="Photo by Berto Macario on Unsplash"
-    href="https://unsplash.com/photos/dbicjj8Yj8Y"
-    >
-</re-img>-->
 
 Self driving cars do come with seriously impactful ethical dilemmas, but nobody talks about those, because
 they are really, really hard and you can't become an "AI ethics expert" by waiving your hands around them.
