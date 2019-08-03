@@ -16,7 +16,7 @@ It's fine to run your own server to receive email, but save yourself a headache,
 
 ## Prologue
 
-It was a cold morning in 2016. After two decades of using email like a normal person I had finally had enough. I was going to set up my own server. And I was going to do it perfectly, so I wouldn't have to deal with these problems that were caused by other people running my email server. What problems, you ask? Two words: spam filtering. More words: spam filtering false positives in both my incoming and outgoing mail.
+It was a cold morning in 2016. After two decades of using email like a normal person I had finally had enough. I was going to set up my own server. And I was going to do it perfectly, so I wouldn't have to deal with false positive in spam filtering caused by other people running my email server.
 
 One time I would reply to my mom's email -- a Gmail address -- and a week later she would call to check that I'm alive because she never got my email. Then I would call my email service provider, which at the time was my ISP, and they would tell me that Gmail blacklisted them for a few days because someone was using their servers to send spam. ''But don't worry'', they would say, ''it works now''. Sure, maybe it works _today_. And maybe tomorrow my mom has to worry again because someone didn't set up bounce notifications. (Fun fact: later this ISP just closed my email address because they were ending B2C services in anticipation of a buyout.)
 
