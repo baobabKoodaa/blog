@@ -10,7 +10,9 @@ const ReTracedSVGGallery = (props) => {
           query ReTracedSVGGalleryQuery {
             allFile(
                 filter: {
-                  name: { ne: "gallery-cover-spacex" },
+                  name: {
+                    regex: "/^(?!.*(-meme|meme-|spacex))/"
+                  },
                   relativePath: { regex: "/.*(jpg|jpeg|png)/" },
                   sourceInstanceName: { regex: "/(posts)/" }
                 },
