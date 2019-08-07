@@ -2,6 +2,7 @@
   "name": "@baobabkoodaa/blog",
   "version": "0.9.0",
   "author": "Baobab Koodaa",
+  "description": "Feature-rich blog with streamlined design.",
   "license": "MIT",
   "dependencies": {
     "fontfaceobserver": "^2.0.13",
