@@ -43,7 +43,7 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
     - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating a `.env` file with `POSTS_FOLDER=posts`. Please delete my real posts when you begin tinkering.
     - When you create posts, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published. There are ways to accidentally publish drafts. If you are worried about that, the easiest way to avoid it is to deploy your site from GitHub via Netlify and _never commit draft posts to the repo_.
     - It's good practice to not add the `.env` file to repo. When you publish your blog, find out how you can add environment variables to your host.
-    - If you don't want your images to be auto cropped, crop them by yourself to 2.222 aspect ratio.
+    - You have to manually crop images to 2.222 aspect ratio.
 
 ## Attribution
 

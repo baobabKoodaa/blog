@@ -14,8 +14,7 @@ class Contact extends React.Component {
       name: "",
       email: "", // honeypot
       emailReal: "",
-      message: "",
-      honeypot: ""
+      message: ""
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -45,13 +44,22 @@ class Contact extends React.Component {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: this.encode({ "form-name": "contact", ...this.state })
     })
-      .then(() => {
-        console.log("Form submission success");
-        navigate("/success");
+      .then(function(rawResponse) {
+        return rawResponse.json();
+      })
+      .then(function(response) {
+        console.log(response)
+        if (response.result == 'success') {
+          console.log("Form submission success");
+          navigate("/success");
+        } else {
+          console.error(response);
+          alert("Server responded with error! Sorry about this.")
+        }
       })
       .catch(error => {
-        console.error("Form submission error:", error);
-        alert("Error while submitting form! " + e)
+        console.error(error);
+        alert("Unable to deliver. Is your internet connection down?")
       });
   }
 
@@ -70,7 +78,6 @@ class Contact extends React.Component {
           action={config.contactPostAddress}
           onSubmit={this.handleSubmit}
           data-netlify="true"
-          data-netlify-honeypot="bot-field"
         >
           <label className="formItem" >
             Name (optional):<br/>
