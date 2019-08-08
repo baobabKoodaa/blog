@@ -1,6 +1,6 @@
 ---
 title: Don't send email from your own server
-tags: ["email", "everything-is-broken"]
+tags: ["email", "adversarial", "everything-is-broken"]
 cover: mailboxes.jpg
 author: atte juvonen
 ---
