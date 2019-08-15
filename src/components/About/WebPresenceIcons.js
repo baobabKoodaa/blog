@@ -3,6 +3,7 @@ import theme from "../../theme/theme.yaml";
 import { FaGithub, FaStackOverflow, FaLinkedin, FaYoutube } from 'react-icons/fa'
 import config from "../../../content/meta/config";
 import Codeforces from "../../images/svg-icons/codeforces.svg";
+//import Unsplash from "../../images/svg-icons/unsplash.svg";
 
 const WebPresenceIcons = () => {
     return (
@@ -13,6 +14,7 @@ const WebPresenceIcons = () => {
                 <a href={config.authorLinkedin} target="_blank"><FaLinkedin/></a>
                 <a href={config.authorCodeforces} target="_blank"><Codeforces/></a>
                 <a href={config.authorYoutube} target="_blank"><FaYoutube/></a>
+                {/* <a href={config.authorUnsplash} target="_blank"><Unsplash/></a> */}
             </div>
             <style jsx>{`
             .wrapper {
