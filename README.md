@@ -31,7 +31,8 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
     - Run in production mode with `gatsby build && gatsby serve` (or `./fastbuild.sh`). If you want to delete `cache` and `public` before building, use `./slowbuild.sh` (recommended for releases to avoid leaking development data). You may have to make the scripts executable before you are able to run them (`chmod +x filename`).
 - Make it your own
     - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
-    - Search all files for "atte" and "greg".
+    - Search all files for "atte".
+    - Replace `static/preview.jpg`.
     - When you publish, make sure caching and redirects work reasonably. I recommend Netlify, in which case cache configuration in `static/_headers` is fine and you just need to edit 1 line in `static/_redirects`.
     - Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
     - There is an e-mail newsletter link on the `Follow` page. Either set one up or remove the link.
