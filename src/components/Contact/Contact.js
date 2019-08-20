@@ -2,6 +2,7 @@
 
 import { navigate } from "gatsby";
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
 import config from "../../../content/meta/config";
 import theme from "../../theme/theme.yaml";
@@ -71,95 +72,118 @@ class Contact extends React.Component {
 
   render() {
     return (
-      <div className="form">
-        <form
-          name="contact"
-          method="post"
-          action={config.contactPostAddress}
-          onSubmit={this.handleSubmit}
-          data-netlify="true"
-        >
-          <label className="formItem" >
-            Name (optional):<br/>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br/><br/>
-          <label className="formItem" >
-            E-mail (optional):<br/>
-            <input
-              type="email"
-              name="emailReal"
-              value={this.state.emailReal}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br/><br/>
-          <input
-            type="email"
-            name="email" // actually honeypot
-            value={this.state.email}
-            onChange={this.handleChange}
-            style={{display: "none"}}
-          />
-          <label className="formItem" >
-            Message:<br/>
-            <textarea
-              name="message"
-              required={true}
-              value={this.state.message}
-              onChange={this.handleChange}
-            />
-          </label>
-          <br/><br/>
-          <input
-            type="submit"
-            value="Submit"
-            id="submitButton"
-            className="formItem" 
-          />
-        </form>
+      <StaticQuery
+      query={graphql`
+        query ContactQuery {
+          site {
+            siteMetadata {
+              contactPostAddress
+            }
+          }
+        }
+      `}
+      render={ queryResults => {
 
-        {/* --- STYLES --- */}
-        <style jsx>{`
-          .formItem input,textarea {
-            width: 100%;
-            border-radius: 5px;
-            border-width: 2px;
-            font-family: Open Sans;
-            font-weight: 400;
-            font-size: 1em;
-          }
-          .formItem input {
-            height: 30px;
-            max-width: 300px;
-          }
-          .formItem textarea {
-            height: 100px;
-            max-width: 600px;
-          }
-          #submitButton {
-            color: white;
-            height: auto;
-            font-family: Open Sans;
-            font-size: 1.2em;
-            font-weight: 400;
-            padding: 0.5em 3em;
-            border-radius: 5px;
-            background: ${theme.color.brand.primary};
-            border: 1px solid ${theme.color.brand.primary};
-          }
-          #submitButton:hover {
-            background: ${theme.color.brand.primaryDark};
-            cursor: pointer;
-          }
-        `}</style>
-      </div>
-    );
+        const contactPostAddress = queryResults.site.siteMetadata.contactPostAddress
+
+        return (
+          <>
+            <div className="form">
+              <form
+                name="contact"
+                method="post"
+                action={contactPostAddress}
+                onSubmit={this.handleSubmit}
+                data-netlify="true"
+              >
+                <label className="formItem" >
+                  Name (optional):<br/>
+                  <input
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br/><br/>
+                <label className="formItem" >
+                  E-mail (optional):<br/>
+                  <input
+                    type="email"
+                    name="emailReal"
+                    value={this.state.emailReal}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br/><br/>
+                <input
+                  type="email"
+                  name="email" // actually honeypot
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  style={{display: "none"}}
+                />
+                <label className="formItem" >
+                  Message:<br/>
+                  <textarea
+                    name="message"
+                    required={true}
+                    value={this.state.message}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br/><br/>
+                <input
+                  type="submit"
+                  value="Submit"
+                  id="submitButton"
+                  className="formItem" 
+                />
+                {contactPostAddress === "" && (
+                  <h1>Undefined contactPostAddress!</h1>
+                )}
+              </form>
+
+              {/* --- STYLES --- */}
+              <style jsx>{`
+                .formItem input,textarea {
+                  width: 100%;
+                  border-radius: 5px;
+                  border-width: 2px;
+                  font-family: Open Sans;
+                  font-weight: 400;
+                  font-size: 1em;
+                }
+                .formItem input {
+                  height: 30px;
+                  max-width: 300px;
+                }
+                .formItem textarea {
+                  height: 100px;
+                  max-width: 600px;
+                }
+                #submitButton {
+                  color: white;
+                  height: auto;
+                  font-family: Open Sans;
+                  font-size: 1.2em;
+                  font-weight: 400;
+                  padding: 0.5em 3em;
+                  border-radius: 5px;
+                  background: ${theme.color.brand.primary};
+                  border: 1px solid ${theme.color.brand.primary};
+                }
+                #submitButton:hover {
+                  background: ${theme.color.brand.primaryDark};
+                  cursor: pointer;
+                }
+              `}</style>
+            </div>
+          </>
+        )
+      }}
+      />
+    )
   }
 };
 

@@ -51,8 +51,10 @@ module.exports = {
     title: config.siteTitle,
     description: config.siteDescription,
     siteUrl: config.siteUrl,
+    contactPostAddress: process.env.CONTACT_POST_ADDRESS || "",
+    emailSubLink: process.env.EMAIL_SUB_LINK || "",
     algolia: {
-      appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : "",
+      appId: process.env.ALGOLIA_APP_ID || "",
       searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY
         ? process.env.ALGOLIA_SEARCH_ONLY_API_KEY
         : "",
