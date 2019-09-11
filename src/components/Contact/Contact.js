@@ -4,7 +4,6 @@ import { navigate } from "gatsby";
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import config from "../../../content/meta/config";
 import theme from "../../theme/theme.yaml";
 
 class Contact extends React.Component {
@@ -40,7 +39,7 @@ class Contact extends React.Component {
     b.style.borderColor = theme.color.brand.primaryLight
     b.style.color = "#666"
 
-    fetch(config.contactPostAddress, {
+    fetch(this.contactPostAddress, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: this.encode({ "form-name": "contact", ...this.state })
@@ -84,7 +83,11 @@ class Contact extends React.Component {
       `}
       render={ queryResults => {
 
+        // It's very ugly to update this.contactPostAddress inside render(), but Gatsby currently
+        // offers only two ways of using StaticQuery: this way (inside render), and as a React Hook
+        // (which would be incompatible with a class component).
         const contactPostAddress = queryResults.site.siteMetadata.contactPostAddress
+        this.contactPostAddress = contactPostAddress
 
         return (
           <>
