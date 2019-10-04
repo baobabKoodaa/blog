@@ -1,14 +1,14 @@
 module.exports = {
-  siteTitle: "Atte Juvonen", // <title>
-  shortSiteTitle: "Atte Juvonen", // <title> ending for posts and pages
-  siteDescription: "Atte Juvonen",
+  siteTitle: "Luigi", // <title>
+  shortSiteTitle: "Luigi", // <title> ending for posts and pages
+  siteDescription: "Luigi",
   siteUrl: "https://www.attejuvonen.fi",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
 
   /* author */
-  authorName: "Atte Juvonen",
+  authorName: "Luigi",
   authorTwitterAccount: "",
   authorGithub: "https://github.com/baobabkoodaa",
   authorStackoverflow: "https://stackexchange.com/users/5678032/atte-juvonen?tab=accounts",
@@ -17,12 +17,12 @@ module.exports = {
   authorYoutube: "https://www.youtube.com/channel/UCfHqfHoSYL0V_fXA_JQkeLw?view_as=subscriber",
 
   /* header text */
-  headerTitle: "atte juvonen",
+  headerTitle: "Luigi",
   headerSubTitle: "",
 
   /* manifest.json */
-  manifestName: "Atte Juvonen",
-  manifestShortName: "atteJuvonen", // max 12 characters
+  manifestName: "Luigi",
+  manifestShortName: "Luigi", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
