@@ -2,7 +2,7 @@
 title: Bot Land Cheat Sheet
 ---
 
-The purpose of this page is to allow quick lookups on specific things about Bot Land game mechanics. I wanted to consolidate this information in one place, since it was scattered all over the internet (some of the docs were available only in-game, some information only in discourse chat, etc.) You can edit this page <a href="https://github.com/baobabKoodaa/blog/blob/master/content/pages/3--botland-cheat-sheet/index.md" target="_blank">here</a>.
+The purpose of this page is to allow quick lookups on specific things about Bot Land game mechanics. I wanted to consolidate this information in one place, since it was scattered all over the internet (some of the docs were available only in-game, some information only in Discord chat, etc.) You can edit this page <a href="https://github.com/baobabKoodaa/blog/blob/master/content/pages/3--botland-cheat-sheet/index.md" target="_blank">here</a>.
 
 <!--<re-img
     src="honeypot.jpg"
@@ -10,6 +10,8 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
     href="https://unsplash.com/photos/RQHzRELE2Ss"
     >
 </re-img>-->
+
+---
 
 ## Comparison of weapon types
 
@@ -127,6 +129,66 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Mines can not be directly detected by the enemy.
 - You can not stack mines on the same tile.
 - Landmines persist across rounds.
+
+| Weapon                    | Damage        | Duration      |
+| --------------------------|:-------------:|:-------------:|
+| Landmines I               | 600           | 11            |
+| Landmines II              | 600           | 14            |
+| Landmines III             | 600           | 17            |
+
+<!-- Hack to fix a whitespace issue. -->
+##
+
+---
+
+## Cloaking
+
+- Makes your bot invisible.
+- Moving and attacking are possible while cloaked. Other actions will decloak you.
+- While you are cloaked, your damage is reduced by 80%.
+- Your enemy might decloak you by attempting to move or teleport into your tile.
+- If a friendly unit attempts to teleport onto your tile, it will simply teleport into an adjacent free tile.
+- Ignition makes you visible for the duration, but does not decloak you. This means you may become invisible again if the ignition wears off but the cloak remains. Inferno Zapper and Inferno Lasers can ignite bots.
+
+## Regen
+
+- TODO
+
+## Teleport
+
+- TODO Talk about teleporting on enemy vs friendly cloaked units.
+
+## Thrusters
+
+- TODO
+
+## Reflect
+
+- TODO
+- A missile or laser can not be reflected more than once (can not bounce between targets).
+
+## Shield
+
+- TODO talk about stacking infinite shields
+
+## Armor
+
+- TODO 
+
+## EMP
+
+- TODO on LASERS, MISSILES, MELEE, ARTILLERY, ZAPPER, REPAIR, CLOAKING, SHIELD, REFLECT, TELEPORT, LANDMINES, or EMP.
+
+## Repair
+
+- TODO
+
+## Area Repair
+
+- TODO
+
+
+---
 
 ## General information
 
