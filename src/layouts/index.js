@@ -124,6 +124,12 @@ class Layout extends React.Component {
               width: auto;
               display: block;
             }
+            table, th, td {
+              border: 1px solid #DDD;
+            }
+            th, td {
+              padding: 5px;
+            }
           `}</style>
         </ScreenWidthContext.Provider>
       </ThemeContext.Provider>
