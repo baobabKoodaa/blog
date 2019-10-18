@@ -2,7 +2,7 @@
 title: Bot Land Cheat Sheet
 ---
 
-The purpose of this page is to allow quick lookups on specific things about Bot Land game mechanics. I wanted to consolidate this information in one place, since it was scattered all over the internet (some of the docs were available only in-game, some information only in discourse chat, etc.)
+The purpose of this page is to allow quick lookups on specific things about Bot Land game mechanics. I wanted to consolidate this information in one place, since it was scattered all over the internet (some of the docs were available only in-game, some information only in discourse chat, etc.) You can edit this page <a href="https://github.com/baobabKoodaa/blog/blob/master/content/pages/3--botland-cheat-sheet/index.md" target="_blank">here</a>.
 
 <!--<re-img
     src="honeypot.jpg"
@@ -44,7 +44,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - All lasers can be blind-fired (you can hit cloaked enemies).
 - All lasers can be reflected.
 - All lasers have no cooldown (can be used again every turn).
-- Inferno Lasers ignite the target, causing 100 damage per turn for the duration of the ignition and causing a cloaked unit to become visible for the duration of the ignition (the cloak buff stays on, so the unit may become invisible after the ignition is over).
+- Inferno Lasers ignite the target, causing 100 damage per turn for the duration of the ignition and causing a cloaked unit to become visible for the duration of the ignition (the cloak buff stays on, so the unit may become invisible after the ignition is over). Ignition persists across rounds.
 - Stunning Lasers stun the target for 1 turn.
 - Stunning Lasers can not stun the same target 2 turns in a row.
 - Stunning Lasers' damage can be reflected but the stun can not.
@@ -107,7 +107,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 - When activated, zapper creates an electric field around your bot, dealing damage to adjacent enemies.
 - Diagonally adjacent enemies receive only 50% damage.
-- Inferno Zapper ignites the target, causing 100 damage per turn for the duration of the ignition and causing a cloaked unit to become visible for the duration of the ignition (the cloak buff stays on, so the unit may become invisible after the ignition is over).
+- Inferno Zapper ignites the target, causing 100 damage per turn for the duration of the ignition and causing a cloaked unit to become visible for the duration of the ignition (the cloak buff stays on, so the unit may become invisible after the ignition is over). Ignition persists across rounds.
 
 | Weapon                 | Damage        | Duration | Cooldown | Special effect | Special duration  |
 | -----------------------|:-------------:|:--------:|:--------:|:--------------:|:-----------------:|
@@ -126,14 +126,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - There is some limit to the total amount of mines which can be on the battlefield at any time.
 - Mines can not be directly detected by the enemy.
 - You can not stack mines on the same tile.
-
-## Support Stats
-
-| Tables        | Are           | Cool  |
-| -------------:|:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+- Landmines persist across rounds.
 
 ## General information
 
@@ -147,12 +140,17 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 | Chip          | 4000          |
 | CPU           | 12000         |
 
+## Open questions
+
+- Is ignition damage affected by cloak damage reduction?
+
 ## Game limits
 
 - Maximum script length is 16500 characters for Botlandscript and 49500 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
 - Computational limit: ?? (bots can time-out)
 - When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot.
+- Arrays can have at most 100 elements.
 - You can share information between bots by utilizing shared variables `sharedA` to `sharedE`.
 
 ## Related links
