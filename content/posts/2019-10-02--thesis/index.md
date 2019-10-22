@@ -35,4 +35,7 @@ Results of the comparison:
     >
 </re-img>
 
-You can download the thesis <a href="/thesis-voting-security-2019-10-01.pdf" target="_blank">here</a>. I'd be happy to receive any comments or corrections. I will fix any discovered errors and I pledge to keep both updated and historical versions available on this site. I have released the thesis under a permissive license (CC BY 4.0), so you are free to do what you want with it.
+You can download the thesis below. I'd be happy to receive any comments or corrections. I will fix any discovered errors and I pledge to keep both updated and historical versions available on this site. I have released the thesis under a permissive license (CC BY 4.0), so you are free to do what you want with it.
+
+- <a href="/thesis-voting-security-2019-10-09.pdf" target="_blank">v-2019-10-09</a> ← _latest version submitted to University_
+- <a href="/thesis-voting-security-2019-10-01.pdf" target="_blank">v-2019-10-01</a>

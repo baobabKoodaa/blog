@@ -136,27 +136,45 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 | Landmines II              | 600           | 14            |
 | Landmines III             | 600           | 17            |
 
-<!-- Hack to fix a whitespace issue. -->
+<!-- Line below is a hack to fix a whitespace issue. Do not remove. -->
 ##
 
 ---
 
 ## Cloaking
 
-- Makes your bot invisible.
+- When activated, makes your bot invisible.
 - Moving and attacking are possible while cloaked. Other actions will decloak you.
 - While you are cloaked, your damage is reduced by 80%.
 - Your enemy might decloak you by attempting to move or teleport into your tile.
 - If a friendly unit attempts to teleport onto your tile, it will simply teleport into an adjacent free tile.
 - Ignition makes you visible for the duration, but does not decloak you. This means you may become invisible again if the ignition wears off but the cloak remains. Inferno Zapper and Inferno Lasers can ignite bots.
 
+| Support                    | Duration      | Damage reduction |
+| ---------------------------|:-------------:|:----------------:|
+| Cloaking I                 | 3             | 80%              |
+| Cloaking II                | 4             | 80%              |
+| Cloaking III               | 5             | 80%              |
+
 ## Regen
 
-- TODO
+- Passively regenerates life each turn.
+
+| Support                    | Heal          | 
+| ---------------------------|:-------------:|
+| Regen I                    | 10            |
+| Regen II                   | 25            |
+| Regen III                  | 50            |
 
 ## Teleport
 
-- TODO Talk about teleporting on enemy vs friendly cloaked units.
+- Teleports you to the target location.
+- If the target location is occupied, attempts to teleport to an adjacent tile.
+- Teleporting on top of a cloaked enemy unit will decloak it. Teleporting on top of a cloaked friendly unit will simply teleport to an adjacent tile.
+
+| Support                    | Range         | Cooldown |
+| ---------------------------|:-------------:|:--------:|
+| Teleport II                | 5             | 10       |
 
 ## Thrusters
 
@@ -177,6 +195,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## EMP
 
+- Does not disable an already-activated effect, only prevents new.
 - TODO on LASERS, MISSILES, MELEE, ARTILLERY, ZAPPER, REPAIR, CLOAKING, SHIELD, REFLECT, TELEPORT, LANDMINES, or EMP.
 
 ## Repair
@@ -192,6 +211,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## General information
 
+- Although the game looks like bots are acting real-time, they are actually acting in turns.
+- The order that you place your bots on the map defines the order in which they begin to act.
+- Acting order is affected by haste (thrusters, haste chips, etc.) TODO explain better.
 - Friendly fire is not possible.
 - Matchmaking is restricted to players who have logged in during the past 3 days.
 - Matchmaking prioritizes defenders who have not had a match in 5 hours (after a new version of the game is deployed, all players are prioritized).
