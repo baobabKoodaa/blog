@@ -168,9 +168,10 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Teleport
 
-- Teleports you to the target location.
+- When activated, teleports you to the target location.
 - If the target location is occupied, attempts to teleport to an adjacent tile.
 - Teleporting on top of a cloaked enemy unit will decloak it. Teleporting on top of a cloaked friendly unit will simply teleport to an adjacent tile.
+- Note that the `canTeleport` API -- despite its name -- does not tell you if you can teleport on a tile. 
 
 | Support                    | Range         | Cooldown |
 | ---------------------------|:-------------:|:--------:|
@@ -178,34 +179,82 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Thrusters
 
-- TODO
+- Passively increases haste-after-movement. Note that the haste bonus is applied only after movement, not after other actions.
+
+| Support                    | Next turn haste bonus         |
+| ---------------------------|:-----------------------------:|
+| Thrusters I                | 17%                           |
+| Thrusters II               | 34%                           |
+| Thrusters III              | 50%                           |
 
 ## Reflect
 
-- TODO
-- A missile or laser can not be reflected more than once (can not bounce between targets).
+- When activated, grants a chance to reflect missiles and lasers.
+- A reflected missile or laser can be reflected onto any nearby enemy bot (not only to the bot which fired it).
+- A missile or laser can not be reflected more than once (projectiles can not bounce between targets).
+
+| Support                    | Reflect chance | Duration  | Cooldown |
+| ---------------------------|:--------------:|:---------:|:--------:|
+| Reflect I                  | 50%            | 4         | 9        |
+| Reflect II                 | 65%            | 5         | 9        |
+| Reflect III                | 75%            | 6         | 9        |
 
 ## Shield
 
-- TODO talk about stacking infinite shields
+- When activated, casts a shield on yourself or a nearby bot, chip or CPU (you can target the desired entity).
+- A shield will absorb all damage up to a certain limit.
+- Shields can be stacked infinitely.
+
+| Support                    | Damage absorbed | Duration  | Cooldown | Range |
+| ---------------------------|:---------------:|:---------:|:--------:|:-----:|
+| Shield I                   | 150             | 9         | 8        | 3     |
+| Shield II                  | 300             | 12        | 8        | 4     |
+| Shield III                 | 400             | 12        | 8        | 5     |
 
 ## Armor
 
-- TODO 
+- Passively decreases all incoming damage.
+
+| Support                    | Damage reduction |
+| ---------------------------|:----------------:|
+| Armor I                    | 5%               |
+| Armor II                   | 10%              |
+| Armor III                  | 15%              |
 
 ## EMP
 
-- Does not disable an already-activated effect, only prevents new.
-- TODO on LASERS, MISSILES, MELEE, ARTILLERY, ZAPPER, REPAIR, CLOAKING, SHIELD, REFLECT, TELEPORT, LANDMINES, or EMP.
+- When activated, disables the specified hardware for all enemies around you within range.
+- If an enemy attempts to use the disabled hardware, they will lose their turn.
+- The following hardware can be disabled: LASERS, MISSILES, MELEE, ARTILLERY, ZAPPER, REPAIR, CLOAKING, SHIELD, REFLECT, TELEPORT, LANDMINES, and EMP.
+- Does not disable an effect which has been previously activated, only prevents the enemy from activating new effects. For example, if the enemy has already activated zapper, you can not disable it with your EMP.
+
+| Support                    | Duration  | Cooldown | Range |
+| ---------------------------|:---------:|:--------:|:-----:|
+| EMP III                    | 2         | 8        | 5     |
+
 
 ## Repair
 
-- TODO
+- When activated, heals yourself or a nearby bot, chip or CPU (you can target the desired entity).
+
+| Support                    | Heal amount  | Range |
+| ---------------------------|:------------:|:-----:|
+| Repair I                   | 50           | 1     |
+| Repair II                  | 100          | 1     |
+| Repair III                 | 150          | 1     |
 
 ## Area Repair
 
-- TODO
+- When activated, heals all allies within a certain range (is this targeted or does it repair everything aroudn you?)
 
+| Support                    | Heal amount  | Range | Cooldown |
+| ---------------------------|:------------:|:-----:|:--------:|
+| Area Repair I              | 50           | 3     | 8        |
+| Area Repair II             | 100          | 3     | 8        |
+| Area Repair III            | 150          | 3     | 8        |
+
+<!-- Line below is a hack to fix a whitespace issue. Do not remove. -->
+##
 
 ---
 
@@ -239,5 +288,136 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Related links
 
-- [ESLint Bot Land plugin](https://www.npmjs.com/package/eslint-plugin-botland)
-- [Youtube channel of the developer](https://www.youtube.com/channel/UCJFxRNHar-c_lKYxFMIPg_g)
+- [Bot Land minifier by Ron](https://github.com/rondlite/botland-minifier)
+- [ESLint Bot Land plugin by freaktechnik](https://www.npmjs.com/package/eslint-plugin-botland)
+- [Youtube channel Adam13531, the developer of Bot Land](https://www.youtube.com/channel/UCJFxRNHar-c_lKYxFMIPg_g)
+
+## All top-level APIs
+
+- The following top-level APIs exist (thanks to Ron for this list!)
+
+`
+"init",
+  "update",
+  "x",
+  "y",
+  "life",
+  "lifePercent",
+  "isAttacker",
+  "closestDistanceToWaypointAchieved",
+  "CHIP_CPU_BOT", 
+  "CHIP_BOT_CPU", 
+  "BOT_CHIP_CPU", 
+  "BOT_CPU_CHIP", 
+  "CPU_CHIP_BOT", 
+  "CPU_BOT_CHIP", 
+  "REDUCE_BY_MISSING_LIFE", 
+  "ENEMY", 
+  "IS_OWNED_BY_ME", 
+  "CHIP", 
+  "CPU", 
+  "BOT", 
+  "ANYTHING", 
+  "SORT_BY_DISTANCE",
+  "SORT_BY_LIFE",  
+  "SORT_ASCENDING", 
+  "SORT_DESCENDING",
+  "arenaWidth",
+  "arenaHeight",
+  "sharedA",
+  "sharedB",
+  "sharedC",
+  "sharedD",
+  "sharedE",
+  "getX",
+  "getY",
+  "array1",
+  "array2",
+  "getLife",
+  "getLifePercent",
+  "canTeleport",
+  "canMove",
+  "canMoveTo",
+  "canEMP",
+  "canEmp",
+  "canCloak",
+  "canCharge",
+  "canZap",
+  "canReflect",
+  "canShield",
+  "willRepair",
+  "canActivateSensors",
+  "canLayMine",
+  "isCloaked",
+  "isOnFire",
+  "waypointExists",
+  "isZapping",
+  "areSensorsActivated",
+  "isReflecting",
+  "isShielded",
+  "distanceTo",
+  "getDistanceTo",
+  "getEntityAt",
+  "isEnemyMineAt",
+  "percentChance",
+  "randInt",
+  "randomInteger",
+  "willMoveWork",
+  "willMissilesHit",
+  "willArtilleryHit",
+  "willLasersHit",
+  "willMeleeHit",
+  "isAdjacent",
+  "filterEntities",
+  "reduceEntities",
+   "size",
+  "count",
+  "findEntity",
+  "findEntities",
+  "findEntitiesInRange",
+  "findClosestEnemyBot",
+  "findClosestEnemyCpu",
+  "findClosestFriendlyChip",
+  "findClosestEnemyChip",
+  "findClosestAlliedBot",
+  "findMyCpu",
+  "findMyClosestBot",
+  "setAttackPriority",
+  "getNumMinesLaid",
+  "add",
+  "canSense",
+  "canSenseEntity",
+  "exists",
+  "isDefined",
+  "abs",
+  "floor",
+  "ceil",
+  "min",
+  "max",
+  "round",
+  "clampNumber",
+  "checkTime",
+  "move",
+  "teleport",
+  "figureItOut",
+  "figureItOutDefense",
+  "layMine",
+  "moveTo",
+  "moveToMiddle",
+  "emp",
+  "EMP",
+  "cloak",
+  "zap",
+  "reflect",
+  "shield",
+  "activateSensors",
+  "pursueBot",
+  "pursueWaypoint",
+  "revealMines",
+  "pursue",
+  "melee",
+  "repair",
+  "fireLasers",
+  "fireArtillery",
+  "fireMissiles"
+  `
