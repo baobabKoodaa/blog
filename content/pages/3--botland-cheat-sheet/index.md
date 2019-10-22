@@ -279,7 +279,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Game limits
 
-- Maximum script length is 16500 characters for Botlandscript and 49500 characters for Blockly.
+- Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
 - Computational limit: ?? (bots can time-out)
 - When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot.
