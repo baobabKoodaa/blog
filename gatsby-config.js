@@ -79,12 +79,6 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: ["gatsby-remark-embed-spotify"]
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -116,6 +110,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: "gatsby-remark-embed-spotify",
+            options: {
+              width: 800, // default is "100%"
+              height: 600 // default is 400
+            }
+          },
           {
             resolve: "gatsby-remark-component-parent2div",
             options: { components: ["re-icons", "re-img", "re-tracedsvg-gallery"] }
