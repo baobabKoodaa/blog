@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: "Thoughts ", // <title>
   shortSiteTitle: "Thoughts", // <title> ending for posts and pages
   siteDescription: "Thoughts",
-  siteUrl: "https://www.attejuvonen.fi",
+  siteUrl: "https://www.thoughts-blog.com",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
