@@ -31,7 +31,12 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Melee can not be blind-fired (you can not hit cloaked enemies).
 - Melee has the ability to charge (simultaneously move and attack from 2 tiles distance in a cardinal direction).
 - Melee has no cooldown, but charge does.
-
+- `melee()` attempts to melee any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
+- `melee(entity)` can be used to melee a specific enemy (if you can sense it).
+- `melee(direction)` can be used to melee an enemy at a specific direction, if melee in that direction is possible. Note that `direction` must be string `'left'`, `'right'`, `'up'`, or `'down'`.
+- `willMeleeHit()`, `willMeleeHit(entity)` and `willMeleeHit(direction)` return true if the corresponding melee is possible. Note that these will return true even if EMP has disabled your melee. You will lose a turn if you attempt to melee when melee is not possible.
+- `canCharge()` returns true if charge is not on cooldown (it does not check whether an enemy is within charging range).
+- There is no explicit command to charge; `melee()` will charge if possible.
 
 | Weapon        | Damage        | Charge cooldown |
 | --------------|:-------------:|:---------------:|
@@ -51,6 +56,10 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Stunning Lasers can not stun the same target 2 turns in a row.
 - Stunning Lasers' damage can be reflected but the stun can not.
 - Vampiric Lasers heal for 30% of damage inflicted (is this correct?)
+- `fireLasers()` attempts to fire lasers at any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
+- `fireLasers(entity)` can be used to fire lasers at a specific enemy (note that if you can not sense the enemy, you should blind-fire lasers by direction instead).
+- `fireLasers(direction)` can be used to blind-fire lasers at a specific direction. Note that `direction` must be string `'left'`, `'right'`, `'up'`, or `'down'`.
+- `willLasersHit()`, `willLasersHit(entity)` and `willLasersHit(direction)` return true if the corresponding `fireLasers` is possible. Note that `willLasersHit(direction)` does not indicate whether lasers will hit an enemy, only whether fireing lasers is possible. Also note that these will return true even if EMP has disabled your lasers. You will lose a turn if you attempt to fire lasers and it fails to fire (due to EMP, target out of range, target not sensed due to cloaking and lasers not blind-fired, etc.)
 
 | Weapon                 | Damage        | Range | Special effect | Special duration  |
 | -----------------------|:-------------:|:-----:|:--------------:|:-----------------:|
@@ -76,6 +85,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Regular Missiles and Multi Missiles have no cooldown.
 - Acceleration Missiles have a cooldown which is reduced by consecutive firing and reset by other actions.
 - Multi Missiles fire at every enemy in range.
+- `fireMissiles()` attempts to fire missiles at any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
+- `fireMissiles(entity)` can be used to fire missiles at a specific enemy (if you can sense it).
+- `willMissilesHit()` and `willMissilesHit(entity)` return true if the corresponding `fireMissiles` is possible. Note that these will return true even if EMP has disabled your missiles. You will lose a turn if you attempt to fire missiles when it's not possible.
 
 | Weapon                    | Damage        | Range | Cooldown         | Acceleration rate |
 | --------------------------|:-------------:|:-----:|:----------------:|:-----------------:|
@@ -98,6 +110,10 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Due to the inability to blind-fire and the delay in landing shots, artillery shots can be easily dodged.
 - Artillery shots cause splash damage to adjacent squares (including diagonally adjacent?)
 - Artillery can not be reflected.
+- `fireArtillery()` attempts to fire artillery at any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
+- `fireArtillery(entity)` can be used to fire artillery at a specific enemy (if you can sense it).
+- `willArtilleryHit()` and `willArtilleryHit(entity)` return true if the corresponding `fireArtillery` is possible. Note that these will return true even if EMP has disabled your artillery. You will lose a turn if you attempt to fire artillery when it's not possible.
+
 
 | Weapon                    | Damage        | Splash damage |
 | --------------------------|:-------------:|:-------------:|
@@ -273,45 +289,47 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 | Chip          | 4000          |
 | CPU           | 12000         |
 
-## Open questions
-
-- Is ignition damage affected by cloak damage reduction?
-
 ## Game limits
 
 - Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
 - Computational limit: ?? (bots can time-out)
-- When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot.
-- Arrays can have at most 100 elements.
+- When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot. Arrays can have at most 100 elements.
 - You can share information between bots by utilizing shared variables `sharedA` to `sharedE`.
 
-## Related links
+---
 
-- [Open-sourced bots by mizzao, one of the top competitors](http://github.com/mizzao/bot.land)
-- [Bot Land minifier by Ron](https://github.com/rondlite/botland-minifier)
-- [ESLint Bot Land plugin by freaktechnik](https://www.npmjs.com/package/eslint-plugin-botland)
-- [Youtube channel Adam13531, the developer of Bot Land](https://www.youtube.com/channel/UCJFxRNHar-c_lKYxFMIPg_g)
+## Top-level APIs
 
-## All top-level APIs
+- `init()` is called once for each bot, at the beginning of a round.
+- `update()` is called whenever your bot can act. Note that a turn may be skipped due to stun lasers and haste also affects acting order.
 
-- The following top-level APIs exist (thanks to Ron for this list!)
+## Sharing information between bots
 
-`
-"init",
-  "update",
-  "x",
-  "y",
-  "life",
-  "lifePercent",
-  "isAttacker",
-  "closestDistanceToWaypointAchieved",
-  "CHIP_CPU_BOT", 
-  "CHIP_BOT_CPU", 
-  "BOT_CHIP_CPU", 
-  "BOT_CPU_CHIP", 
-  "CPU_CHIP_BOT", 
-  "CPU_BOT_CHIP", 
+- The following variables are shared: `sharedA`, `sharedB`, `sharedC`, `sharedD`, `sharedE`.
+- It's possible to share an array, but only `array1` and `array2` can be shared.
+- Sharing information between bots is extremely brittle (due to the turn based nature of the game with haste effects, special shared variables, special array variables, variable scoping, and other limitations). Be very careful!
+
+## Other useful APIs
+
+- `x` and `y` contain coordinates for your bot.
+- `getX(entity)` and `getY(entity)` return x and y coordinates for a given entity, given that your bot can sense it. The following syntax also works: `entity.x`, `entity.y`.
+- `life` contains currently remaining hit points for your bot (`lifePercent` is also available).
+- `getLife(entity)` and `getLifePercent(entity)` return the corresponding values for an entity if your bot can sense it.
+- The following utility functions are available: `abs`, `floor`, `ceil`, `min`, `max`, `round`, `size` (length of array).
+- `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
+
+## Not-so-useful APIs
+
+- `setAttackPriority(LITERAL)` can be used to set the priority in which your bots will attack in the narrow scenario _where there are multiple allowed targets of different types and you do not specify an attack target_. The default attack priority is `BOT_CHIP_CPU` and you probably will not want to change this (because your bots will be either "normal" bots which will be fine with this priority, or they will be CPU rushing bots, which will have hardcoded commands to attack the CPU specifically). Nonetheless, other possible permutations can be set, such as `CPU_BOT_CHIP`. Note that the values must be literals, not strings.
+- `isAttacker` is true when you are the attacker.
+
+## Undocumented APIs
+
+TODO: document these APIs:
+
+- `closestDistanceToWaypointAchieved`
+- `
   "REDUCE_BY_MISSING_LIFE", 
   "ENEMY", 
   "IS_OWNED_BY_ME", 
@@ -325,17 +343,8 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
   "SORT_DESCENDING",
   "arenaWidth",
   "arenaHeight",
-  "sharedA",
-  "sharedB",
-  "sharedC",
-  "sharedD",
-  "sharedE",
-  "getX",
-  "getY",
   "array1",
   "array2",
-  "getLife",
-  "getLifePercent",
   "canTeleport",
   "canMove",
   "canMoveTo",
@@ -364,14 +373,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
   "randInt",
   "randomInteger",
   "willMoveWork",
-  "willMissilesHit",
-  "willArtilleryHit",
-  "willLasersHit",
-  "willMeleeHit",
   "isAdjacent",
   "filterEntities",
   "reduceEntities",
-   "size",
   "count",
   "findEntity",
   "findEntities",
@@ -383,19 +387,10 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
   "findClosestAlliedBot",
   "findMyCpu",
   "findMyClosestBot",
-  "setAttackPriority",
   "getNumMinesLaid",
   "add",
   "canSense",
   "canSenseEntity",
-  "exists",
-  "isDefined",
-  "abs",
-  "floor",
-  "ceil",
-  "min",
-  "max",
-  "round",
   "clampNumber",
   "checkTime",
   "move",
@@ -416,9 +411,21 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
   "pursueWaypoint",
   "revealMines",
   "pursue",
-  "melee",
   "repair",
-  "fireLasers",
-  "fireArtillery",
-  "fireMissiles"
   `
+
+<!-- Line below is a hack to fix a whitespace issue. Do not remove. -->
+##
+
+---
+
+## Open questions
+
+- Is ignition damage affected by cloak damage reduction?
+
+## Related links
+
+- [Open-sourced bots by mizzao, one of the top competitors](http://github.com/mizzao/bot.land)
+- [Bot Land minifier by Ron](https://github.com/rondlite/botland-minifier)
+- [ESLint Bot Land plugin by freaktechnik](https://www.npmjs.com/package/eslint-plugin-botland)
+- [Youtube channel Adam13531, the developer of Bot Land](https://www.youtube.com/channel/UCJFxRNHar-c_lKYxFMIPg_g)
