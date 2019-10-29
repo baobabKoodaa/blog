@@ -288,6 +288,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Related links
 
+- [Open-sourced bots by mizzao, one of the top competitors](http://github.com/mizzao/bot.land)
 - [Bot Land minifier by Ron](https://github.com/rondlite/botland-minifier)
 - [ESLint Bot Land plugin by freaktechnik](https://www.npmjs.com/package/eslint-plugin-botland)
 - [Youtube channel Adam13531, the developer of Bot Land](https://www.youtube.com/channel/UCJFxRNHar-c_lKYxFMIPg_g)
