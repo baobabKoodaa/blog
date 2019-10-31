@@ -159,12 +159,15 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Cloaking
 
-- When activated, makes your bot invisible.
+- When activated, makes the bot invisible (a bot can only cloak itself).
 - Moving and attacking are possible while cloaked. Other actions will decloak you.
 - While you are cloaked, your damage is reduced by 80%.
 - Your enemy might decloak you by attempting to move or teleport into your tile.
 - If a friendly unit attempts to teleport onto your tile, it will simply teleport into an adjacent free tile.
 - Ignition makes you visible for the duration, but does not decloak you. This means you may become invisible again if the ignition wears off but the cloak remains. Inferno Zapper and Inferno Lasers can ignite bots.
+- `canCloak()` returns true when the bot has cloaking hardware that is not on cooldown. Does not check if the bot is already cloaked. Does not check if EMP has disabled cloaking hardware.
+- `isCloaked()` returns true when the bot is cloaked.
+- `cloak()` activates cloak. If EMP has disabled cloaking, trying to activate cloak causes a turn to be lost.
 
 | Support                    | Duration      | Damage reduction |
 | ---------------------------|:-------------:|:----------------:|
@@ -220,6 +223,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - When activated, casts a shield on yourself or a nearby bot, chip or CPU (you can target the desired entity).
 - A shield will absorb all damage up to a certain limit.
 - Shields can be stacked infinitely.
+- `shield()` shields yourself.
+- `shield(entity)` can be used to shield another bot, chip or CPU.
+- `canShield()` and `canShield(entity)` can be used to check if the above actions will be possible. However, they will return true even if EMP has disabled your shield hardware. Attempting to use a shield spends a turn even if shielding is not possible.
 
 | Support                    | Damage absorbed | Duration  | Cooldown | Range |
 | ---------------------------|:---------------:|:---------:|:--------:|:-----:|
@@ -289,7 +295,26 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 | Chip          | 4000          |
 | CPU           | 12000         |
 
-## Game limits
+## Defense levels
+
+- The defender can upgrade their defense after gaining experience. Upgrading is optional and downgrading is not possible.
+- Arena size can be checked with `arenaWidth` and `arenaHeight`.
+
+| Defense                    | Arena size | Defenders  | Attackers total (max per round) | Chips    |
+| ---------------------------|:----------:|:----------:|:-------------------------------:|:--------:|
+| Level 0                    | 11x7       |   3        |  6 (2)                          |  0       |
+| Level 1                    | 13x9       |   6        |  7 (3)                          |  1       |
+| Level 2                    | 15x11      |   9        |  8 (3)                          |  1       |
+| Level 3                    | 15x13      |  10        | 10 (4)                          |  2       |
+| Level 4                    | 17x13      |  11        | 11 (4)                          |  2       |
+| Level 5                    | 19x13      |  12        | 12 (5)                          |  3       |
+| Level 6                    | 19x13      |  13        | 13 (5)                          |  3       |
+| Level 7                    | 19x13      |  14        | 14 (5)                          |  3       |
+| Level 8                    | 19x13      |  15        | 16 (6)                          |  4       |
+| Level 9                    | 19x13      |  16        | 17 (7)                          |  4       |
+| Level 10                   | 19x13      |  18        | 19 (7)                          |  5       |
+
+## Limitations
 
 - Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
@@ -310,14 +335,27 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - It's possible to share an array, but only `array1` and `array2` can be shared.
 - Sharing information between bots is extremely brittle (due to the turn based nature of the game with haste effects, special shared variables, special array variables, variable scoping, and other limitations). Be very careful!
 
+## Moving 
+
+- `move()` attempts to move at random.
+- `move(direction)` attempts to move your bot one tile in a given direction (string `'left'`, `'right'`, `'up'`, or `'down'`).
+- `moveTo(xTo, yTo)` will calculate a path towards the target coordinates and attempt to move you one tile further down that path.
+- `moveTo(entity)` attempts to find a path towards the given entity and move your bot one tile towards the entity. If entity can not be sensed, this command fails (either wasting turn or causing a random movement).
+- `canMove()`, `canMove(direction)`, `canMoveTo(xTo, yTo)`, and `canMoveTo(entity)` check if the corresponding action should be possible. EMP can not be used to disable movement. However, a move action will fail if you attempt to move on a tile which is occupied by a cloaked enemy (the enemy will be decloaked and you will have spent your action).
+- If you are attempting to move towards an entity or towards coordinates further than one tile away, and the shortest path is blocked, these commands may cause your bot to move _away_ from the given entity (following whichever shortest path it has calculated). If you want to minimize weird behavior, it's a good idea to avoid higher level APIs when moving. Instead, always move by explicitly declaring the tile where you want to move, e.g. `moveTo(x+1, y)`.
+- `moveToMiddle` is an undocumented API. Assuming it does something related to its name, you will not need it.
+- In addition to normal movement actions, a unit may move by teleporting or charging.
+
 ## Other useful APIs
 
 - `x` and `y` contain coordinates for your bot.
+- `moveTo(xTo, yTo)` 
 - `getX(entity)` and `getY(entity)` return x and y coordinates for a given entity, given that your bot can sense it. The following syntax also works: `entity.x`, `entity.y`.
 - `life` contains currently remaining hit points for your bot (`lifePercent` is also available).
 - `getLife(entity)` and `getLifePercent(entity)` return the corresponding values for an entity if your bot can sense it.
 - The following utility functions are available: `abs`, `floor`, `ceil`, `min`, `max`, `round`, `size` (length of array).
 - `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
+- `canSense(entity)` will return true if your bot can sense the target entity. It returns true when the target entity is within vision range (5 or 7 tiles depending if sensors are activated). Blocking vision (line of sight) is not possible, only range matters. Cloaked enemies can only be sensed when they have been ignited. This API may be useful if you are saving entity references in variables (your bot may have previously sensed an entity and saved its reference to a variable, but it may be unable to sense it next turn -- or another bot may have shared an entity reference to a shared variable).
 
 ## Not-so-useful APIs
 
@@ -341,20 +379,13 @@ TODO: document these APIs:
   "SORT_BY_LIFE",  
   "SORT_ASCENDING", 
   "SORT_DESCENDING",
-  "arenaWidth",
-  "arenaHeight",
   "array1",
   "array2",
   "canTeleport",
-  "canMove",
-  "canMoveTo",
   "canEMP",
   "canEmp",
-  "canCloak",
-  "canCharge",
   "canZap",
   "canReflect",
-  "canShield",
   "willRepair",
   "canActivateSensors",
   "canLayMine",
@@ -393,19 +424,14 @@ TODO: document these APIs:
   "canSenseEntity",
   "clampNumber",
   "checkTime",
-  "move",
   "teleport",
   "figureItOut",
   "figureItOutDefense",
   "layMine",
-  "moveTo",
-  "moveToMiddle",
   "emp",
   "EMP",
-  "cloak",
   "zap",
   "reflect",
-  "shield",
   "activateSensors",
   "pursueBot",
   "pursueWaypoint",
@@ -422,6 +448,7 @@ TODO: document these APIs:
 ## Open questions
 
 - Is ignition damage affected by cloak damage reduction?
+- Can a bot sense friendly bots if they are cloaked?
 
 ## Related links
 
