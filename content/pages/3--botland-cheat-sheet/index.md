@@ -188,9 +188,10 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 ## Teleport
 
 - When activated, teleports you to the target location.
-- If the target location is occupied, attempts to teleport to an adjacent tile.
-- Teleporting on top of a cloaked enemy unit will decloak it. Teleporting on top of a cloaked friendly unit will simply teleport to an adjacent tile.
-- Note that the `canTeleport` API -- despite its name -- does not tell you if you can teleport on a tile. 
+- Teleporting on top of a cloaked enemy unit will decloak it.
+- `teleport(xTo, yTo)` attempts to teleport you to the target location, but if it is occupied, it attempts to teleport you to an adjacent tile (presumably only adjacent tiles within teleport range are considered).
+- `canTeleport()` can be used to check if the teleport hardware is available and is not on cooldown. Note that although `canTeleport(xTo, yTo)` exists, it works a little bit unintuitively. It will return true when the corresponding teleport command will succeed in teleporting you somewhere. For example, if the target location is occupied, but teleporting to an adjacent location is possible, then the `teleport` command will succeed, so `canTeleport` will return true even though you can not teleport to the target location (only to an adjacent location). You can use `exists(getEntityAt(xTo, yTo))` to check if the target location is occupied (although it does not reveal cloaked units for you).
+- Teleport can be disabled by EMP. You can not check if your teleport has been disabled. Using the teleport when it has been disabled causes you to lose a turn.
 
 | Support                    | Range         | Cooldown |
 | ---------------------------|:-------------:|:--------:|
@@ -318,7 +319,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 - Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
-- Computational limit: ?? (bots can time-out)
+- There are two limits to computation time that can be expended by your bots. First, if an individual bot takes too long to act, it will miss a turn. Second, the total amount of computation time expended by your bots within a match can be roughly 1000ms; once that limit is reached your bots will simply do nothing for the remainder of the match.
 - When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot. Arrays can have at most 100 elements.
 - You can share information between bots by utilizing shared variables `sharedA` to `sharedE`.
 
@@ -340,9 +341,11 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - `move()` attempts to move at random.
 - `move(direction)` attempts to move your bot one tile in a given direction (string `'left'`, `'right'`, `'up'`, or `'down'`).
 - `moveTo(xTo, yTo)` will calculate a path towards the target coordinates and attempt to move you one tile further down that path.
-- `moveTo(entity)` attempts to find a path towards the given entity and move your bot one tile towards the entity. If entity can not be sensed, this command fails (either wasting turn or causing a random movement).
+- `moveTo(entity)` will calculate a path towards the given entity and move your bot one tile towards the entity. If entity can not be sensed, this command fails (either wasting turn or causing a random movement).
+- Calculating a path will fail if the entire path is not visible to the bot.
 - `canMove()`, `canMove(direction)`, `canMoveTo(xTo, yTo)`, and `canMoveTo(entity)` check if the corresponding action should be possible. EMP can not be used to disable movement. However, a move action will fail if you attempt to move on a tile which is occupied by a cloaked enemy (the enemy will be decloaked and you will have spent your action).
-- If you are attempting to move towards an entity or towards coordinates further than one tile away, and the shortest path is blocked, these commands may cause your bot to move _away_ from the given entity (following whichever shortest path it has calculated). If you want to minimize weird behavior, it's a good idea to avoid higher level APIs when moving. Instead, always move by explicitly declaring the tile where you want to move, e.g. `moveTo(x+1, y)`.
+- If you are attempting to move towards an entity or towards coordinates further than one tile away, and the shortest path is blocked, these commands may cause your bot to move _away_ from the given entity (following whichever shortest path it has calculated).
+- If you want to minimize weird behavior, it's a good idea to avoid higher level APIs when moving. Instead, always move by explicitly declaring the tile where you want to move, e.g. `moveTo(x+1, y)`.
 - `moveToMiddle` is an undocumented API. Assuming it does something related to its name, you will not need it.
 - In addition to normal movement actions, a unit may move by teleporting or charging.
 
@@ -379,9 +382,6 @@ TODO: document these APIs:
   "SORT_BY_LIFE",  
   "SORT_ASCENDING", 
   "SORT_DESCENDING",
-  "array1",
-  "array2",
-  "canTeleport",
   "canEMP",
   "canEmp",
   "canZap",
@@ -424,7 +424,6 @@ TODO: document these APIs:
   "canSenseEntity",
   "clampNumber",
   "checkTime",
-  "teleport",
   "figureItOut",
   "figureItOutDefense",
   "layMine",
