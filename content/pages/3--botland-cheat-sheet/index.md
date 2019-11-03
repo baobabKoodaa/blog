@@ -106,7 +106,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 - Artillery is the only weapon in the game which does not hit immediately (it takes 2 turns to land a shot).
 - Artillery is the only weapon in the game with a _minimum_ range (5 tiles).
-- Although artillery has maximum range 7, sensors must be activated to fire further than 5 tiles. Activating sensors costs an action and the duration of sensors enables only 2 consecutive artillery shots.
+- Although artillery has maximum range 7, sensors must be activated to fire further than 5 tiles. Activating sensors with `activateSensors()` costs an action and the duration of sensors enables only 2 consecutive artillery shots.
 - Artillery can be fired in any direction.
 - Due to the inability to blind-fire and the delay in landing shots, artillery shots can be easily dodged.
 - Artillery shots cause splash damage to adjacent squares (including diagonally adjacent?)
@@ -353,14 +353,17 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Other useful APIs
 
-- `x` and `y` contain coordinates for your bot.
+- `x` and `y` are coordinates for your bot.
 - `moveTo(xTo, yTo)` 
+- `getEntityAt(xTo, yTo)` returns an entity from the target location, if your bot can sense it.
+- `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
+- `canSense(entity)` will return true if your bot can sense the target entity. It returns true when the target entity is within vision range (5 or 7 tiles depending if sensors are activated). Blocking vision (line of sight) is not possible, only range matters. Cloaked enemies can only be sensed when they have been ignited. This API may be useful if you are saving entity references in variables (your bot may have previously sensed an entity and saved its reference to a variable, but it may be unable to sense it next turn -- or another bot may have shared an entity reference to a shared variable). `canSenseEntity(entity)` also does the exact same thing.
+- All bots have sensors and they can be activated with `activateSensors()` to increase vision range from 5 to 7 tiles for the duration of 2 turns. `canActivateSensors()` returns true if sensors are not on cooldown (6 turns). `areSensorsActivated()` returns true when sensors are activated.
 - `getX(entity)` and `getY(entity)` return x and y coordinates for a given entity, given that your bot can sense it. The following syntax also works: `entity.x`, `entity.y`.
 - `life` contains currently remaining hit points for your bot (`lifePercent` is also available).
 - `getLife(entity)` and `getLifePercent(entity)` return the corresponding values for an entity if your bot can sense it.
 - The following utility functions are available: `abs`, `floor`, `ceil`, `min`, `max`, `round`, `size` (length of array).
-- `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
-- `canSense(entity)` will return true if your bot can sense the target entity. It returns true when the target entity is within vision range (5 or 7 tiles depending if sensors are activated). Blocking vision (line of sight) is not possible, only range matters. Cloaked enemies can only be sensed when they have been ignited. This API may be useful if you are saving entity references in variables (your bot may have previously sensed an entity and saved its reference to a variable, but it may be unable to sense it next turn -- or another bot may have shared an entity reference to a shared variable).
+
 
 ## Not-so-useful APIs
 
@@ -386,17 +389,14 @@ TODO: document these APIs:
   "SORT_DESCENDING",
   "canZap",
   "canReflect",
-  "canActivateSensors",
   "isCloaked",
   "isOnFire",
   "waypointExists",
   "isZapping",
-  "areSensorsActivated",
   "isReflecting",
   "isShielded",
   "distanceTo",
   "getDistanceTo",
-  "getEntityAt",
   "percentChance",
   "randInt",
   "randomInteger",
@@ -417,18 +417,14 @@ TODO: document these APIs:
   "findMyClosestBot",
   "getNumMinesLaid",
   "add",
-  "canSense",
-  "canSenseEntity",
   "clampNumber",
   "checkTime",
   "figureItOut",
   "figureItOutDefense",
   "zap",
   "reflect",
-  "activateSensors",
   "pursueBot",
   "pursueWaypoint",
-
   "pursue",
   `
 
