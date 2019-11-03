@@ -59,7 +59,8 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - `fireLasers()` attempts to fire lasers at any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
 - `fireLasers(entity)` can be used to fire lasers at a specific enemy (note that if you can not sense the enemy, you should blind-fire lasers by direction instead).
 - `fireLasers(direction)` can be used to blind-fire lasers at a specific direction. Note that `direction` must be string `'left'`, `'right'`, `'up'`, or `'down'`.
-- `willLasersHit()`, `willLasersHit(entity)` and `willLasersHit(direction)` return true if the corresponding `fireLasers` is possible. Note that `willLasersHit(direction)` does not indicate whether lasers will hit an enemy, only whether fireing lasers is possible. Also note that these will return true even if EMP has disabled your lasers. You will lose a turn if you attempt to fire lasers and it fails to fire (due to EMP, target out of range, target not sensed due to cloaking and lasers not blind-fired, etc.)
+- `willLasersHit()`, `willLasersHit(entity)` and `willLasersHit(direction)` return true if the corresponding `fireLasers` will hit an uncloaked enemy. Note that even if `willLasersHit(direction)` returns false, it is still possible to hit a cloaked enemy by blind-firing lasers in a directioni.
+- If you attempt to fire lasers and it fails to fire you will lose the turn (due to target out of range, target not sensed due to cloaking and lasers not blind-fired, etc.)
 
 | Weapon                 | Damage        | Range | Special effect | Special duration  |
 | -----------------------|:-------------:|:-----:|:--------------:|:-----------------:|
@@ -87,7 +88,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Multi Missiles fire at every enemy in range.
 - `fireMissiles()` attempts to fire missiles at any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
 - `fireMissiles(entity)` can be used to fire missiles at a specific enemy (if you can sense it).
-- `willMissilesHit()` and `willMissilesHit(entity)` return true if the corresponding `fireMissiles` is possible. Note that these will return true even if EMP has disabled your missiles. You will lose a turn if you attempt to fire missiles when it's not possible.
+- `willMissilesHit()` and `willMissilesHit(entity)` return true if the corresponding `fireMissiles` is possible.
 
 | Weapon                    | Damage        | Range | Cooldown         | Acceleration rate |
 | --------------------------|:-------------:|:-----:|:----------------:|:-----------------:|
@@ -112,8 +113,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Artillery can not be reflected.
 - `fireArtillery()` attempts to fire artillery at any enemy (if multiple enemies are within range, target is chosen based on previously set attack priority).
 - `fireArtillery(entity)` can be used to fire artillery at a specific enemy (if you can sense it).
-- `willArtilleryHit()` and `willArtilleryHit(entity)` return true if the corresponding `fireArtillery` is possible. Note that these will return true even if EMP has disabled your artillery. You will lose a turn if you attempt to fire artillery when it's not possible.
-
+- `willArtilleryHit()` and `willArtilleryHit(entity)` return true if the corresponding `fireArtillery` is possible.
 
 | Weapon                    | Damage        | Splash damage |
 | --------------------------|:-------------:|:-------------:|
@@ -145,6 +145,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Mines can not be directly detected by the enemy.
 - You can not stack mines on the same tile.
 - Landmines persist across rounds.
+- `laymine()` lays a mine.
+- `canLayMine()` checks if landmine hardware is available and no landmine is already laid on current location.
+- `revealMines()` is a legacy API which your enemy can call to reveal mines. It will be removed from the game at some point and is not documented in in-game documentation. Once mines are revealed, they will be permanently visible to the bot which revealed them and the bot can call `isEnemyMineAt(xTo, yTo)` to see which tiles have mines. In addition, bots will refuse to move on tiles which they believe have mines (the mines may have expired, and a new `revealMines()` action must be spent to refresh the bot's accounting of where mines are).
 
 | Weapon                    | Damage        | Duration      |
 | --------------------------|:-------------:|:-------------:|
@@ -167,7 +170,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Ignition makes you visible for the duration, but does not decloak you. This means you may become invisible again if the ignition wears off but the cloak remains. Inferno Zapper and Inferno Lasers can ignite bots.
 - `canCloak()` returns true when the bot has cloaking hardware that is not on cooldown. Does not check if the bot is already cloaked. Does not check if EMP has disabled cloaking hardware.
 - `isCloaked()` returns true when the bot is cloaked.
-- `cloak()` activates cloak. If EMP has disabled cloaking, trying to activate cloak causes a turn to be lost.
+- `cloak()` activates cloak.
 
 | Support                    | Duration      | Damage reduction |
 | ---------------------------|:-------------:|:----------------:|
@@ -191,7 +194,6 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Teleporting on top of a cloaked enemy unit will decloak it.
 - `teleport(xTo, yTo)` attempts to teleport you to the target location, but if it is occupied, it attempts to teleport you to an adjacent tile (presumably only adjacent tiles within teleport range are considered).
 - `canTeleport()` can be used to check if the teleport hardware is available and is not on cooldown. Note that although `canTeleport(xTo, yTo)` exists, it works a little bit unintuitively. It will return true when the corresponding teleport command will succeed in teleporting you somewhere. For example, if the target location is occupied, but teleporting to an adjacent location is possible, then the `teleport` command will succeed, so `canTeleport` will return true even though you can not teleport to the target location (only to an adjacent location). You can use `exists(getEntityAt(xTo, yTo))` to check if the target location is occupied (although it does not reveal cloaked units for you).
-- Teleport can be disabled by EMP. You can not check if your teleport has been disabled. Using the teleport when it has been disabled causes you to lose a turn.
 
 | Support                    | Range         | Cooldown |
 | ---------------------------|:-------------:|:--------:|
@@ -226,7 +228,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Shields can be stacked infinitely.
 - `shield()` shields yourself.
 - `shield(entity)` can be used to shield another bot, chip or CPU.
-- `canShield()` and `canShield(entity)` can be used to check if the above actions will be possible. However, they will return true even if EMP has disabled your shield hardware. Attempting to use a shield spends a turn even if shielding is not possible.
+- `canShield()` and `canShield(entity)` can be used to check if the above actions will be possible.
 
 | Support                    | Damage absorbed | Duration  | Cooldown | Range |
 | ---------------------------|:---------------:|:---------:|:--------:|:-----:|
@@ -246,10 +248,11 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## EMP
 
-- When activated, disables the specified hardware for all enemies around you within range.
-- If an enemy attempts to use the disabled hardware, they will lose their turn.
-- The following hardware can be disabled: LASERS, MISSILES, MELEE, ARTILLERY, ZAPPER, REPAIR, CLOAKING, SHIELD, REFLECT, TELEPORT, LANDMINES, and EMP.
+- When activated with `emp(hardware)`, disables the specified hardware for all enemies around you within range. Does not disable the specified hardware for friendly units.
+- Hardware must be specified as a string, not as a literal. The following strings are accepted: LASERS, MISSILES, MELEE, ARTILLERY, ZAPPER, REPAIR, CLOAKING, SHIELD, REFLECT, TELEPORT, LANDMINES, and EMP.
+- If an enemy attempts to use the disabled hardware, they will be stunned for 2 turns. There are no commands to check if EMP has been activated (although it can be inferred in some cases).
 - Does not disable an effect which has been previously activated, only prevents the enemy from activating new effects. For example, if the enemy has already activated zapper, you can not disable it with your EMP.
+- `canEmp()` returns true if EMP hardware is accessible and not on cooldown.
 
 | Support                    | Duration  | Cooldown | Range |
 | ---------------------------|:---------:|:--------:|:-----:|
@@ -265,7 +268,6 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - `repair()` and `repair(entity)`
 - `willRepair()` returns true if you have repair hardware which is not on cooldown.
 - `willRepair(entity)` works differently for regular Repair and Area Repair. For regular repair, it returns true if the target is friendly and in range. For Area Repair, it returns true as long as Area Repair is not on cooldown.
-- Repair may be disabled by EMP and attempting to repair when disabled causes you to lose the turn.
 
 | Support                    | Heal amount  | Range | Cooldown |
 | ---------------------------|:------------:|:-----:|:--------:|
@@ -382,13 +384,9 @@ TODO: document these APIs:
   "SORT_BY_LIFE",  
   "SORT_ASCENDING", 
   "SORT_DESCENDING",
-  "canEMP",
-  "canEmp",
   "canZap",
   "canReflect",
-  "willRepair",
   "canActivateSensors",
-  "canLayMine",
   "isCloaked",
   "isOnFire",
   "waypointExists",
@@ -399,7 +397,6 @@ TODO: document these APIs:
   "distanceTo",
   "getDistanceTo",
   "getEntityAt",
-  "isEnemyMineAt",
   "percentChance",
   "randInt",
   "randomInteger",
@@ -426,17 +423,13 @@ TODO: document these APIs:
   "checkTime",
   "figureItOut",
   "figureItOutDefense",
-  "layMine",
-  "emp",
-  "EMP",
   "zap",
   "reflect",
   "activateSensors",
   "pursueBot",
   "pursueWaypoint",
-  "revealMines",
+
   "pursue",
-  "repair",
   `
 
 <!-- Line below is a hack to fix a whitespace issue. Do not remove. -->
