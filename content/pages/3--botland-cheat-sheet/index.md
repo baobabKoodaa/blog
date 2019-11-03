@@ -258,20 +258,20 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 ## Repair
 
-- When activated, heals yourself or a nearby bot, chip or CPU (you can target the desired entity).
-
-| Support                    | Heal amount  | Range |
-| ---------------------------|:------------:|:-----:|
-| Repair I                   | 50           | 1     |
-| Repair II                  | 100          | 1     |
-| Repair III                 | 150          | 1     |
-
-## Area Repair
-
-- When activated, heals all allies within a certain range (is this targeted or does it repair everything aroudn you?)
+- Activated with `repair()` or `repair(entity)`.
+- Two kinds of hardware is available: regular Repair and Area Repair.
+- Regular Repair heals yourself or a nearby bot, chip or CPU (you can target the desired entity).
+- Area Repair heals everyone around you within range.
+- `repair()` and `repair(entity)`
+- `willRepair()` returns true if you have repair hardware which is not on cooldown.
+- `willRepair(entity)` works differently for regular Repair and Area Repair. For regular repair, it returns true if the target is friendly and in range. For Area Repair, it returns true as long as Area Repair is not on cooldown.
+- Repair may be disabled by EMP and attempting to repair when disabled causes you to lose the turn.
 
 | Support                    | Heal amount  | Range | Cooldown |
 | ---------------------------|:------------:|:-----:|:--------:|
+| Repair I                   | 50           | 1     | 1        |
+| Repair II                  | 100          | 1     | 1        |
+| Repair III                 | 150          | 1     | 1        |
 | Area Repair I              | 50           | 3     | 8        |
 | Area Repair II             | 100          | 3     | 8        |
 | Area Repair III            | 150          | 3     | 8        |
