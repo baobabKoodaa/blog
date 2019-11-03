@@ -126,6 +126,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - When activated, zapper creates an electric field around your bot, dealing damage to adjacent enemies.
 - Diagonally adjacent enemies receive only 50% damage.
 - Inferno Zapper ignites the target, causing 100 damage per turn for the duration of the ignition and causing a cloaked unit to become visible for the duration of the ignition (the cloak buff stays on, so the unit may become invisible after the ignition is over). Ignition persists across rounds.
+- `zap()` activates the zapper.
+- `isZapping()` returns true when zapper is activated.
+- `canZap()` returns true if zap hardware exists and is not on cooldown.
 
 | Weapon                 | Damage        | Duration | Cooldown | Special effect | Special duration  |
 | -----------------------|:-------------:|:--------:|:--------:|:--------------:|:-----------------:|
@@ -229,6 +232,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - `shield()` shields yourself.
 - `shield(entity)` can be used to shield another bot, chip or CPU.
 - `canShield()` and `canShield(entity)` can be used to check if the above actions will be possible.
+- `isShielded()` returns true when shield is active. A bot can only check if its own shield is activate (it can not check whether other bots' shields are active).
 
 | Support                    | Damage absorbed | Duration  | Cooldown | Range |
 | ---------------------------|:---------------:|:---------:|:--------:|:-----:|
@@ -321,7 +325,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 - Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
-- There are two limits to computation time that can be expended by your bots. First, if an individual bot takes too long to act, it will miss a turn. Second, the total amount of computation time expended by your bots within a match can be roughly 1000ms; once that limit is reached your bots will simply do nothing for the remainder of the match.
+- There are two limits to computation time that can be expended by your bots. First, if an individual bot takes too long to act, it will miss a turn. Second, the total amount of computation time expended by your bots within a _round_ can be roughly 1000ms; once that limit is reached your bots will simply do nothing for the remainder of the round.
 - When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot. Arrays can have at most 100 elements.
 - You can share information between bots by utilizing shared variables `sharedA` to `sharedE`.
 
@@ -338,37 +342,41 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - It's possible to share an array, but only `array1` and `array2` can be shared.
 - Sharing information between bots is extremely brittle (due to the turn based nature of the game with haste effects, special shared variables, special array variables, variable scoping, and other limitations). Be very careful!
 
-## Moving 
+## How to move
 
 - `move()` attempts to move at random.
 - `move(direction)` attempts to move your bot one tile in a given direction (string `'left'`, `'right'`, `'up'`, or `'down'`).
 - `moveTo(xTo, yTo)` will calculate a path towards the target coordinates and attempt to move you one tile further down that path.
 - `moveTo(entity)` will calculate a path towards the given entity and move your bot one tile towards the entity. If entity can not be sensed, this command fails (either wasting turn or causing a random movement).
 - Calculating a path will fail if the entire path is not visible to the bot.
-- `canMove()`, `canMove(direction)`, `canMoveTo(xTo, yTo)`, and `canMoveTo(entity)` check if the corresponding action should be possible. EMP can not be used to disable movement. However, a move action will fail if you attempt to move on a tile which is occupied by a cloaked enemy (the enemy will be decloaked and you will have spent your action).
+- `canMove()`, `canMove(direction)`, `canMoveTo(xTo, yTo)`, and `canMoveTo(entity)` check if the corresponding action should be possible. EMP can not be used to disable movement. However, a move action will fail if you attempt to move on a tile which is occupied by a cloaked enemy (the enemy will be decloaked and you will have spent your action). `willMoveWork(direction)` does the same thing as `canMove(direction)`.
 - If you are attempting to move towards an entity or towards coordinates further than one tile away, and the shortest path is blocked, these commands may cause your bot to move _away_ from the given entity (following whichever shortest path it has calculated).
 - If you want to minimize weird behavior, it's a good idea to avoid higher level APIs when moving. Instead, always move by explicitly declaring the tile where you want to move, e.g. `moveTo(x+1, y)`.
 - `moveToMiddle` is an undocumented API. Assuming it does something related to its name, you will not need it.
 - In addition to normal movement actions, a unit may move by teleporting or charging.
 
-## Other useful APIs
+## How to find out what is where
 
 - `x` and `y` are coordinates for your bot.
-- `moveTo(xTo, yTo)` 
-- `getEntityAt(xTo, yTo)` returns an entity from the target location, if your bot can sense it.
+- `getEntityAt(xTo, yTo)` returns a bot from the target location, if your bot can sense it. Note that despite its name it does not return other entities (chips and CPUs).
 - `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
 - `canSense(entity)` will return true if your bot can sense the target entity. It returns true when the target entity is within vision range (5 or 7 tiles depending if sensors are activated). Blocking vision (line of sight) is not possible, only range matters. Cloaked enemies can only be sensed when they have been ignited. This API may be useful if you are saving entity references in variables (your bot may have previously sensed an entity and saved its reference to a variable, but it may be unable to sense it next turn -- or another bot may have shared an entity reference to a shared variable). `canSenseEntity(entity)` also does the exact same thing.
 - All bots have sensors and they can be activated with `activateSensors()` to increase vision range from 5 to 7 tiles for the duration of 2 turns. `canActivateSensors()` returns true if sensors are not on cooldown (6 turns). `areSensorsActivated()` returns true when sensors are activated.
 - `getX(entity)` and `getY(entity)` return x and y coordinates for a given entity, given that your bot can sense it. The following syntax also works: `entity.x`, `entity.y`.
 - `life` contains currently remaining hit points for your bot (`lifePercent` is also available).
 - `getLife(entity)` and `getLifePercent(entity)` return the corresponding values for an entity if your bot can sense it.
-- The following utility functions are available: `abs`, `floor`, `ceil`, `min`, `max`, `round`, `size` (length of array).
+
+## Other useful APIs
+
+- `getDistanceTo(xTo, yTo)` calculates the Manhattan distance from `x,y` to `xTo,yTo` (all distances in game are Manhattan distances).
+- The following utility functions are available: `abs`, `floor`, `ceil`, `min`, `max`, `round`, `size` (length of array), `count` (also length of array).
 
 
 ## Not-so-useful APIs
 
 - `setAttackPriority(LITERAL)` can be used to set the priority in which your bots will attack in the narrow scenario _where there are multiple allowed targets of different types and you do not specify an attack target_. The default attack priority is `BOT_CHIP_CPU` and you probably will not want to change this (because your bots will be either "normal" bots which will be fine with this priority, or they will be CPU rushing bots, which will have hardcoded commands to attack the CPU specifically). Nonetheless, other possible permutations can be set, such as `CPU_BOT_CHIP`. Note that the values must be literals, not strings.
 - `isAttacker` is true when you are the attacker.
+- `figureItOut()` and `figureItOutDefense` may be useful fallbacks when you are just starting to write your own bots. However, after a few hours you should be writing your own fallback actions. Debugging your bots becomes hell if you have a `figureItOut` triggering every now and then.
 
 ## Undocumented APIs
 
@@ -387,16 +395,12 @@ TODO: document these APIs:
   "SORT_BY_LIFE",  
   "SORT_ASCENDING", 
   "SORT_DESCENDING",
-  "canZap",
   "canReflect",
   "isCloaked",
   "isOnFire",
   "waypointExists",
-  "isZapping",
   "isReflecting",
-  "isShielded",
   "distanceTo",
-  "getDistanceTo",
   "percentChance",
   "randInt",
   "randomInteger",
@@ -404,7 +408,6 @@ TODO: document these APIs:
   "isAdjacent",
   "filterEntities",
   "reduceEntities",
-  "count",
   "findEntity",
   "findEntities",
   "findEntitiesInRange",
@@ -419,9 +422,6 @@ TODO: document these APIs:
   "add",
   "clampNumber",
   "checkTime",
-  "figureItOut",
-  "figureItOutDefense",
-  "zap",
   "reflect",
   "pursueBot",
   "pursueWaypoint",
