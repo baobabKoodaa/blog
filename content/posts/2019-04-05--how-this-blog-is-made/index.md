@@ -12,19 +12,7 @@ author: atte juvonen
     >
 </re-img>
 
-I wanted to have the freedom to publish my thoughts and the freedom to tinker with their presentation - without being limited by corporate politics or technical constraints. I ended up creating my own blog with <a href="https://www.gatsbyjs.org/features/" target="_blank">GatsbyJS</a> and publishing it via my own domain. Behind that link is a concise comparison of Gatsby against typical website setups, in case you are thinking about starting your own blog. Next I will explain the motivation behind my tech choices, and then go over the actual setup for this blog.
 
-### Medium is not a public square
-
-A few years ago I wanted to out a particular company about bad stuff they were doing. I asked Medium if they will protect my freedom of speech when the company inevitably demands the content to be taken down. To my absolute surprise Medium said they will not, they will simply take down my content at the first sight of a legal threat. I decided not to publish the story. I haven't heard of any examples of Medium actually censoring people, so presumably they don't do this often. But the Internet is littered with examples of large corporations taking down speech they don't like. It's kind of what you'd expect, really: a large corporation will protect your freedom of speech as long as it costs them nothing and nobody powerful asks them not to.
-
-Furthermore, Medium provides absolutely dreadful user experience. If you open a Medium article on mobile, more than half of your screen real estate will be covered by pop-ups. Why are you asking me to subscribe to an author before I've even had a chance to glimpse at their article? No I don't want to get notifications, why would anybody want those from a blogging site? No I don't agree to your user tracking, even though you only have an "agree" button as pseudo-GDPR-compliance. I just came here to read an article, can I just do that?
-
-It's absolutely astonishing that Medium has become the de facto blogging platform in recent years.
-
-### Wordpress is fine, I guess
-
-If you just want to write, WordPress is not a bad choice. You can self-host. You can tinker a bit. If you want to tinker a lot, it's much easier to just create your own website. My main issue with CMS's like WordPress, Ghost, etc. is that while you theoretically own your own content, it's going to be in a format which will be difficult to move to another platform. Sure you can theoretically do it, and Gatsby actually has source plugins for WordPress and Ghost, but in practice you won't move. You'll be stuck with whichever limitations of WordPress annoy you. When you create your website by yourself instead of using a platform, you won't really have limitations other than the ones imposed by your own tech choices, which you can always change.
 
 ### Why this blog is statically generated
 
