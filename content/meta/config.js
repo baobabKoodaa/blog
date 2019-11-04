@@ -11,10 +11,10 @@ module.exports = {
   authorName: "Thoughts",
   authorTwitterAccount: "https://twitter.com/luisalas",
   authorGithub: "https://github.com/nanosalas",
-  // authorStackoverflow: "https://stackexchange.com/users/5678032/atte-juvonen?tab=accounts",
-  // authorLinkedin: "https://linkedin.com/in/atte-juvonen-86b886113",
-  // authorCodeforces: "https://codeforces.com/profile/baobab",
-  // authorYoutube: "https://www.youtube.com/channel/UCfHqfHoSYL0V_fXA_JQkeLw?view_as=subscriber",
+  // authorStackoverflow: "https://stackexchange.com/",
+  // authorLinkedin: "https://www.linkedin.com/in/luisalas/",
+  // authorCodeforces: "https://codeforces.com/",
+  // authorYoutube: "https://www.youtube.com/",
 
   /* header text */
   headerTitle: "Thoughts",
