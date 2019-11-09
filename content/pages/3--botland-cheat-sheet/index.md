@@ -51,7 +51,9 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - All lasers can be blind-fired (you can hit cloaked enemies).
 - All lasers can be reflected.
 - All lasers have no cooldown (can be used again every turn).
+- All lasers can only hit the first enemy entity in a given direction. This means that, for example, an enemy can hide from a laser by standing behind a chip.
 - Inferno Lasers ignite the target, causing 100 damage per turn for the duration of the ignition and causing a cloaked unit to become visible for the duration of the ignition (the cloak buff stays on, so the unit may become invisible after the ignition is over). Ignition persists across rounds.
+- Inferno Lasers, when reflected, ignite your own bot.
 - Stunning Lasers stun the target for 1 turn.
 - Stunning Lasers can not stun the same target 2 turns in a row.
 - Stunning Lasers' damage can be reflected but the stun can not.
@@ -326,8 +328,6 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
 - There are two limits to computation time that can be expended by your bots. First, if an individual bot takes too long to act, it will miss a turn. Second, the total amount of computation time expended by your bots within a _round_ can be roughly 1000ms; once that limit is reached your bots will simply do nothing for the remainder of the round.
-- When you use arrays, you have to name them `array1` and `array2`. You can not use more than 2 arrays per bot. Arrays can have at most 100 elements.
-- You can share information between bots by utilizing shared variables `sharedA` to `sharedE`.
 
 ---
 
@@ -336,11 +336,27 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - `init()` is called once for each bot, at the beginning of a round.
 - `update()` is called whenever your bot can act. Note that a turn may be skipped due to stun lasers and haste also affects acting order.
 
-## Sharing information between bots
+## Special variables
 
-- The following variables are shared: `sharedA`, `sharedB`, `sharedC`, `sharedD`, `sharedE`.
-- It's possible to share an array, but only `array1` and `array2` can be shared.
+- The following variables are shared between bots: `sharedA`, `sharedB`, `sharedC`, `sharedD`, `sharedE`.
+- Array use is heavily limited and involves many weird corner cases.
+- In almost all cases, an array has to be named either `array1` or `array2` (there are some exceptions related to high level APIs). This means that each bot can utilize at most 2 arrays (with some exceptions).
+- Arrays can have at most 99 items. You can technically write the 100th item, and the write will succeed, but there is currently a bug which prevents you from overwriting earlier items if the array is full. So in practice you never want to write the 100th item to the array.
+- Arrays have to be indexed from 0 to 99, and the initialization must fill these values consecutively. For example, if you attempt to initialize a new array and immediately write to index 5 without first filling indexes 0,1,2,3,4, it will silently fail.
+- Syntax `array2[i] += 1` will produce unexpected results. Use `array2[i] = array2[i] + 1` instead.
+- A good practice is to use one of the special arrays for throwaway calculations, and use the other special array to share information between bots, e.g. `sharedD = array2`.
 - Sharing information between bots is extremely brittle (due to the turn based nature of the game with haste effects, special shared variables, special array variables, variable scoping, and other limitations). Be very careful!
+
+## How to find out what is where
+
+- `x` and `y` are coordinates for your bot.
+- `getEntityAt(xTo, yTo)` returns a bot from the target location, if your bot can sense it. Note that despite its name it does not return other entities (chips and CPUs).
+- `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
+- `canSense(entity)` will return true if your bot can sense the target entity. It returns true when the target entity is within vision range (5 or 7 tiles depending if sensors are activated). Blocking vision (line of sight) is not possible, only range matters. Cloaked enemies can only be sensed when they have been ignited. This API may be useful if you are saving entity references in variables (your bot may have previously sensed an entity and saved its reference to a variable, but it may be unable to sense it next turn -- or another bot may have shared an entity reference to a shared variable). `canSenseEntity(entity)` also does the exact same thing.
+- All bots have sensors and they can be activated with `activateSensors()` to increase vision range from 5 to 7 tiles for the duration of 2 turns. `canActivateSensors()` returns true if sensors are not on cooldown (6 turns). `areSensorsActivated()` returns true when sensors are activated.
+- `getX(entity)` and `getY(entity)` return x and y coordinates for a given entity, given that your bot can sense it. The following syntax also works: `entity.x`, `entity.y`.
+- `life` contains currently remaining hit points for your bot (`lifePercent` is also available).
+- `getLife(entity)` and `getLifePercent(entity)` return the corresponding values for an entity if your bot can sense it.
 
 ## How to move
 
@@ -354,17 +370,6 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 - If you want to minimize weird behavior, it's a good idea to avoid higher level APIs when moving. Instead, always move by explicitly declaring the tile where you want to move, e.g. `moveTo(x+1, y)`.
 - `moveToMiddle` is an undocumented API. Assuming it does something related to its name, you will not need it.
 - In addition to normal movement actions, a unit may move by teleporting or charging.
-
-## How to find out what is where
-
-- `x` and `y` are coordinates for your bot.
-- `getEntityAt(xTo, yTo)` returns a bot from the target location, if your bot can sense it. Note that despite its name it does not return other entities (chips and CPUs).
-- `exists(entity)` will return true if the entity is not null and not undefined. `isDefined(entity)` also does the exact same thing.
-- `canSense(entity)` will return true if your bot can sense the target entity. It returns true when the target entity is within vision range (5 or 7 tiles depending if sensors are activated). Blocking vision (line of sight) is not possible, only range matters. Cloaked enemies can only be sensed when they have been ignited. This API may be useful if you are saving entity references in variables (your bot may have previously sensed an entity and saved its reference to a variable, but it may be unable to sense it next turn -- or another bot may have shared an entity reference to a shared variable). `canSenseEntity(entity)` also does the exact same thing.
-- All bots have sensors and they can be activated with `activateSensors()` to increase vision range from 5 to 7 tiles for the duration of 2 turns. `canActivateSensors()` returns true if sensors are not on cooldown (6 turns). `areSensorsActivated()` returns true when sensors are activated.
-- `getX(entity)` and `getY(entity)` return x and y coordinates for a given entity, given that your bot can sense it. The following syntax also works: `entity.x`, `entity.y`.
-- `life` contains currently remaining hit points for your bot (`lifePercent` is also available).
-- `getLife(entity)` and `getLifePercent(entity)` return the corresponding values for an entity if your bot can sense it.
 
 ## Other useful APIs
 
