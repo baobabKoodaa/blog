@@ -26,4 +26,4 @@ Existen 4 tipos principales de datos de un cliente en un CDP:
 \
 4.**Datos cualitativos:** E.g. Calificaciones, opiniones
 
-Hasta aquí continuan las ideas por un momento más..
+Hasta aquí continuan las ideas por un momento más...
