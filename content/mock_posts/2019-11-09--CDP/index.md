@@ -1,6 +1,6 @@
 ---
 title: CDP y eso que es?
-tags: ["martech, digital marketing"]
+tags: ["martech, digital marketing, tech"]
 cover: franki-chamaki-1K6IQsQbizI-unsplash.jpg
 author: Luis Salas
 ---
