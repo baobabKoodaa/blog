@@ -12,8 +12,11 @@ author: atte juvonen
     >
 </re-img>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> develop
 ### Why this blog is statically generated
 
 GatsbyJS is a static web site generator. This means that my blog is generated into HTML,JS,CSS at _build time_ and I don't have a costly server dynamically generating pages. The main advantages of a static site generator are:
