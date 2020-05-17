@@ -327,7 +327,7 @@ The purpose of this page is to allow quick lookups on specific things about Bot 
 
 - Maximum script length is 16500 characters for Botlandscript and 99000 characters for Blockly.
 - Action limit per round: 3000 opportunities-to-act in total from all bots on the map (currently there is no way to accurately gauge how close to the limit you are).
-- There are two limits to computation time that can be expended by your bots. First, if an individual bot takes too long to act, it will miss a turn. Second, the total amount of computation time expended by your bots within a _round_ can be roughly 1000ms; once that limit is reached your bots will simply do nothing for the remainder of the round.
+- There are two limits to computation time that can be expended by your bots. First, if an individual bot takes too long to act, it will miss a turn. Second, the total amount of computation time expended by your bots within a _round_ can be 600ms.
 
 ---
 

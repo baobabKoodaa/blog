@@ -18,6 +18,8 @@ You should resort to reCAPTCHA only if your website is receiving _targeted_ atta
 
 **A simple honeypot field is sufficient to prevent untargeted attacks.**
 
+_Edit: As of 2020/05 this is no longer true. I'm now getting occasional spam with a simple honeypot field._
+
 The contact form on this web site has a hidden `email` type input field which is also named `email` (there is also a visible email field with a different name). Curiously, 100% of automated spammers will attempt to fill this field (as long as you don't literally call it `honeypot`). I would have expected at least a few spammers to have some kind of adaptive system which would react to errors by filling out  a different combination of input fields, but alas, no-one does that.
 
 When you implement a honeypot on a contact form, consider if you want to support users who have JS disabled. If you are happy with serving JS users only, then you can implement the honeypot on the client side (hijack the submit button, check the honeypot, send data if honeypot is not filled). If you want to support users who have JS disabled, then you need to enable sending the form without JS, so you need to look for the honeypot on server side. For example, I use Google App scripts to handle the contact form data, and checking for the honeypot is only a few extra lines of code. I believe Netlify provides honeypot support automatically, although I haven't tested it myself.
