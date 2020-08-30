@@ -1,5 +1,5 @@
 ---
-title: No, banks do not need a magic wand to create money out of thin air
+title: Banks create money out of thin air, but it's less impressive than it sounds
 tags: ["money"]
 cover: money_press.jpg
 author: atte juvonen
@@ -14,16 +14,16 @@ author: atte juvonen
 
 Most people are familiar with central banks' ability to create money out of thin air. A central bank has access to physical printing presses which can produce physical banknotes, and it has the corresponding ability to create electronic money. However, central banks are not the only entities which create money. Money is also created by regular banks, such as retail banks and commercial banks, in the process of making loans.
 
-Many people believe that regular banks' ability to create money is similar to central banks' ability to create money. It is not. This misconception has been perpetuated by a powerful cast of characters which includes <a href="https://www.hs.fi/tiede/art-2000002869261.html" target="_blank">mainstream news outlets</a> and even <a href="https://www.sciencedirect.com/science/article/pii/S1057521914001070" target="_blank">some economists</a>. Unlike a central bank, your local bank does not possess a magic wand that creates money out of thin air.
+Many people believe that regular banks' ability to create money is similar to central banks' ability to create money. It is not. This misconception has been perpetuated by a powerful cast of characters which includes <a href="https://www.hs.fi/tiede/art-2000002869261.html" target="_blank">mainstream news outlets</a> and even <a href="https://www.sciencedirect.com/science/article/pii/S1057521914001070" target="_blank">some economists</a>.
 
 This article will demystify money creation by illustrating the following facts:
 
 - A bank deposit is merely an IOU.
 - A bank loan is merely an exchange of 2 IOUs.
-- Anyone can create IOUs out of thin air - no magic wand needed.
-- When a customer redeems an IOU at a bank, the bank needs to hand over another form of money, and the bank has no ability to create _that_ money out of thin air.
+- Anyone can create IOUs out of thin air.
+- When a customer redeems an IOU at a bank, the bank needs to hand over another form of money, and the bank has no ability to create _that_ money out of thin air. For example, when you make a bank transfer to another bank, the bank can not simply send over money created by itself.
 
-The main argument presented here is that banks do not have any special powers in relation to money creation; the process in which banks create money is entirely pedestrian.
+The main argument presented here is that banks do not have central bank-like special powers in relation to money creation; the process in which banks create money is entirely pedestrian.
 
 **Bank deposits are merely IOUs**
 
@@ -125,7 +125,7 @@ In abstract terms we might think that the $100 cash you deposited into a bank wa
 
 When you deposit cash in a bank, the bank creates an IOU out of thin air. Similarly, when you take a loan out of a bank, the bank creates an IOU out of thin air. However, due to accounting conventions, the latter action results in net money creation, while the former action does not. (Although these conventions are weird, they make sense: currency in circulation is a good measure with real implications for economic activity, and currency in circulation is genuinely increased when banks loan money.)
 
-**Anyone can create IOUs out of thin air - no magic wand needed**
+**Anyone can create IOUs out of thin air**
 
 If there's only one thing you take away from this article, let it be this: there is nothing special about the IOUs created by banks. IOUs are promises. Anyone can make promises out of thin air. For example, I could be handing out IOUs like this, furbished with my signature for authenticity:
 
@@ -155,7 +155,7 @@ For all intents and purposes, the IOUs created by Full Tilt Poker were money. Th
 
 On April 15, 2011, known in the poker world as <a href="https://en.wikipedia.org/wiki/United_States_v._Scheinberg" target="_blank">Black Friday</a>, the FBI raided offices of Full Tilt Poker and PokerStars as part of a larger crackdown on online gambling. This law enforcement action triggered an instant bank run by players: everyone wanted to withdraw their money at the same time. This should not be a problem, because all poker sites promise to segregate player funds from operational funds. And for PokerStars it wasn't a problem, because they had done so. Full Tilt Poker hadn't. Even worse, they had slowly siphoned off almost all player funds over the course of multiple years, leaving only a small fraction in reserve. In other words, Full Tilt Poker had been operating like a fractional reserve bank.
 
-Now, going back to the IOUs created by Full Tilt Poker: since Full Tilt Poker is not a bank, its IOUs were not counted as money. And since it did not have sufficient bank deposits to cover its IOUs, these IOUs were not ''indirectly'' counted as money, either. But players still considered these IOUs to be money, _and_ these IOUs facilitated real world economic activity similarly as bank money does. If you have an argument why these IOUs should not be considered money, I would love to hear it. Otherwise, let's conclude that non-bank corporations can sometimes create money out of thin air -- no magic wand needed.
+Now, going back to the IOUs created by Full Tilt Poker: since Full Tilt Poker is not a bank, its IOUs were not counted as money. And since it did not have sufficient bank deposits to cover its IOUs, these IOUs were not ''indirectly'' counted as money, either. But players still considered these IOUs to be money, _and_ these IOUs facilitated real world economic activity similarly as bank money does. If you have an argument why these IOUs should not be considered money, I would love to hear it. Otherwise, let's conclude that non-bank corporations can sometimes create money out of thin air.
 
 **No permissions needed, either**
 
@@ -220,7 +220,7 @@ This article has illustrated the following facts:
 
 - A bank deposit is merely an IOU.
 - A bank loan is merely an exchange of 2 IOUs.
-- Anyone can create IOUs out of thin air - no magic wand needed.
+- Anyone can create IOUs out of thin air.
 - When a customer redeems an IOU at a bank, the bank needs to hand over another form of money, and the bank has no ability to create _that_ money out of thin air.
 
 These facts support the main argument of this article: that banks do not have any special powers in relation to money creation. Hopefully this article has demystified money creation and demonstrated that the process is entirely pedestrian.
