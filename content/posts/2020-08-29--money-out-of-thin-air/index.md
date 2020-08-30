@@ -1,5 +1,5 @@
 ---
-title: No, banks do not have a magic wand that creates money out of thin air
+title: No, banks do not need a magic wand to create money out of thin air
 tags: ["money"]
 cover: money_press.jpg
 author: atte juvonen
