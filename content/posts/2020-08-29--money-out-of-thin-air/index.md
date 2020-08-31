@@ -21,9 +21,7 @@ This article will demystify money creation by illustrating the following facts:
 - A bank deposit is merely an IOU.
 - A bank loan is merely an exchange of 2 IOUs.
 - Anyone can create IOUs out of thin air.
-- When a customer redeems an IOU at a bank, the bank needs to hand over another form of money, and the bank has no ability to create _that_ money out of thin air. For example, when you make a bank transfer to another bank, the bank can not simply send over money created by itself.
-
-The main argument presented here is that banks do not have central bank-like special powers in relation to money creation; the process in which banks create money is entirely pedestrian.
+- When a customer redeems an IOU at a bank, the bank typically needs to hand over another form of money -- the kind that it cannot create out of thin air.
 
 **Bank deposits are merely IOUs**
 
@@ -127,7 +125,7 @@ When you deposit cash in a bank, the bank creates an IOU out of thin air. Simila
 
 **Anyone can create IOUs out of thin air**
 
-If there's only one thing you take away from this article, let it be this: there is nothing special about the IOUs created by banks. IOUs are promises. Anyone can make promises out of thin air. For example, I could be handing out IOUs like this, furbished with my signature for authenticity:
+If there's only one thing you take away from this article, let it be this. IOUs are promises. Anyone can make promises out of thin air. For example, I could be handing out IOUs like this, furbished with my signature for authenticity:
 
 <re-img
     src="iou5.jpg"
@@ -157,7 +155,7 @@ On April 15, 2011, known in the poker world as <a href="https://en.wikipedia.org
 
 Now, going back to the IOUs created by Full Tilt Poker: since Full Tilt Poker is not a bank, its IOUs were not counted as money. And since it did not have sufficient bank deposits to cover its IOUs, these IOUs were not ''indirectly'' counted as money, either. But players still considered these IOUs to be money, _and_ these IOUs facilitated real world economic activity similarly as bank money does. If you have an argument why these IOUs should not be considered money, I would love to hear it. Otherwise, let's conclude that non-bank corporations can sometimes create money out of thin air.
 
-**No permissions needed, either**
+**No permissions needed**
 
 One question that often comes up in discussions about money creation is why are banks _allowed_ to create money out of thin air. Sometimes this is a legitimate question about the merits of full-reserve banking versus fractional reserve banking, but more often, this question implies some kind of misunderstanding about how money is created. This confusion is exacerbated by some economists pouring gasoline into the fire by using inflammatory language like this:
 
@@ -179,6 +177,10 @@ Werner's second claim is patently false, because the ''evidence'' he presents in
 </re-img>
 
 Werner's first claim is correct only on a technicality: due to accounting conventions, some IOUs are counted as money, while others are not. As we saw with the Full Tilt Poker example, some IOUs created by non-bank entities are indistinguishable from money. In other words, we have _empirical evidence_ that non-bank entities are sometimes able to create money-like IOUs out of thin air -- we simply do not count those IOUs as money due to accounting conventions.
+
+One might argue that the regulatory environment monopolizes money creation to banks, and that creating money as a non-bank is illegal. This might be true, but it does not prevent non-banks from creating money. Just like criminalizing murder does not prevent people from murdering each other. It would be silly to claim that something does not happen just because it is illegal.
+
+Is there a fundamental difference between the money created by Full Tilt Poker compared to the money created by banks? Well, small depositors' bank deposits are typically covered by deposit insurance programs, which guarantee that depositors get their money even if the bank runs into problems. This insurance is backed by the central bank and its ability to print banknotes. From the perspective of a regular person, this is certainly a fundamental difference between holding deposits at a poker site versus holding deposits at a bank. However, deposit insurance typically applies to small deposits only, so it does not cover all bank IOUs.
 
 **Redeeming an IOU**
 
@@ -212,7 +214,20 @@ What if you had an entity that could just hold a bunch of cash in a vault and ke
 
 Banks can deposit their reserves at the central bank. Reserves at the central bank appear as a line item on banks' assets. When banks need to settle transactions of their clients, they can simply make transactions of their own at the central bank. The nice thing about a central bank is that it doesn't actually need to have all that cash in the vault. It can simply create IOUs out of thin air, and when it runs out of cash money, it can actually print more cash to cover the IOUs it has issued.
 
-Note that a regular bank is unable to create deposits in a central bank out of thin air. Just as in the cash withdrawal case, the bank transfer from bank A to bank B can succeed only if bank A actually has deposits at the central bank (or if the bank has cash, it can deposit cash at the central bank, and then it has deposits at the central bank).
+**Central banks have the power to ruin the entire economy with excessive money creation. Regular banks do not have this power.**
+
+When bank A wants to send money to bank B, bank need B needs to receive some kind of assets from bank A before it will agree to settle the transaction. Theoretically, this asset might be cash. In practice, this asset is often in the form of central bank deposits. In some cases bank B may accept an IOU from bank A. Sometimes a bank is in trouble, has no liquid assets, and no bank is willing to lend to it. In this case the bank might lend money from the central bank (''lender of last resort'').
+
+Even though bank A can _sometimes_ settle transactions to other banks by using IOUs created by itself, this ability is highly constrained in practice. If bank A was trying to transfer suspiciously large amounts, other banks would quickly start to demand more trustworthy assets to settle these transactions -- IOUs created by bank A itself would no longer suffice. This is in stark contrast to the central bank's special power to create money out of thin air.
+
+<re-img
+    src="zimbabwe.jpg"
+    title="Zimbabwean banknote"
+    meme=True
+    >
+</re-img>
+
+Sometimes, due to mismanagement or corruption, a central bank may create excessive amounts of money, leading to hyperinflation and severe economic problems. In 1920's Weimar republic (Germany), people would use wheelbarrows for grocery shopping -- not because they needed help carrying groceries, but because they needed help carrying money. In 2008 the Zimbabwean central bank's money printing reached the point where they had to print 100 trillion dollar banknotes. Funnily enough, these banknotes <a href="https://www.theguardian.com/money/2016/may/14/zimbabwe-trillion-dollar-note-hyerinflation-investment" target="_blank">eventually became valuable</a> as collectors' items. A central bank has this power, because its IOUs are backed by its literal ability to print more banknotes. A regular bank does not have any power comparable to this.
 
 **In conclusion**
 
@@ -221,6 +236,4 @@ This article has illustrated the following facts:
 - A bank deposit is merely an IOU.
 - A bank loan is merely an exchange of 2 IOUs.
 - Anyone can create IOUs out of thin air.
-- When a customer redeems an IOU at a bank, the bank needs to hand over another form of money, and the bank has no ability to create _that_ money out of thin air.
-
-These facts support the main argument of this article: that banks do not have any special powers in relation to money creation. Hopefully this article has demystified money creation and demonstrated that the process is entirely pedestrian.
+- When a customer redeems an IOU at a bank, the bank typically needs to hand over another form of money -- the kind that it cannot create out of thin air.
