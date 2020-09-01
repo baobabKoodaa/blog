@@ -216,9 +216,9 @@ Banks can deposit their reserves at the central bank. Reserves at the central ba
 
 **Central banks have the power to ruin the entire economy with excessive money creation. Regular banks do not have this power.**
 
-When bank A wants to send money to bank B, bank need B needs to receive some kind of assets from bank A before it will agree to settle the transaction. Theoretically, this asset might be cash. In practice, this asset is often in the form of central bank deposits. In some cases bank B may accept an IOU from bank A. Sometimes a bank is in trouble, has no liquid assets, and no bank is willing to lend to it. In this case the bank might lend money from the central bank (''lender of last resort'').
+When bank A wants to send money to bank B, bank need B needs to receive some kind of assets from bank A before it will agree to settle the transaction. Theoretically, this asset might be cash. In practice, this asset is often in the form of central bank deposits. In some cases bank this asset may be an IOU created by bank A out of thin air. This practice is referred to as <a href="https://en.wikipedia.org/wiki/Libor" target="_blank">unsecured lending between banks</a>. Sometimes a bank is in financial trouble and no other banks is willing to lend to it. In this case the bank might lend money from the central bank (''lender of last resort'').
 
-Even though bank A can _sometimes_ settle transactions to other banks by using IOUs created by itself, this ability is highly constrained in practice. If bank A was trying to transfer suspiciously large amounts, other banks would quickly start to demand more trustworthy assets to settle these transactions -- IOUs created by bank A itself would no longer suffice. This is in stark contrast to the central bank's special power to create money out of thin air.
+Even though bank A can _sometimes_ settle transactions to other banks by using IOUs created by itself, this ability is highly constrained in practice. If bank A was trying to transfer suspiciously large amounts, other banks would quickly start to demand more trustworthy assets to settle these transactions -- they would no longer accept IOUs created by the suspicious bank. This is in stark contrast to central bank's special power to create money out of thin air.
 
 <re-img
     src="zimbabwe.jpg"
