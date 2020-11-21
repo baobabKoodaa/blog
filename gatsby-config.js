@@ -51,6 +51,7 @@ module.exports = {
     title: config.siteTitle,
     description: config.siteDescription,
     siteUrl: config.siteUrl,
+    plausibleDomain: process.env.PLAUSIBLE_DOMAIN || "",
     contactPostAddress: process.env.CONTACT_POST_ADDRESS || "",
     emailSubLink: process.env.EMAIL_SUB_LINK || "",
     algolia: {
