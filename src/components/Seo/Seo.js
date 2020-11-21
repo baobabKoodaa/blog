@@ -29,7 +29,7 @@ const Seo = props => {
       }
     `}
     render={ queryResults => {
-
+      const domain = queryResults.site.siteMetadata.plausibleDomain
       return (
         <Helmet
           htmlAttributes={{
@@ -47,7 +47,7 @@ const Seo = props => {
           <meta property="og:image" content={image} />
           <meta property="og:type" content="website" />
           {/* Plausible Analytics */}
-          <script async defer data-domain={queryResults.site.siteMetadata.plausibleDomain} src="https://plausible.io/js/plausible.js"/>
+          {process.browser && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js"/>}
         </Helmet>
       )
     }}
