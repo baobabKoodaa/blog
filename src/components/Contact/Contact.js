@@ -14,7 +14,8 @@ class Contact extends React.Component {
       name: "",
       email: "", // honeypot
       emailReal: "",
-      message: ""
+      message: "",
+      human: ""
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -29,7 +30,15 @@ class Contact extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.email != "") return // honeypot
+    if (this.state.email != "") {
+      // This is an invisible honeypot field. Only bots will fill it.
+      return
+    }
+    if (this.state.human != "human") {
+      // Humans might make an error with this field, advise them.
+      alert("Bot check failed. Please write 'human' (without quotes) in the field just above the submit button, then try again.")
+      return
+    }
 
     const b = document.getElementById("submitButton")
     b.disabled = true
@@ -42,7 +51,11 @@ class Contact extends React.Component {
     fetch(this.contactPostAddress, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: this.encode({ "form-name": "contact", ...this.state })
+      body: this.encode({
+        "form-name": "contact",
+        "javascript-detected": true,
+        ...this.state 
+      })
     })
       .then(function(rawResponse) {
         return rawResponse.json();
@@ -132,6 +145,16 @@ class Contact extends React.Component {
                     name="message"
                     required={true}
                     value={this.state.message}
+                    onChange={this.handleChange}
+                  />
+                </label>
+                <br/><br/>
+                <label className="formItem" >
+                  If you are not a robot, then write "human" in this field:<br/>
+                  <input
+                    type="human"
+                    name="human"
+                    value={this.state.human}
                     onChange={this.handleChange}
                   />
                 </label>
