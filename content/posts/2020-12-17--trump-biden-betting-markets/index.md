@@ -69,7 +69,7 @@ learned nothing from 2016. And then you have uncertainty of scandals and other e
 Luckily, problems like this have an easy answer: defer to an expert. It's not always clear who's an expert
 in a particular area, especially when people who are touted as experts often fail catastrophically in their
 supposed field of expertise. But sometimes you can trust a person. In this story our deferred expert opinion
-comes from Nate Silver. Silver has a good track record on political predictions[****] and his Bayesian
+comes from Nate Silver. Silver has a good track record on political predictions<sup>[***]</sup> and his Bayesian
 approach to predicting is sound (I had read his book several years ago).
 
 So how did Silver quantify Trump's chances?
@@ -159,7 +159,7 @@ unfold and I thought, man, the real opportunity turned out to be live betting du
 So there was some opportunity before the event, and some opportunity during the event, sure.
 But never in a million years would I have thought that an
 opportunity like this becomes available _after_ the event. Who on earth was willing to lay (bet against) Biden
-at 1.05 _after_ the votes were counted and _after_ Trump's lawsuits[***] were laughed out of court?
+at 1.05 _after_ the votes were counted and _after_ Trump's lawsuits<sup>[****]</sup> were laughed out of court?
 
 Betfair settled the bet yesterday, on 14.12. I usually make an effort to understand why things turned out
 the way they did, but I can't figure this one out. I'm just gonna take my free lunch and go.
@@ -180,12 +180,12 @@ they might still be able to gain an edge in trading stocks of small companies, b
 are practically unable to invest in small companies, which leads to more inefficiencies in small companies'
 stock prices._
 
-_[***] I assume some lawsuits are still pending or upcoming, so perhaps not all lawsuits were laughed
-out of the courts in early December. So could you cling onto some kind of hope for a last minute
-Christmas miracle. If you're into betting for miracles and that sort of thing._
-
-_[****] People keep bashing Silver for "failing to predict" Trump's 2016 victory. But if you had been
+_[***] People keep bashing Silver for "failing to predict" Trump's 2016 victory. But if you had been
 making bets based on Silver's predictions, you would have bet for Trump in 2016, and you would have won,
 because Silver's probabilities for Trump in 2016 were higher than those implied by the betting markets.
 So, whatever significance you place on the outcome of a single prediction (personally, not much), Trump's 2016
 victory would be an example of a successful prediction by Silver, not an example of a failed prediction._
+
+_[****] I assume some lawsuits are still pending or upcoming, so perhaps not all lawsuits were laughed
+out of the courts in early December. So could you cling onto some kind of hope for a last minute
+Christmas miracle. If you're into betting for miracles and that sort of thing._
