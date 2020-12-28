@@ -11,7 +11,7 @@ author: atte juvonen
     >
 </re-img>
 
-If you were following the 2020 U.S. presidential election, you might remember the barrage of "experts"
+If you were following the 2020 U.S. presidential election, you might remember the barrage of ''experts''
 offering predictions on the outcome of the election on every news network and in every newspaper.
 Every now and then somebody would come in and say: 
 
@@ -130,8 +130,8 @@ sites decided to settle bets at this point.
 
 Although most betting sites did settle bets once the votes were tallied, some didn't. In particular,
 Betfair decided to keep the market open. This was especially strange, because Betfair's terms clearly
-specified that the winner will be declared based on "projected elector count". The actual elector count
-was described as a "subsequent event" which has no bearing on the bets. In fact, an earlier version
+specified that the winner will be declared based on ''projected elector count''. The actual elector count
+was described as a ''subsequent event'' which has no bearing on the bets. In fact, an earlier version
 of Betfair's terms went even further and specified that bets will be settled according to whoever
 CNN declares as the winner (they quietly removed this condition at some point, despite having already
 matched bets on those terms).
@@ -168,19 +168,19 @@ the way they did, but I can't figure this one out. I'm just gonna take my free l
 
 _Clarifications:_
 
-_[*] I'm using the term "betting market" loosely. If you want a strictly theoretical argument,
+_[*] I'm using the term ''betting market'' loosely. If you want a strictly theoretical argument,
 let's say that the term refers specifically to Betfair exchange, where the market price
 is entirely determined by bettors, in a fashion similar to a stock market. However, in this election
 the odds set by traditional bookmakers also closely followed the odds in Betfair exchange
 (as they should, due to arbitrage opportunities). So a casual reader could imagine
-traditional bookmakers to fall under the "betting markets" umbrella._
+traditional bookmakers to fall under the ''betting markets'' umbrella._
 
 _[**] Although a layperson will find it difficult to gain an edge in trading large stocks like Coca-Cola,
 they might still be able to gain an edge in trading stocks of small companies, because large investors
 are practically unable to invest in small companies, which leads to more inefficiencies in small companies'
 stock prices._
 
-_[***] People keep bashing Silver for "failing to predict" Trump's 2016 victory. But if you had been
+_[***] People keep bashing Silver for ''failing to predict'' Trump's 2016 victory. But if you had been
 making bets based on Silver's predictions, you would have bet for Trump in 2016, and you would have won,
 because Silver's probabilities for Trump in 2016 were higher than those implied by the betting markets.
 So, whatever significance you place on the outcome of a single prediction (personally, not much), Trump's 2016
