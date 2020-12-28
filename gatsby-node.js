@@ -5,8 +5,6 @@ const fs = require('fs');
 
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-const { blogPostTeaserFields, blogPostSort } = require(`./src/fragments.js`);
-
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === `MarkdownRemark`) {
@@ -61,17 +59,44 @@ exports.createPages = ({ graphql, actions }) => {
     const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
     console.log(`Using environment config: '${activeEnv}'`)
 
-    let filters = `filter: { fields: { slug: { ne: null } } }`;
-
     resolve(
       graphql(
         `
           {
             allMarkdownRemark(
-              ` + filters + `
-              ` + blogPostSort + `
+              filter: { fields: { slug: { ne: null } } }
+              sort: { fields: [fields___prefix, fields___slug] order: DESC }
             ) {
-              ` + blogPostTeaserFields + `
+                edges {
+                  node {
+                      id
+                      excerpt
+                      fields {
+                          slug
+                          prefix
+                          source
+                      }
+                      frontmatter {
+                          title
+                          tags
+                          cover {
+                              children {
+                                  ... on ImageSharp {
+                                      fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
+                                          tracedSVG
+                                          aspectRatio
+                                          src
+                                          srcSet
+                                          srcWebp
+                                          srcSetWebp
+                                          sizes
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
             }
           }
         `
