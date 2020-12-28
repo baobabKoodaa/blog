@@ -37,7 +37,7 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
     - When you publish, make sure caching and redirects work reasonably. I recommend Netlify, in which case cache configuration in `static/_headers` is fine and you just need to edit 1 line in `static/_redirects`.
     - Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
     - Environment variables can be set in a `.env` file. It's good practice to keep it in `.gitignore` so it doesn't get published to the repo. When you publish your website, find out how you can add environment variables to your host without publishing the `.env` file. If you are wondering why environment variables are used, it is to prevent people from accidentally spamming (for example, people who forked this repo used to test the contact page by sending me messages like dffdsffdsfd).
-    - There is an e-mail newsletter link on the `Follow` page. Remove it or set up a newsletter and add the URL as an environment variable `EMAIL_SUB_LINK`.
+    - There is an e-mail newsletter link on the `Subscribe` page. Remove it or set up a newsletter and add the URL as an environment variable `EMAIL_SUB_LINK`.
     - There is a Contact page. Remove it or set up handling for your form submissions. The POST address where forms are sent is defined in environment variable `CONTACT_POST_ADDRESS`. I'm using Google Script to handle form submissions. If you also want to use Google Script, [instructions are here](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server) and [here is an improved version of the script](handleFormSubmission.gs). 
     - [OPTIONAL] If you want a "Hero" section at the top of the home page, just set `hero.hide` to `false` in `theme.yaml`.
     - [OPTIONAL] If you want [Plausible Analytics](https://plausible.io/): add `PLAUSIBLE_DOMAIN=mywebsite.com` to environment variables.
@@ -66,7 +66,7 @@ I started building on top of [Greg Lobinski's](https://github.com/greglobinski) 
     - Submission works for users who have JS disabled.
 - Allow multiple tags (used to be just 1 category per post)
 - Allow custom React components inside Markdown files.
-- Added 'Follow' page, so users know that RSS feed exists (the page also contains a link to email newsletter)
+- Added 'Subscribe' page, so users know that RSS feed exists (the page also contains a link to email newsletter)
 - Added infinite scroll, which gracefully degrades into pagination.
 - Many design changes. Spent a lot of time tweaking image placeholders :gem: Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
 
