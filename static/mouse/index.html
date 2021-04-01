@@ -98,6 +98,7 @@
         var prevY = undefined
         var offsetX = 0
         var offsetY = 0
+        var userMoveCount = 0
 
         var hideAllCursors = function() {
             const pointer = document.getElementById("pointer")
@@ -129,6 +130,7 @@
             const arrow = document.getElementById("arrow")
             arrow.style.visibility = "visible";
             paintCursorWithOffset(arrow, prevX, prevY)
+            userMoveCount += 1
         }
         var mouseMovedOnButton = function(event) {
             if (recordingStatus === "replaying") {
@@ -144,6 +146,7 @@
             const pointer = document.getElementById("pointer")
             pointer.style.visibility = "visible";
             paintCursorWithOffset(pointer, x, y)
+            userMoveCount += 1
         }
         var getCandidateVal = function(x, y, candidateX, candidateY) {
             return Math.sqrt((x - candidateX) * (x-candidateX) + (y - candidateY) * (y - candidateY))
@@ -184,6 +187,7 @@
             const arrow = document.getElementById("arrow")
             arrow.style.visibility = "visible";
             paintCursorWithOffset(arrow, x, y)
+            userMoveCount += 1
         }
         var recordingIndex = 0
         var step = 0
@@ -213,7 +217,7 @@
         }
         var replayMovements = function(event) {
             const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            if (width < 800 || typeof(prevX) == "undefined") {
+            if (width < 800 || typeof(prevX) == "undefined" || userMoveCount < 5) {
                 alert("Sorry, we can't do the trick on your device. Please try again with a desktop/laptop that has a mouse attached and has screen width of at least 800 pixels.")
                 return
             }
