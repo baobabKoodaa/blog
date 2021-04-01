@@ -239,6 +239,12 @@
             }, REC_TIME)
         }
 
+        document.addEventListener('contextmenu', e => {
+            if (recordingStatus == 'replaying') {
+                e.preventDefault();
+            }
+        });
+
     </script>
 </head>
 <body>
