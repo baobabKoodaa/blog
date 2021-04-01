@@ -1,0 +1,286 @@
+<html>
+<head>
+    <title>A test of courage</title>
+    <style>
+
+        .arrow {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 12px;
+            visibility: hidden;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .pointer {
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            width: 16px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        body {
+            overflow-y: hidden;
+            overflow-x: hidden;
+            margin:0;
+            padding:0;
+            background: #262626;
+            cursor: none;
+        }
+        .button {
+            background: #171515;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            border-width: 0px;
+            font-size: 24px;
+            transform: translateY(0);
+            color: #ffa502;
+            box-shadow: 0 0 50px #d35400;
+            cursor: none;
+            transition: .5s;
+        }
+        .darkened {
+            background: #171515;
+            opacity: 0.2;
+            box-shadow: 0 0 0px 0px !important;
+        }
+
+       .hoverableMainButton:hover {
+            text-shadow: 0 0 5px #d35400;
+            box-shadow: 0 0 50px 20px #d35400;
+        } 
+
+        button:focus{
+            outline: none;
+        }
+
+        .how {
+            background: #171515;
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            border-width: 0px;
+            font-size: 18px;
+            transform: translateY(0);
+            color: #ffa502;
+            box-shadow: 0 0 20px #d35400;
+            cursor: none;
+        }
+
+        .unselectable {
+            user-select: none;
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none;
+        }
+
+    </style>
+
+    <script>
+        var recordingStatus = "off" // off, recording, replaying
+        var freshRecording = []
+        var prevTime = undefined
+        var prevX = undefined
+        var prevY = undefined
+        var offsetX = 0
+        var offsetY = 0
+
+        var hideAllCursors = function() {
+            const pointer = document.getElementById("pointer")
+            const arrow = document.getElementById("arrow")
+            pointer.style.visibility = "hidden";
+            arrow.style.visibility = "hidden";
+        }
+        var paintCursorWithOffset = function(cursor, realX, realY) {
+            var x = realX + offsetX
+            var y = realY + offsetY
+            cursor.style.top = y + "px"; 
+            cursor.style.left = x + "px"; 
+        }
+        var mouseMovedOnBackground = function(event) {
+            const x = event.clientX
+            const y = event.clientY
+            if (recordingStatus === "recording") {
+                const time = Date.now()
+                const timeDiff = time - prevTime
+                const xDiff = x - prevX
+                const yDiff = y - prevY
+                prevTime = time
+                freshRecording.push([timeDiff, xDiff, yDiff])
+            }
+            prevX = x
+            prevY = y
+            const pointer = document.getElementById("pointer")
+            pointer.style.visibility = "hidden";
+            const arrow = document.getElementById("arrow")
+            arrow.style.visibility = "visible";
+            paintCursorWithOffset(arrow, prevX, prevY)
+        }
+        var mouseMovedOnButton = function(event) {
+            if (recordingStatus === "replaying") {
+                mouseMovedOnBackground(event);
+                return;
+            }
+            const x = event.clientX
+            const y = event.clientY
+            prevX = x
+            prevY = y
+            const arrow = document.getElementById("arrow")
+            arrow.style.visibility = "hidden";
+            const pointer = document.getElementById("pointer")
+            pointer.style.visibility = "visible";
+            paintCursorWithOffset(pointer, x, y)
+        }
+        var getCandidateVal = function(x, y, candidateX, candidateY) {
+            return Math.sqrt((x - candidateX) * (x-candidateX) + (y - candidateY) * (y - candidateY))
+        }
+        var choose = function(previousBestCandidate, candidateX, candidateY, x, y) {
+            const candidateVal = getCandidateVal(x, y, candidateX, candidateY)
+            if (!previousBestCandidate || candidateVal < previousBestCandidate.val) {
+                return {
+                    'val': candidateVal,
+                    'x': candidateX,
+                    'y': candidateY
+                }
+            }
+            return previousBestCandidate
+        }
+        var mouseMovedOnHowdy = function(event) {
+            if (recordingStatus === "replaying") {
+                mouseMovedOnBackground(event);
+                return;
+            }
+            const x = event.clientX
+            const y = event.clientY
+
+            // Offset mouse to the nearest side of howdy-button.
+            const bounds = document.getElementById("how").getBoundingClientRect()
+            var bestCandidate = null
+            bestCandidate = choose(bestCandidate, bounds.left-10, y, x, y) // left
+            bestCandidate = choose(bestCandidate, x, bounds.top-10, x, y) // up
+            bestCandidate = choose(bestCandidate, x, bounds.bottom+10, x, y) // down
+            bestCandidate = choose(bestCandidate, bounds.right+10, y, x, y) // right
+            offsetX = bestCandidate.x - x
+            offsetY = bestCandidate.y - y
+
+            prevX = x
+            prevY = y
+            const pointer = document.getElementById("pointer")
+            pointer.style.visibility = "hidden";
+            const arrow = document.getElementById("arrow")
+            arrow.style.visibility = "visible";
+            paintCursorWithOffset(arrow, x, y)
+        }
+        var recordingIndex = 0
+        var step = 0
+        var recursiveTimerReplay = function() {
+            const rec = recordings[recordingIndex]
+            if (step >= rec.length) {
+                recordingStatus = "off"
+                document.getElementById("butt").classList.remove("darkened")
+                document.getElementById("butt").classList.add("hoverableMainButton")
+                document.getElementById("howdiv").style.visibility = "visible";
+                offsetX = 0
+                offsetY = 0
+                paintCursorWithOffset(document.getElementById("arrow"), prevX, prevY)
+                step = 0
+                recordingIndex = (recordingIndex + 1) % recordings.length
+                return
+            }
+            const currTime = Date.now()
+            if (currTime - prevTime >= rec[step][0]) {
+                offsetX = offsetX + rec[step][1]
+                offsetY = offsetY + rec[step][2]
+                step = step + 1
+                paintCursorWithOffset(document.getElementById("arrow"), prevX, prevY)
+                prevTime = currTime
+            }
+            setTimeout(() => { recursiveTimerReplay() }, 0)
+        }
+        var replayMovements = function(event) {
+            const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if (width < 800 || typeof(prevX) == "undefined") {
+                alert("Sorry, we can't do the trick on your device. Please try again with a desktop/laptop that has a mouse attached and has screen width of at least 800 pixels.")
+                return
+            }
+            recordingStatus = "replaying"
+            arrow = document.getElementById("arrow")
+            paintCursorWithOffset(arrow, prevX, prevY)
+            document.getElementById("pointer").style.visibility = "hidden";
+            arrow.style.visibility = "visible";
+            document.getElementById("butt").classList.add("darkened")
+            document.getElementById("butt").classList.remove("hoverableMainButton")
+            document.getElementById("howdiv").style.visibility = "hidden";
+            prevTime = Date.now()
+            recursiveTimerReplay()
+        }
+        var recordMovements = function(event) {
+            const REC_TIME = 15000
+            freshRecording = []
+            recordingStatus = "recording"
+            prevTime = Date.now()
+            document.getElementById('recordButton').style.display = 'none'; 
+            document.getElementById('buttdiv').style.display = 'none';
+            for (var j=REC_TIME; j>0; j-=1000) {
+                const bah = REC_TIME - j
+                setTimeout(() => console.log(bah / 1000), bah)
+            }
+            setTimeout(() => {
+                document.getElementById('buttdiv').style.display = 'block'; 
+                recordingStatus = false;
+                recordings.push(freshRecording)
+                console.log('finished recording');
+                console.log(freshRecording)
+            }, REC_TIME)
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="bg" style="position: absolute; width: 100%; height: 100%"></div>
+
+    <button id="recordButton" style="position: absolute; top: 45%; left: 37%; z-index: 999; display: none;">
+        Record
+    </button>
+
+    <noscript><h1>This website will move your mouse cursor, and it needs JavaScript to do that. Please enable JavaScript and refresh.</h1></noscript>
+
+    <div id="buttdiv" class="unselectable" style="position: absolute; width: 400px; height: 100px; top: 50%; left: 50%; margin: -50px 0 0 -200px;">
+        <button id="butt" class="button hoverableMainButton unselectable" tabindex="-1">
+            I'm not afraid to click<br>buttons on the internet
+        </button>
+    </div>
+
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="Explanation video (all the answers you need are here)" style="display: none;"></a>
+    <div id="howdiv" class="unselectable" style="position: absolute; width: 200px; height: 50px; right: 50px; bottom: 50px; margin: -50px 0 0 -200px; visibility: hidden;">
+        <button id="how" class="how unselectable" tabindex="-1">
+            How this works
+        </button>
+    </div>
+
+    <script>
+
+        document.body.addEventListener('mouseleave', e => { hideAllCursors() })
+        document.getElementById('bg').addEventListener('mousemove', e => { mouseMovedOnBackground(e) })
+        document.getElementById('butt').addEventListener('mousemove', e => { mouseMovedOnButton(e) })
+        document.getElementById('butt').addEventListener('click', e => { replayMovements(e) })
+        document.getElementById('recordButton').addEventListener('click', e => { recordMovements(e) })
+        document.getElementById('how').addEventListener('mousemove', e => { mouseMovedOnHowdy(e) })
+        document.getElementById('how').addEventListener('mouseleave', e => { offsetX = 0; offsetY = 0; })
+
+    </script>
+    <script src="recordings.js"></script>
+
+    <img id="arrow" class="arrow" src="arrow_m.png" />
+    <img id="pointer" class="pointer" src="pointer.png" />
+
+    <script async defer data-domain="attejuvonen.fi" src="https://plausible.io/js/plausible.js"></script>
+    
+</body>
+</html>
