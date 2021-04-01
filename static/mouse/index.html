@@ -79,6 +79,15 @@
             -o-user-select: none;
         }
 
+        @media only screen and (max-width: 760px) {
+            .button {
+                display: none;
+            }
+            .mobile-warning {
+                display: block;
+            }
+        }
+
     </style>
 
     <script>
@@ -255,7 +264,11 @@
         Record
     </button>
 
-    <noscript><h1>This website will move your mouse cursor, and it needs JavaScript to do that. Please enable JavaScript and refresh.</h1></noscript>
+    <noscript><h1>This website requires JavaScript in order to do a trick. Please enable JavaScript and refresh.</h1></noscript>
+
+    <h1 class="mobile-warning" style="display: none;">
+        This website requires a laptop/desktop device with a mouse, and a sufficiently large screen. Try with another device?
+    </h1>
 
     <div id="buttdiv" class="unselectable" style="position: absolute; width: 400px; height: 100px; top: 50%; left: 50%; margin: -50px 0 0 -200px;">
         <button id="butt" class="button hoverableMainButton unselectable" tabindex="-1">
