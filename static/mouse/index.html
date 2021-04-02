@@ -107,8 +107,22 @@
             arrow.style.visibility = "hidden";
         }
         var paintCursorWithOffset = function(cursor, realX, realY) {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
             var x = realX + offsetX
             var y = realY + offsetY
+            if (x > w-100) {
+                x = Math.max(realX, w-100)
+            }
+            if (y > h-100) {
+                y = Math.max(realY, h-100)
+            }
+            if (x < 0) {
+                x = 0
+            }
+            if (y < 0) {
+                y = 0
+            }
             cursor.style.top = y + "px"; 
             cursor.style.left = x + "px"; 
         }
