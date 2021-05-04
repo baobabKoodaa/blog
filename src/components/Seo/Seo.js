@@ -17,7 +17,7 @@ const Seo = props => {
   const imagePath = postCover ? postCover.childImageSharp.resize.src : config.siteImage;
   const url = config.siteUrl + (config.pathPrefix ? config.pathPrefix : "") + (postSlug ? postSlug : "");
   const domain = useStaticQuery(plausibleDomainQuery).site.siteMetadata.plausibleDomain
-  const imagePathWithDomain = "https://" + domain + "/" + imagePath.replace("/^\//", "")
+  const imagePathWithDomain = "https://" + domain + "/" + imagePath.replace(/^\//, "")
 
   return (
     <Helmet
