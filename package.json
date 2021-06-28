@@ -35,7 +35,7 @@
     "js-yaml": "^3.13.1",
     "lodash.throttle": "^4.1.1",
     "normalize.css": "^8.0.0",
-    "prismjs": "^1.17.1",
+    "prismjs": "^1.24.0",
     "react": "^16.9.0",
     "react-addons-perf": "^15.4.2",
     "react-dom": "^16.9.0",
