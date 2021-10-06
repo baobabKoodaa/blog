@@ -12,4 +12,4 @@ author: atte juvonen
     >
 </re-img>
 
-Corosim is a project I've been working on in my capacity as Data Scientist at Futurice. Corosim combines historical estimates and model predictions for the COVID-19 epidemic in Finland: <a href="https://corosim.fi" target="_blank">https://corosim.fi</a>
+Corosim is a project I've been working on in my capacity as Data Scientist at Futurice. Corosim combines historical estimates and model predictions for the COVID-19 epidemic in Finland: <a href="https://corosim.attejuvonen.fi" target="_blank">https://corosim.attejuvonen.fi</a>
