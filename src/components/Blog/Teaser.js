@@ -7,7 +7,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 
-const Teaser = props => {
+const Teaser = (props) => {
   const {
     theme,
     post: {
@@ -18,11 +18,11 @@ const Teaser = props => {
         tags,
         author,
         cover: {
-          children: [{ fluid }]
-        }
-      }
+          children: [{ fluid }],
+        },
+      },
     },
-    index
+    index,
   } = props;
 
   return (
@@ -30,7 +30,7 @@ const Teaser = props => {
       <li>
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} critical={index==0}/>
+            <Picture fluid={fluid} critical={index == 0} />
           </div>
           <h1>
             {title} <FaArrowRight className="arrow" />
@@ -42,11 +42,12 @@ const Teaser = props => {
             {/* <span>
               <FaUser size={18} /> {author}
             </span> */}
-            {tags && tags.map(tag =>
-              <span key={tag}>
-              <FaTag size={18} /> {tag}
-              </span>
-            )}
+            {tags &&
+              tags.map((tag) => (
+                <span key={tag}>
+                  <FaTag size={18} /> {tag}
+                </span>
+              ))}
           </p>
           <p>{excerpt}</p>
         </Link>
@@ -77,21 +78,21 @@ const Teaser = props => {
             z-index: -1;
           }
 
-          &::after {
-            border-top: 1px solid ${theme.line.color};
-            content: "";
-            height: 0;
-            position: absolute;
-            bottom: ${`calc(${theme.space.default} * -1.5)`};
-            left: 50%;
-            transform: translateX(-50%);
-            transition: all ${theme.time.duration.default};
-            width: 50%;
-          }
-
           &:last-child {
             margin-bottom: 10px;
           }
+        }
+
+        li::after {
+          border-top: 1px solid ${theme.line.color};
+          content: "";
+          height: 0;
+          position: absolute;
+          bottom: ${`calc(${theme.space.default} * -1.5)`};
+          left: 50%;
+          transform: translateX(-50%);
+          transition: all ${theme.time.duration.default};
+          width: 50%;
         }
 
         h1 {
@@ -166,7 +167,7 @@ const Teaser = props => {
             box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
             margin-top: 20px;
             margin-bottom: 20px;
-            
+
             &:first-child {
               margin-top: 0;
             }
@@ -206,14 +207,16 @@ const Teaser = props => {
           p {
             padding: ${`0 calc(${theme.space.default} * 2)`};
           }
+          li:hover {
+            border: 1px solid ${theme.line.color};
+            box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
+          }
+          li:hover:after {
+            bottom: ${`calc(${theme.space.default} * -2.5)`};
+          }
+
           li {
             &:hover {
-              border: 1px solid ${theme.line.color};
-              box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.03);
-
-              &:after {
-                bottom: ${`calc(${theme.space.default} * -2.5)`};
-              }
               :global(.gatsby-image-wrapper) {
                 transform: scale(1.1);
               }
@@ -248,7 +251,7 @@ const Teaser = props => {
 
 Teaser.propTypes = {
   post: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Teaser;

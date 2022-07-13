@@ -11,10 +11,10 @@ import avatar from "../../images/jpg/avatar.jpg";
 
 class Header extends React.Component {
   state = {
-    fixed: false
+    fixed: false,
   };
 
-  visibilitySensorChange = val => {
+  visibilitySensorChange = (val) => {
     if (val) {
       this.setState({ fixed: false });
     } else {
@@ -37,23 +37,19 @@ class Header extends React.Component {
         <header className={`header ${this.getHeaderSize()}`}>
           <Link to="/about/" className="logoType">
             <div className="logo">
-              <img src={config.gravatarImgMd5=="" ? avatar : config.gravatarImgMd5 } alt={config.siteTitle} />
+              <img
+                src={config.gravatarImgMd5 == "" ? avatar : config.gravatarImgMd5}
+                alt={config.siteTitle}
+              />
             </div>
             <div className="type">
               <h1>{config.headerTitle}</h1>
               <h2>{config.headerSubTitle}</h2>
             </div>
           </Link>
-            <ScreenWidthContext.Consumer>
-              {width => (
-                <Menu
-                  path={path}
-                  fixed={fixed}
-                  screenWidth={width}
-                  theme={theme}
-                />
-              )}
-            </ScreenWidthContext.Consumer>
+          <ScreenWidthContext.Consumer>
+            {(width) => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
+          </ScreenWidthContext.Consumer>
         </header>
         <VisibilitySensor onChange={this.visibilitySensorChange}>
           <div className="sensor" />
@@ -175,34 +171,34 @@ class Header extends React.Component {
               justify-content: space-between;
               transition: padding 0.5s;
               border-bottom: 2px solid ${theme.color.menu.border};
+            }
 
-              &.fixed {
-                height: ${theme.header.height.fixed};
-                background-color: ${theme.color.neutral.white};
-                left: 0;
-                padding: 0 ${theme.space.m};
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 1;
+            .header.fixed {
+              height: ${theme.header.height.fixed};
+              background-color: ${theme.color.neutral.white};
+              left: 0;
+              padding: 0 ${theme.space.m};
+              position: fixed;
+              top: 0;
+              width: 100%;
+              z-index: 1;
+            }
 
-                h1 {
-                  margin: ${theme.space.stack.xxs};
-                }
+            .header.fixed h1 {
+              margin: ${theme.space.stack.xxs};
+            }
 
-                h2 {
-                  display: none;
-                }
+            .header.fixed h2 {
+              display: none;
+            }
+
+            .header.homepage:not(.fixed) {
+              :global(a.logoType),
+              h1 {
+                color: ${theme.color.neutral.white};
               }
-
-              &.homepage:not(.fixed) {
-                :global(a.logoType),
-                h1 {
-                  color: ${theme.color.neutral.white};
-                }
-                h2 {
-                  color: ${theme.color.neutral.gray.d};
-                }
+              h2 {
+                color: ${theme.color.neutral.gray.d};
               }
             }
 
@@ -248,7 +244,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   path: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Header;
