@@ -23,11 +23,12 @@ You are free to use this repo to create your own blog (code in the repo is MIT l
 
 #### How to create your own blog with this repo
 
-- Basic setup
-  - Switch to NodeJS v16: `nvm use v16` (install nvm if you need to)
-  - Make sure your globally installed gatsby-cli in this environment corresponds to Gatsby v4: `npm install -g gatsby-cli@latest-v4`
-  - Install other dependencies: `npm install --force`. We need the `--force` flag because we use some plugins that have not been updated, so the plugins require older versions of Gatsby dependencies. They seem to work fine nonetheless.
-  - Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
+- Setup like a typical Gatsby project. If you run into trouble:
+  - Install nvm to manage different Node versions
+  - Use nvm to switch your Node version to v16: `nvm use v16`
+  - Install v4 of gatsby-cli globally: `npm install -g gatsby-cli@latest-v4`
+  - Install other dependencies: `npm install`.
+  - Run in development mode with `gatsby develop`.
   - Run in production mode with `gatsby build && gatsby serve`.
 - Make it your own
   - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
