@@ -18,9 +18,8 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 ## Feel free to fork
 
 [![License: MIT](badge-mit.svg)](https://opensource.org/licenses/MIT)
-[![License: CC BY 4.0](badge-cc.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-You are free to use this repo to create your own blog (code is MIT licensed). You may also use the written content in this blog however you like, provided that you [give appropriate credit](https://creativecommons.org/licenses/by/4.0) (CC BY 4.0).
+You are free to use this repo to create your own blog (code in the repo is MIT licensed).
 
 #### How to create your own blog with this repo
 
