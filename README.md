@@ -27,9 +27,9 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
 - Basic setup
   - Switch to NodeJS v16: `nvm use v16` (install nvm if you need to)
   - Make sure your globally installed gatsby-cli in this environment corresponds to Gatsby v4: `npm install -g gatsby-cli@latest-v4`
-  - Install other dependencies: `npm install`.
+  - Install other dependencies: `npm install --force`. We need the `--force` flag because we use some plugins that have not been updated, so the plugins require older versions of Gatsby dependencies. They seem to work fine nonetheless.
   - Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
-  - Run in production mode with `gatsby build && gatsby serve` (or `./fastbuild.sh`). If you want to delete `cache` and `public` before building, use `./slowbuild.sh` (recommended for releases to avoid leaking development data). You may have to make the scripts executable before you are able to run them (`chmod +x filename`).
+  - Run in production mode with `gatsby build && gatsby serve`.
 - Make it your own
   - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
   - Search all files for "atte".
