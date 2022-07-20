@@ -58,7 +58,7 @@ const Bodytext = props => {
             margin: 0 0 1.5em;
           }
           
-          :global(ul) {
+          :global(ul, ol) {
             list-style: circle;
             margin: 0 0 1.5em;
             padding: 0 0 0 1.5em;
@@ -66,7 +66,12 @@ const Bodytext = props => {
           :global(li) {
             margin: 0.7em 0;
             font-size: ${theme.font.size.s};
+          }
+          :global(ul li) {
             list-style-type: square;
+          }
+          :gloabl(ol li) {
+            list-style-type: decimal;
           }
           :global(a) {
             font-weight: ${theme.font.weight.bold};

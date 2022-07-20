@@ -25,6 +25,10 @@ const Teaser = (props) => {
     index,
   } = props;
 
+  const wordsInTitle = title.split(' ')
+  const titleLastWord = wordsInTitle[wordsInTitle.length-1]
+  const titleWithoutLastWord = title.substring(0, title.length - (titleLastWord.length + 1))
+
   return (
     <React.Fragment>
       <li>
@@ -33,7 +37,8 @@ const Teaser = (props) => {
             <Picture fluid={fluid} critical={index == 0} />
           </div>
           <h1>
-            {title} <FaArrowRight className="arrow" />
+            {/* Intent of the span is to guarantee that the arrow is never wrapped to its own line. */}
+            {titleWithoutLastWord} <span style={{whiteSpace: 'nowrap'}}>{titleLastWord} <FaArrowRight className="arrow" /></span>
           </h1>
           <p className="meta">
             <span>
