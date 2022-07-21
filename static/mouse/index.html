@@ -71,6 +71,10 @@
             cursor: none;
         }
 
+        #ouija {
+            box-shadow: 0 0 20px #d35400;
+        }
+
         .unselectable {
             user-select: none;
             -moz-user-select: none;
@@ -212,6 +216,9 @@
                 document.getElementById("butt").classList.remove("darkened")
                 document.getElementById("butt").classList.add("hoverableMainButton")
                 document.getElementById("howdiv").style.visibility = "visible";
+                if (recordingIndex === 1) {
+                    document.getElementById("ouija").style.visibility = "visible";
+                } 
                 offsetX = 0
                 offsetY = 0
                 paintCursorWithOffset(document.getElementById("arrow"), prevX, prevY)
@@ -243,6 +250,7 @@
             document.getElementById("butt").classList.add("darkened")
             document.getElementById("butt").classList.remove("hoverableMainButton")
             document.getElementById("howdiv").style.visibility = "hidden";
+            document.getElementById("ouija").style.visibility = "hidden";
             prevTime = Date.now()
             recursiveTimerReplay()
         }
@@ -301,6 +309,11 @@
         </button>
     </div>
 
+    <div id="ouija" class="unselectable" style="position: absolute; left: 50px; bottom: 50px; visibility: hidden;">
+        <a href="https://ouija.attejuvonen.fi" target="_blank">
+            <img src="ouija.jpg" style="width: 100px; cursor: none;">
+        </a>
+    </div>
     <script>
 
         document.body.addEventListener('mouseleave', e => { hideAllCursors() })
@@ -310,6 +323,7 @@
         document.getElementById('recordButton').addEventListener('click', e => { recordMovements(e) })
         document.getElementById('how').addEventListener('mousemove', e => { mouseMovedOnHowdy(e) })
         document.getElementById('how').addEventListener('mouseleave', e => { offsetX = 0; offsetY = 0; })
+        document.getElementById('ouija').addEventListener('mousemove', e => { mouseMovedOnButton(e) })
 
     </script>
     <script src="recordings.js"></script>
