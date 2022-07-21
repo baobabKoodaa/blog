@@ -17,6 +17,6 @@ asks: can a website move your mouse cursor? The answer which is marked as ''acce
 
 > You cannot move the mousepointer with javascript. Just think about the implications for a second.
 
-Well, I like a good challenge. And guess what? It's done. You can try it for yourself <a href="/mouse/" target="_blank">here</a>.
+Well, I like a good challenge. And guess what? <a href="/mouse/" target="_blank">It's done. Click here to try it for yourself</a>.
 
-Edit: I originally released this as a fun little April's Fools project. It doesn't _really_ move your mouse, but it sure fools a lot of people. After my mouse moving demo turned out to be popular, I decided to create a small game around the mechanic: a horror mini-game called <a href="https://ouija.attejuvonen.fi" target="_blank">Ouija Online</a>.
+_Edit: I originally released this as a fun little April's Fools project. After <a href="/mouse/" target="_blank">the mouse moving demo</a> turned out to be popular, I decided to create a mini-game around the mechanic: <a href="https://ouija.attejuvonen.fi" target="_blank">Ouija Online, a web horror experience</a>._
