@@ -1,5 +1,5 @@
 ---
-title: How to set up email in 2019
+title: How to set up email
 tags: ["how-to", "email"]
 cover: ink_letters.jpg
 author: atte juvonen
@@ -12,7 +12,7 @@ author: atte juvonen
     >
 </re-img>
 
-Here's some practical advice to maximize your chances of receiving and delivering email. Yes, it's 2019, and somehow, <re-link to="/dont-send-email-from-your-own-server/">delivering messages over the internet is considered to be a hard problem</re-link>. Let's start with the most obvious choice for email and then look at other options.
+Mankind has eradicated polio and sent a Tesla to orbit, and yet <re-link to="/dont-send-email-from-your-own-server/">we haven't figured out how to reliably send messages over the internet</re-link>. It's a weird world, I know, but it's the one we've got. This article offers some practical advice to maximize your chances of receiving and delivering email. Let's start with the most obvious choice for email and then look at other options.
 
 ### Why you shouldn't use Gmail/Outlook
 
@@ -49,7 +49,7 @@ By use case:
 
 ### Email client recommendations
 
-Beware of traps. For example, BlueMail is a highly rated Android app made by a company that is not selling any services publically. Furthermore, the developers behind BlueMail prefer to remain anonymous. You know, good samaritans who like to spend their days anonymously polishing an email client that they just give out for free. It's still in the app store, even though it's been caught <a href="http://www.sklar.com/2014/10/14/blue-mail/" target="_blank" rel="noopener noreferrer">sending users' email data to BlueMail servers with no explanation why</a> and also <a href="https://mobilsicher.de/security-desaster-blue-mail-app-and-other-email-apps-transmit-login-credentials" target="_blank" rel="noopener noreferrer">caught sending users' email login credentials to BlueMail servers</a>. 
+Beware of traps. For example, BlueMail is a highly rated Android app made by a company that is not selling any services publically. Furthermore, the developers behind BlueMail prefer to remain anonymous. You know, good samaritans who like to spend their days anonymously polishing an email client that they just give out for free. It's still in the app store, even though it's been caught <a href="http://www.sklar.com/2014/10/14/blue-mail/" target="_blank" rel="noopener noreferrer">sending users' email data to BlueMail servers with no explanation why</a> and also <a href="https://mobilsicher.de/security-desaster-blue-mail-app-and-other-email-apps-transmit-login-credentials" target="_blank" rel="noopener noreferrer">caught sending users' email login credentials to BlueMail servers</a>.
 
 I recommend using Thunderbird for desktop and K-9 Mail for Android. I don't know if there are trustworthy clients for the iPhone. Sorry.
 
