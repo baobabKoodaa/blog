@@ -141,7 +141,7 @@ hero:
     size: *font-size-l
     color: *color-white
     lineHeight: *font-line-height-xs
-  background: "linear-gradient(0deg, #E0306E, #6438B5)"
+  background: "linear-gradient(0deg, #735dd5, #3d289d)"
 blog:
   h1:
     size: *font-size-l
