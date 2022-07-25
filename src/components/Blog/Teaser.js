@@ -34,7 +34,7 @@ const Teaser = (props) => {
       <li>
         <Link to={slug} key={slug} className="link">
           <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} critical={index == 0} />
+            <Picture fluid={fluid} loading={index == 0 ? "eager" : "lazy"} />
           </div>
           <h1>
             {/* Intent of the span is to guarantee that the arrow is never wrapped to its own line. */}
