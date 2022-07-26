@@ -58,6 +58,7 @@ class Header extends React.Component {
         {/* --- STYLES --- */}
         <style jsx>{`
           .header {
+            z-index: 5;
             padding-bottom: 0px !important;
             align-items: center;
             justify-content: center;
@@ -170,7 +171,6 @@ class Header extends React.Component {
               width: 100%;
               justify-content: space-between;
               transition: padding 0.5s;
-              z-index: 5;
             }
 
             .header.fixed {

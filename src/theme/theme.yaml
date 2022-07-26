@@ -138,7 +138,7 @@ icon:
 hero:
   hide: false
   h1:
-    size: *font-size-l
+    size: *font-size-xl
     color: *color-white
     lineHeight: *font-line-height-xs
   background: "linear-gradient(0deg, #735dd5, #3d289d)"

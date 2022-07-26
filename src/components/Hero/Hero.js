@@ -45,7 +45,7 @@ const Hero = props => {
     <React.Fragment>
       <section className="hero" ref={myRef}>
         <h1>
-          Explore my corner of the internet
+          My corner of the internet
         </h1>
         <p>
           I blog about geeky stuff &#38; software I've written
