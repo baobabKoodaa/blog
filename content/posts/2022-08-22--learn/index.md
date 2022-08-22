@@ -77,6 +77,18 @@ Great learning materials are rare. This is a collection of gems I've encountered
 
 <br/>
 
+<a href="https://javascript.info" target="_blank">The Modern JavaScript Tutorial</a> by Ilya Kantor et al.
+
+**Skill:** JavaScript language and browser APIs
+
+**Type of material:** Website (alternatively available as a book)
+
+**Why is it good:** Comprehensive, neatly organized & well written. Great explanations with illustrative examples. Goes wide _and_ deep into the subject matter. Suitable both as a top-down read _and_ as a place to look up specific topics.
+
+---
+
+<br/>
+
 <a href="https://scrimba.com/learn/learnreact" target="_blank">Scrimba React course</a> by Bob Ziroll
 
 **Skill:** ReactJS -- learn React fundamentals and practical coding skills
