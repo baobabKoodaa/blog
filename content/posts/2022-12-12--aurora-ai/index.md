@@ -11,7 +11,7 @@ author: atte juvonen
     >
 </re-img>
 
-Jos kuulet nyt ensimmäistä kertaa Suomen kansallisesta tekoälyohjelmasta, et ole yksin. AuroraAI on jäänyt yllättävän vähälle huomiolle mediassa hankkeen suuruuteen nähden. Hanke alkaa olla nyt suurin piirtein taputeltu päätökseen ja Hesari avasi keskustelun,<sup>[<a href="https://www.hs.fi/sunnuntai/art-2000009205265.html" targe="_blank">0</a>]</sup> joten päätin kantaa korteni kekoon testailemalla AuroraAI:n lopputuotoksia tavallisen kansalaisen näkökulmasta ja raportoimalla tulokset tähän artikkeliin.
+Jos kuulet nyt ensimmäistä kertaa Suomen kansallisesta tekoälyohjelmasta, et ole yksin. AuroraAI on jäänyt yllättävän vähälle huomiolle mediassa hankkeen suuruuteen nähden. Hanke alkaa olla nyt suurin piirtein taputeltu päätökseen ja <a href="https://www.hs.fi/sunnuntai/art-2000009205265.html" targe="_blank">Hesari avasi keskustelun</a>, joten päätin kantaa korteni kekoon testailemalla AuroraAI:n lopputuotoksia tavallisen kansalaisen näkökulmasta ja raportoimalla tulokset tähän artikkeliin.
 
 Mutta mikä on AuroraAI? Valtiovarainministeriön sivut valaisevat asiaa meille:
 
@@ -32,7 +32,7 @@ Kukkamultaa tästä hankkeesta ei ainakaan puutu. Vuosina 2018-2019 hankkeen esi
 
 ### Lopputulokset
 
-Mitä veronmaksajat voivat odottaa saavansa 11 miljoonalla eurolla? HS:n artikkelissa<sup>[<a href="https://www.hs.fi/sunnuntai/art-2000009205265.html" targe="_blank">0</a>]</sup> laitetaan silkkihansikkaat käteen ja varovaisesti lasketaan rima niin alas että se koskettaa lattiaa:
+Mitä veronmaksajat voivat odottaa saavansa 11 miljoonalla eurolla? <a href="https://www.hs.fi/sunnuntai/art-2000009205265.html" targe="_blank">HS:n artikkelissa</a> laitetaan silkkihansikkaat käteen ja varovaisesti lasketaan rima niin alas että se koskettaa lattiaa:
 
 > [Teknologiatutkija Santeri] Räisänen sanoo, että mahalasku on tyypillinen tulos tekoälyhankkeissa. Usein pelätään, että niiden tuloksena syntyy valvontakoneisto.
 >
@@ -42,7 +42,7 @@ Mitä veronmaksajat voivat odottaa saavansa 11 miljoonalla eurolla? HS:n artikke
 
 Riittääkö tyydyttäväksi lopputulokseksi tosiaan, että ''jotain koodia on ainakin julkaistu''?
 
-<mark style="color: #666">Nyt on aika upottaa kädet kukkamultaan ja testailla, ovatko lopputuotokset hyödyllisiä tavallisen kansalaisen näkökulmasta.</mark> Sanottakoon, että tarkoitan lopputuotoksella jotakin konkreettista sovellusta tai vastaavaa tuotosta, jota kansalainen voi käyttää. En tarkoita lopputuotoksella mitään osallistujien henkilökohtaisia ''opittiin niin paljon'' -kokemuksia, enkä tarkoita lopputuotoksella dokumentteja jotka lipastoidaan viraston arkistoon. Yritin parhaani mukaan kartoittaa konkreettiset lopputuotokset jotka hankkeessa tuotettiin, mutta kartoitus tuskin on täydellinen, koska hankkeen tekijät eivät ole näitä lopputuotoksia koonneet mihinkään yksittäiseen listaan.<sup>[<a href="https://wiki.dvv.fi/display/AAIJD/AuroraAI-verkon+julkinen+dokumentaatio" target="_blank">linkki julkiseen dokumentaatioon</a>]</sup>
+<mark style="color: #666">Nyt on aika upottaa kädet kukkamultaan ja testailla, ovatko lopputuotokset hyödyllisiä tavallisen kansalaisen näkökulmasta.</mark> Sanottakoon, että tarkoitan lopputuotoksella jotakin konkreettista sovellusta tai vastaavaa tuotosta, jota kansalainen voi käyttää. En tarkoita lopputuotoksella mitään osallistujien henkilökohtaisia ''opittiin niin paljon'' -kokemuksia, enkä tarkoita lopputuotoksella dokumentteja jotka lipastoidaan viraston arkistoon. Yritin parhaani mukaan kartoittaa konkreettiset lopputuotokset jotka hankkeessa tuotettiin, mutta kartoitus tuskin on täydellinen, koska hankkeen tekijät eivät ole näitä lopputuotoksia koonneet mihinkään yksittäiseen listaan. (<a href="https://wiki.dvv.fi/display/AAIJD/AuroraAI-verkon+julkinen+dokumentaatio" target="_blank">Tässä linkki julkiseen dokumentaatioon.)</a>
 
 Nähdäkseni hankkeen lopputuotokset voi jakaa kahteen kategoriaan:
 
@@ -87,7 +87,7 @@ Testaan seuraavaksi <a href="https://auroraai.astest.suomi.fi/ui/#/recommender" 
     >
 </re-img>
 
-<mark style="color: #666">Jokainen yllä näkyvä palvelusuositus on joko nuorisopalvelu tai vammaispalvelu. En ole nuori enkä kehitysvammainen.</mark> En vieläkään keksi, miten sovelluksen pitäisi edes teoriassa osata suositella relevantteja palveluita niiden monivalintavastausten pohjalta mitä käyttäjältä kerättiin. Tämä idea olisi pitänyt jo suunnitteluvaiheessa ampua alas ja haudata kukkamultaan.
+Jokainen yllä näkyvä palvelusuositus on joko nuorisopalvelu tai vammaispalvelu. En ole nuori enkä kehitysvammainen.
 
 Mennään eteenpäin muihin sovelluksiin. Seuraavaksi testaan <a href="https://auroraai.astest.suomi.fi/ui/#/search" target="_blank">AuroraAI testiympäristön vapaatekstillä toimivaa palvelusuosittelijaa</a>. Käytettyäni AuroraAI:ta hetken aikaa päässäni on herännyt synkkiä ajatuksia, joten kokeilen osaako AuroraAI suositella minulle mielenterveyspalveluita:
 
@@ -191,13 +191,15 @@ Kokeilen seuraavaksi <a href="https://kupotti.customer.aaibot.link/" target="_bl
 
 Botti vastaa mielellään yrittäjyyttä ja liiketoimintaa koskeviin kysymyksiin, mutta ei kuitenkaan tiedä, mikä on veroilmoitus? Oi joi!
 
-Huomasin sattumalta, että chatbotit on toteutettu niin että ne muistavat historian. Jos käytät chatbottia yhtenä päivänä, ja seuraavana päivänä perheenjäsenesi menee samalle sivulle samalta tietokoneelta, hän näkee kaikki viestit jotka olet kirjoittanut. Viestit voivat sisältää hyvinkin arkaluonteisia asioita, joten päätös säilyttää viestit sessioiden ylitse on vähintäänkin kyseenalainen. Jos viestejä ei pyyhitä automaattisesti, tulisi käyttäjiä minimissään varoittaa viestien muistamisesta ja ohjeistaa miten historian voi tyhjentää. Sovelluksessa ei ole mitään nappia josta historian edes voisi pyyhkiä (historian pyyhkiminen vaatii sellaisia taitoja, joita kaikilla esim. lapsilla ei välttämättä ole). Tämäkin ''ominaisuus'' vaikuttaa vahvasti siltä ettei minkäänlaista käytettävyystestausta chatboteille ole tehty ennen niiden julkaisua.
+Testailin chatbotteja useampana päivänä samalta tietokoneelta ja huomasin että ne muistavat viestihistorian. Viestit voivat sisältää hyvinkin arkaluonteisia asioita, joten päätös säilyttää viestit sessioiden ylitse käyttäjää varoittamatta on vähintäänkin kyseenalainen. Tämäkin ''ominaisuus'' vaikuttaa vahvasti siltä ettei minkäänlaista käytettävyystestausta chatboteille ole tehty ennen niiden julkaisua.
 
 Eiköhän testailu saa tältä erää riittää. AuroraAI:n chatbotit muistuttavat lähinnä puhelinautomaatteja, joihin on ohjelmoitu muutama kymmenen eri aihetta. Puhelinautomaateissa tosin on se etu AuroraAI:hin nähden, että ne luettelevat käyttäjälle mitkä aiheet ovat saatavilla. Esimerkiksi pankin puhelinautomaatista saatat löytää oikean aiheen valitsemalla ensin 1) henkilöpalvelut, sitten 6) vakuutusasiat, ja lopuksi 3) korvauspyynnön jättäminen. AuroraAI:n tapauksessa voit vain arvailla oikeita sanayhdistelmiä, ja oi joi, kun se on vaikeaa sokkona ilman tietoa siitä millaisia sisältöjä on saatavilla. Tällaiset muutaman kymmenen eri aiheen esikirjoitetut tekstisisällöt olisivat paljon paremmin saavutettavissa ihan perinteisenä "usein kysytyt kysymykset" tekstisivuna. Chatbot-ratkaisussa ei saavuteta minkäänlaista etua perinteiseen tekstisivuun nähden, kun botin tekninen kyvykkyys on sillä tasolla että se tunnistaa vain kovakoodattuja avainsanoja ja vastaa niihin esikirjoitetuilla sisällöillä. Rahaa saadaan toki palamaan, tässä tapauksessa 11 miljoonan euron verran.
 
 ### Mitä tästä kaikesta opittiin?
 
-En halua syyttää yksittäisiä ihmisiä tästä fiaskosta. Lopputulos olisi todennäköisesti ollut yhtä kehno, vaikka kaikki puuhamiehet ja toimittajat olisi vaihdettu toisiin. Hankkeen epäonnistuminen oli nähtävissä kaukaa, eikä siihen olisi missään tapauksessa pitänyt ryhtyä. <mark style="color: #666">Tekoälypöhinä ei kuulu julkiselle sektorille.</mark> Yksityisellä sektorilla saa pöhistä niin paljon kuin haluaa, kunhan tekee sen ilman verovaroja. Verovarat olisi parempi säästää sellaisiin kohteisiin, jotka luontaisesti kuuluvat valtion vastuulle ja osaamisalueelle. Nämäkin 11 miljoonaa olisi voinut käyttää paremmin esimerkiksi sairaanhoitajien ahdingon helpottamiseen tai sähkökriisin lievittämiseen.
+En halua syyttää yksittäisiä ihmisiä tästä fiaskosta. Lopputulos olisi todennäköisesti ollut yhtä kehno, vaikka kaikki virastojen puuhamiehet ja konsulttitalojen toimittajat olisi vaihdettu toisiin. Hankkeen epäonnistuminen oli nähtävissä kaukaa, eikä siihen olisi missään tapauksessa pitänyt ryhtyä. <mark style="color: #666">Tekoälypöhinä ei kuulu julkiselle sektorille.</mark> Yksityisellä sektorilla saa pöhistä ihan niin paljon kuin haluaa. En väitä että tällainen hanke olisi onnistunut sen paremmin yksityisen sektorin vetämänä — olihan tätäkin projektia toimittamassa yksityisen sektorin konsultit — on vaan eri asia tuhlata omia rahoja kuin verorahoja.
+
+Verovarat olisi parempi säästää sellaisiin kohteisiin, jotka luontaisesti kuuluvat valtion vastuulle ja osaamisalueelle. Esimerkiksi viittomakieliset uutiset on tärkeä tehtävä jota ei markkinavetoisesti syntyisi. Toisena esimerkkinä voin nostaa sähkönsiirtoverkon ylläpitämisen, joka on tehokkaampaa valtion omistamana monopolina kuin markkinaehtoisena kilpailuna. Nyt ei ole kyse mistään tällaisesta. Miksi valtio upottaa rahaa tekoälypöhinään joka ei ole yhteiskunnalle kriittinen, jota syntyy muutenkin markkinavetoisesti yksityissektorin puolella, jossa valtiolla ei ole mitään kyvykkyyttä projektin vetämiseen, ja jossa valtaosa hankkeen aikana kehityistä kyvykkyyksistä jää yksityissektorin konsulteille jotka ovat toimittamassa projektia? Jos valtio haluaa tukea jotain uraauurtavaa tutkimusta ja koulutusta, siihen on meillä jo loistavat instituutiot: yliopistot. Aivan järjetöntä laittaa virasto vetämään tällaista hanketta.
 
 Yksityisestä sektorista puheenollen, kokeillaanpa lopuksi millaista Chatbot-palvelua Suomen kansalaisille on tällä hetkellä tarjolla täysin ilmaiseksi yksityisen OpenAI:n ChatGPT-palvelusta:
 
