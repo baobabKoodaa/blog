@@ -1,6 +1,6 @@
 ---
 title: 11 miljoonaa euroa taivaan tuuliin — tässä lopputulokset kansallisesta tekoälyohjelmasta AuroraAI
-tags: ["ai", "discourse"]
+tags: ["ai", "discourse", "everything-is-broken"]
 cover: aurora_ai_by_openai.jpg
 author: atte juvonen
 ---
@@ -199,7 +199,7 @@ Eiköhän testailu saa tältä erää riittää. AuroraAI:n chatbotit muistuttav
 
 En halua syyttää yksittäisiä ihmisiä tästä fiaskosta. Lopputulos olisi todennäköisesti ollut yhtä kehno, vaikka kaikki virastojen puuhamiehet ja konsulttitalojen toimittajat olisi vaihdettu toisiin. Hankkeen epäonnistuminen oli nähtävissä kaukaa, eikä siihen olisi missään tapauksessa pitänyt ryhtyä. <mark style="color: #666">Tekoälypöhinä ei kuulu julkiselle sektorille.</mark> Yksityisellä sektorilla saa pöhistä ihan niin paljon kuin haluaa. En väitä että tällainen hanke olisi onnistunut sen paremmin yksityisen sektorin vetämänä — olihan tätäkin projektia toimittamassa yksityisen sektorin konsultit — on vaan eri asia tuhlata omia rahoja kuin verorahoja.
 
-Verovarat olisi parempi säästää sellaisiin kohteisiin, jotka luontaisesti kuuluvat valtion vastuulle ja osaamisalueelle. Esimerkiksi viittomakieliset uutiset on tärkeä tehtävä jota ei markkinavetoisesti syntyisi. Toisena esimerkkinä voin nostaa sähkönsiirtoverkon ylläpitämisen, joka on tehokkaampaa valtion omistamana monopolina kuin markkinaehtoisena kilpailuna. Nyt ei ole kyse mistään tällaisesta. Miksi valtio upottaa rahaa tekoälypöhinään joka ei ole yhteiskunnalle kriittinen, jota syntyy muutenkin markkinavetoisesti yksityissektorin puolella, jossa valtiolla ei ole mitään kyvykkyyttä projektin vetämiseen, ja jossa valtaosa hankkeen aikana kehityistä kyvykkyyksistä jää yksityissektorin konsulteille jotka ovat toimittamassa projektia? Jos valtio haluaa tukea jotain uraauurtavaa tutkimusta ja koulutusta, siihen on meillä jo loistavat instituutiot: yliopistot. Aivan järjetöntä laittaa virasto vetämään tällaista hanketta.
+Verovarat olisi parempi säästää sellaisiin kohteisiin, jotka luontaisesti kuuluvat valtion vastuulle ja osaamisalueelle. Esimerkiksi viittomakieliset uutiset on tärkeä tehtävä jota ei markkinavetoisesti syntyisi. Toisena esimerkkinä voin nostaa sähkönsiirtoverkon ylläpitämisen, joka on tehokkaampaa valtion omistamana monopolina kuin markkinaehtoisena kilpailuna. Nyt ei ole kyse mistään tällaisesta. Miksi valtio upottaa rahaa tekoälypöhinään joka ei ole yhteiskunnalle kriittinen, jota syntyy muutenkin markkinavetoisesti yksityissektorin puolella, jossa valtiolla ei ole mitään kyvykkyyttä projektin vetämiseen, ja jossa valtaosa hankkeen aikana kehitetyistä kyvykkyyksistä jää yksityissektorin konsulteille jotka ovat toimittamassa projektia? Jos valtio haluaa tukea jotain uraauurtavaa tutkimusta ja koulutusta, siihen on meillä jo loistavat instituutiot: yliopistot. Aivan järjetöntä laittaa virasto vetämään tällaista hanketta.
 
 Yksityisestä sektorista puheenollen, kokeillaanpa lopuksi millaista Chatbot-palvelua Suomen kansalaisille on tällä hetkellä tarjolla täysin ilmaiseksi yksityisen OpenAI:n ChatGPT-palvelusta:
 
