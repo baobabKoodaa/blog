@@ -37,7 +37,7 @@ const Seo = (props) => {
       <meta property="og:image" content={imagePathWithDomain} />
       <meta property="og:type" content="website" />
       {/* Plausible Analytics */}
-      <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js" />
+      {typeof window !== 'undefined' && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js" />}
     </Helmet>
   );
 };
