@@ -1,2 +1,3 @@
 # Redirect alternative domains to primary domain
 https://attejuvonen.fi/* https://www.attejuvonen.fi/:splat 301!
+https://blog-of-baobab.netlify.com/* https://www.attejuvonen.fi/:splat 301!
