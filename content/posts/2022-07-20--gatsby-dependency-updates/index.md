@@ -11,7 +11,7 @@ author: atte juvonen
     >
 </re-img>
 
-I recently went through the pain of updating <a href="https://github.com/baobabKoodaa" target="_blank">my Gatsby starters</a> (including this blog) from Gatsby v2 to v4, which didn't turn out to be as easy as the internet would have you believe. With the help of some kind souls from Gatsby Discord, I eventually got through it, and I figured I would document the process in this article.
+I recently went through the pain of updating my Gatsby starters (including this blog) from Gatsby v2 to v4, which didn't turn out to be as easy as the internet would have you believe. With the help of some kind souls from Gatsby Discord, I eventually got through it, and I figured I would document the process in this article.
 
 ### Setting expectations
 

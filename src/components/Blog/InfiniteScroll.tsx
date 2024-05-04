@@ -1,6 +1,5 @@
 /* This file is forked from https://github.com/jaredpalmer/react-simple-infinite-scroll
-   Authors: Jared Palmer, Pablo Garcia
-   Modified by Baobab Koodaa.
+   Authors: Jared Palmer, Pablo Garcia, Baobab Koodaa
 */
 
 import * as React from 'react';

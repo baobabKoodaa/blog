@@ -1,7 +1,3 @@
-# Blog
-
-Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
-
 ## Features
 
 - **Responsive** and streamlined design.
@@ -16,12 +12,6 @@ Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
 - Hero section with animated 3D WebGL art.
 - Contact Form.
 
-## Feel free to fork
-
-[![License: MIT](badge-mit.svg)](https://opensource.org/licenses/MIT)
-
-You are free to use this repo to create your own blog (code in the repo is MIT licensed).
-
 #### How to create your own blog with this repo
 
 - Setup like a typical Gatsby project. If you run into trouble:
@@ -33,13 +23,13 @@ You are free to use this repo to create your own blog (code in the repo is MIT l
   - Run in production mode with `gatsby build && gatsby serve`.
 - Make it your own
   - Go through everything in `content/meta/config.js` and `content/pages` and `content/parts`
-  - Search all files for "atte".
+  - Search all files for my name and replace it with your name
   - Replace `static/preview.jpg` (this is the image that is used when someone shares a link to your blog on a social network like Reddit). Recommended aspect ratio is 1.91.
   - When you publish, make sure caching and redirects work reasonably. I recommend Netlify, in which case cache configuration in `static/_headers` is fine and you just need to edit 1 line in `static/_redirects`.
   - Move your own icons into `src/images/app-icons`, run `npm run generate-app-icons`, then replace `static/favicon.ico`.
   - Environment variables can be set in a `.env` file. It's good practice to keep it in `.gitignore` so it doesn't get published to the repo. When you publish your website, find out how you can add environment variables to your host without publishing the `.env` file. If you are wondering why environment variables are used, it is to prevent people from accidentally spamming (for example, people who forked this repo used to test the contact page by sending me messages like dffdsffdsfd).
   - Add [Plausible Analytics](https://plausible.io/): add `PLAUSIBLE_DOMAIN=mywebsite.com` to environment variables. Note that this variable is also used for OpenGraph (social sharing) tags, so if you don't set this variable, you need to fix the OpenGraph pathing.
-  - There is an e-mail newsletter link on the `Subscribe` page. Remove it or set up a newsletter and add the URL as an environment variable `EMAIL_SUB_LINK`.
+  - Do you need an email newsletter? There is a `Subscribe` page for this purpose, though the link is hidden at the moment. You can add a link to the top navbar and set the URL as an environment variable `EMAIL_SUB_LINK`.
   - There is a Contact page. Remove it or set up handling for your form submissions. The POST address where forms are sent is defined in environment variable `CONTACT_POST_ADDRESS`. I'm using Google Script to handle form submissions. If you also want to use Google Script, [instructions are here](https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server) and [here is an improved version of the script](handleFormSubmission.gs).
 - Creating content
   - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating an environment variable `POSTS_FOLDER=posts`. Please try not to accidentally repost my real posts if you are only tinkering.
