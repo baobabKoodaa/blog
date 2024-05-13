@@ -45,8 +45,7 @@ attackers can't manipulate votes on your internet voting system. NSWEC is straig
 
 Yeah, false how exactly? They don't say. Oh, and HOW DARE the media report on this without our permission!
 
-> Drs Teague and Halderman were aware that the related Piwik website was used only to provide statistics regarding the iVote core 
-voting system's operation and was not essential to its main function of receiving votes.
+> Drs Teague and Halderman were aware that the related Piwik website was used only to provide statistics regarding the iVote core voting system's operation and was not essential to its main function of receiving votes.
 
 That's a clever bit of misdirection right there. Yes, the NSWEC _intended_ the JS dependency ("Piwik website") to be used only for 
 collecting analytics. That's what they want to highlight for the reader. Not the fact that a MITM attacker could leverage the same dependency to manipulate votes.
@@ -60,8 +59,7 @@ What a curious choice of words. Relative to what? The test result -- an F -- was
 That's a false equivalence if I've ever seen one. A rogue postman will be able to replace a few votes at best. MITM attacks on a 
 computerized voting system scale quite differently: the effort to replace a single vote with this attack is roughly the same as the effort to change a lot of votes. For example, a large Internet Service Provider (or a rogue employee) that executes this attack would be able to change _all_ of the votes sent via their connections, compared to just a few votes that a postman would be able to change.
 
-> Should the attack [...] have actually occurred the Commission would have reasonably expected that our verification service would 
-alerted affected voters who would have contacted the Commission. Some 1.7% of electors who voted using iVote® also used the verification service and none of them identified any anomalies with their vote.
+> Should the attack [...] have actually occurred the Commission would have reasonably expected that our verification service would have alerted affected voters who would have contacted the Commission. Some 1.7% of electors who voted using iVote® also used the verification service and none of them identified any anomalies with their vote.
 
 More than a year after the election it <a href="http://www.parliament.wa.gov.au/Parliament/commit.nsf/(Evidence+Lookup+by+Com+ID)/805D229860DF8D224825817D0010CDF1/$file/Submission+9+-+University+of+Melbourne.pdf" target="_blank">turned out</a> that this claim was false. A staggering 10% of verification attempts had failed to retrieve any vote. It is unclear whether the NSWEC was aware of the successful verification rate and lied, or was oblivious to the successful verification rate and lied.
 
