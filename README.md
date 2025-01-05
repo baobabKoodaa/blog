@@ -40,7 +40,6 @@ Hi, I'm Baobab. I didn't do everything by myself; I leveraged the work of many a
 
 - Photos are mostly from [Unsplash](https://www.unsplash.com/), hover over to see photographer attribution.
 - Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
-- Hero section 3d animated background is from [VantaJS](https://www.vantajs.com/) and wavey divider from [Softr](https://www.softr.io/tools/svg-wave-generator).
 
 I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/). Main changes from Greg's version:
 
