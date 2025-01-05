@@ -8,8 +8,6 @@
 - **Expandable**: possible to embed custom React components into Markdown.
 - Posts organized by **tags**.
 - **Teasers** of posts are generated to front page with **infinite scroll** which gracefully degrades into **pagination**.
-- Allow readers to be notified of updates with **RSS feed** and email newsletter.
-- Hero section with animated 3D WebGL art.
 - Contact Form.
 
 #### How to create your own blog with this repo
